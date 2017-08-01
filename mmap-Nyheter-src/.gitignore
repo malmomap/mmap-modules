@@ -1,0 +1,8 @@
+node_modules
+dev_env.cfg
+build
+dist
+artifacts
+type_one_module
+./index.html
+.\index.html

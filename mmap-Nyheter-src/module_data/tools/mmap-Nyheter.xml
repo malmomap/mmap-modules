@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+
+	<requires>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/js/bundle.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/config/config.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/css/style.css" priority="2" type="css"/>
+				<!-- <file name="[cbinfo.skin.url]/malmo-base5/js/external/bootstrap.min.js" type="script"/> -->
+				<file name="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"/>
+				<!-- CSS -->
+				<file name="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" type="css"/>
+				<!-- <file name="/skins/malmo-base5/css/external/bootstrap-theme.min.css" type="css"/> -->
+				<!-- <file name="/skins/malmo-base5/css/external/css/font-awesome.css" type="css"/> -->
+	</requires>
+
+	<src><![CDATA[
+    new mMap.MMap_Nyheter({
+			config: mMap['@@ENV_PKG_NAME-config']
+    })
+]]></src>
+</tool>

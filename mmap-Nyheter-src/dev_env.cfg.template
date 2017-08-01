@@ -1,0 +1,5 @@
+#set your build directory, example: Y:\mmapdev.sbkmalmo.local\appbase\spatialmap\WEB-INF\config\modules\custom\
+Z:\webgistest.gkmalmo.local\appbase\spatialmap\WEB-INF\config\modules\custom\
+build_dir=./type_one_module/
+U:\mmaptest.intra.malmo.se\appbase\spatialmap\WEB-INF\config\modules\custom\
+G:\Projekt\mMap-Forvaltning (annmun2)\Kartverktyg\Moduler\egenutvecklade\för_testning
