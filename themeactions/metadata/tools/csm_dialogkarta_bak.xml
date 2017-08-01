@@ -1,0 +1,3140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile defaultpage="content">
+    <!--
+    ===============================================================
+    SpatialMap version 3.x, copyright Cartesia GIS AB, 2014
+    ===============================================================
+    $Archive:
+    $Date: 2014-01-01
+    $Revision: 02
+    $Author: PEHA
+    ===============================================================
+    -->
+    <!--
+<version name="CSMGrund">3.7.2</version>
+-->
+    <client>
+        <map>
+            <resolutions>[cbinfo.map.resolutions]</resolutions>
+            <maxextent>
+                <xmin>[cbinfo.map.minx.wc]</xmin>
+                <xmax>[cbinfo.map.maxx.wc]</xmax>
+                <ymin>[cbinfo.map.miny.wc]</ymin>
+                <ymax>[cbinfo.map.maxy.wc]</ymax>
+            </maxextent>
+            <defaultextent>
+                <xmin>118000</xmin>
+                <xmax>118500</xmax>
+                <ymin>6163000</ymin>
+                <ymax>6163400</ymax>
+            </defaultextent>
+        </map>
+        <overviewmap>
+            <resolutions>12.8, 25.6, 204.8</resolutions>
+            <datasource/>
+        </overviewmap>
+    </client>
+    <websetup>
+        <skin name="malmo-base3"/>
+    </websetup>
+    <cbinfo-metadata>
+        <include onlychildnodes="true" src="[cbinfo.profiles.dir]/includes/standard/metadata.xml"/>
+        <param name="profile.title">SpatialMap [cbkort.version]</param>
+        <param name="profile.system.message.alarm">[site.system.message.alarm]</param>
+        <param name="profile.system.message">Demo Version!</param>
+        <param name="profile.system.namn">DIALOGKARTA</param>
+        <param name="profile.system.titel">Anslagstavla- dialogkarta</param>
+        <param name="profile.system.nyheter">1. Kartan ska vara klar innan midsommar </param>
+        <param name="profile.system.nyheter2">2. Valresultat kommer innan midsommar </param>
+        <param name="profile.system.nyheter3">3. Conzoom resultat kommer under hösten </param>
+        <param name="profile.system.ansvarig">Ansvariga: Raymond Timlin</param>
+    </cbinfo-metadata>
+    <!-- =================================== -->
+    <!-- Queries                             -->
+    <!-- =================================== -->
+    <queries>
+        <spatialquery name="areasearch" query="wkt-with-buffer"/>
+        <spatialquery name="info" query="wkt-with-buffer"/>
+        <spatialquery name="userdatasource" query="userdatasource"/>
+        <defaults>
+            <queryfile>[cbinfo.queries.dir]/standard/spatialqueries</queryfile>
+            <targetset>dialogkarta</targetset>
+            <targetsetfile>[cbinfo.config.dir]/queries/custom/targetset-dialogkarta</targetsetfile>
+            <resultlayout>infobox</resultlayout>
+        </defaults>
+    </queries>
+    <!-- =================================== -->
+    <!-- Tools                               -->
+    <!-- =================================== -->
+    <tools>
+        <tool dir="custom" name="s4-plugin-entreprenad"/>
+        <tool module="transparencychanger" name="transparencychanger"/>
+        <tool module="geometryinfo" name="geometryinfo"/>
+        <tool dir="standard" name="snap-status" panel="bottom-right"/>
+        <tool module="themesnap" name="themesnap"/>
+        <tool module="zoomtoextent" name="zoomtoextent"/>
+        <tool module="spatialanalyze" name="spatialanalyze-themeaction"/>
+        <tool module="spatialanalyze" name="spatialanalyze-tableview-themeaction"/>
+        <tool ignore="not ModuleDefined('featureedit')" module="featureedit" name="featureedit-themeaction"/>
+        <!-- <tool module="profilInfo" name="profilInfo"/> -->
+        <tool module="metadata" name="metadata"/>
+        <!-- ****** Topbar menu ********************************************************************************************************* -->
+        <!--tool module="google-analytics" name="ga-plugin" ignore="not IsDefined(module.analytics.id)"/-->
+        <!-- ****** Misc ********************************************************************************************************* -->
+        <tool displayname="Ändra karta" module="profileselector" name="profileselector" panel="top-left"/>
+        <tool module="ProfilNamn" name="ProfilNamn"/>
+        <tool ignore="not IsDefinedAndTrue(cbinfo.permissions.enabled)" module="permission" name="permission-manager" panel="top-right"/>
+        <tool ignore="not IsDefinedAndTrue(cbinfo.permissions.enabled)" module="permission" name="loginout" panel="top-right"/>
+        <tool ignore="not IsDefinedAndTrue(cbinfo.permissions.enabled)" module="permission" name="user" panel="top-right"/>
+        <!-- <tool dir="standard" name="version" panel="top-right"/> -->
+        <tool dir="standard" name="helptool" panel="top-right"/>
+        <!-- ****** Bottom bar menu ******************************************************************************************************* -->
+        <!--tool dir="standard" 		name="reload" 				panel="top-left" 	displayname="Reload"/-->
+        <!-- <tool dir="standard" displayname="Admin" name="adminconsole" panel="top-left"/> -->
+        <!-- ****** Useful testing tools ****** -->
+        <tool dir="standard" name="mouse-position" panel="bottom-right"/>
+        <tool dir="standard" name="scaleview" panel="bottom-right"/>
+        <tool dir="standard" name="copyright" panel="bottom-left"/>
+        <!-- ****** Theme selector should be included in profiles ****** -->
+        <tool module="themeselectoractive" name="themeselector"/>
+        <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_save"/>
+        <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_list"/>
+        <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_search" parenttool="favorites_list"/>
+        <tool dir="standard" ignore="not ModuleDefined('favorites')" name="toolspacer"/>
+        <!-- <tool dir="thirdparty/cartesia" name="resetthemes_btn" panel="middle-left"/> -->
+        <!-- ****** Navigation ****** -->
+        <!-- <tool dir="standard" name="fullextent"/> -->
+        <tool module="history" name="back"/>
+        <tool module="history" name="forward"/>
+        <tool dir="standard" name="toolspacer"/>
+        <tool dir="thirdparty/cartesia" name="workinglayer-remove_all"/>
+        <tool dir="standard" name="zoomin"/>
+        <tool dir="custom" name="zoomout_test"/>
+        <tool dir="custom" name="pan2"/>
+        <!-- <tool default="true" dir="standard" name="pan"/> -->
+        <tool module="spatialquery" name="info"/>
+        <tool module="linx2" name="linx2" panel="middle-left" tooltip="Länk till andra kartor"/>
+        <tool dir="standard" name="toolspacer"/>
+        <tool module="print" name="print_rotatet"/>
+        <tool dir="standard" name="toolspacer"/>
+        <!-- ****** Sök/Hitta ********************************************************************************************************* -->
+        <tool dir="standard" name="find"/>
+        <tool dir="standard" displayname="Sökningar" name="toolspacer" parenttool="find"/>
+        <tool displayname="Geometrisökning" ignore="not ModuleDefined('workinglayer')" module="workinglayer" name="workinglayer" parenttool="find"/>
+        <tool displayname="Rensa bort sökmarkeringar" module="workinglayer" name="workinglayer-remove" parenttool="find"/>
+        <tool dir="standard" displayname="[Cartesia sökningar]" ignore="not ModuleDefined('csp')" name="toolspacer" parenttool="find"/>
+        <tool ignore="not ModuleDefined('csp')" module="csp" name="csp-plugin"/>
+        <tool ignore="not ModuleDefined('csp-fast')" module="csp-fast" name="csp-fast-report"/>
+        <tool ignore="not ModuleDefined('csp-fast')" module="csp-fast" name="csp-fast-search" parenttool="find"/>
+        <tool ignore="not ModuleDefined('csp-folk')" module="csp-folk" name="csp-folk-report"/>
+        <tool ignore="not ModuleDefined('csp-folk')" module="csp-folk" name="csp-folk-search" parenttool="find"/>
+        <tool ignore="not ModuleDefined('edp')" module="edp" name="edp" parenttool="tools"/>
+        <tool ignore="not ModuleDefined('csp-search')" module="csp-search" name="csp-search-plugin"/>
+        <tool ignore="not ModuleDefined('csp-rutt')" module="csp-rutt" name="csp-rutt-routing" parenttool="analyze"/>
+        <tool ignore="not ModuleDefined('csp-rutt')" module="csp-rutt" name="csp-rutt-zones" parenttool="analyze"/>
+        <tool displayname="Redline" ignore="not ModuleDefined('redline')" module="redline" name="redline"/>
+        <tool dir="standard" displayname="Enkel Redline" ignore="not ModuleDefined('redline')" name="toolspacer" parenttool="redline"/>
+        <tool ignore="not ModuleDefined('redline')" module="redline" name="redline_standard" parenttool="redline"/>
+        <tool ignore="not ModuleDefined('redline')" module="redline" name="redline_remove_all" parenttool="redline"/>
+        <tool dir="standard" displayname="Redline i delbara arbetsytor" ignore="not ModuleDefined('workspace')" name="toolspacer" parenttool="redline"/>
+        <tool ignore="not ModuleDefined('workspace')" module="workspace" name="workspace" parenttool="redline"/>
+        <tool ignore="not ModuleDefined('workspace')" module="workspace" name="workspace_close" parenttool="redline"/>
+        <tool dir="standard" displayname="" ignore="not ModuleDefined('analyze')" name="toolspacer" parenttool="analyze"/>
+        <tool ignore="not ModuleDefined('analyze')" module="spatialanalyze" name="spatialanalyze" parenttool="analyze"/>
+        <tool dir="standard" displayname="" name="toolspacer" parenttool="analyze"/>
+        <tool dir="standard" displayname="Arbetsgeometrier" name="toolspacer" parenttool="analyze"/>
+        <tool module="workinglayer" name="workinglayer" parenttool="analyze"/>
+        <tool module="workinglayer" name="workinglayer-remove" parenttool="analyze"/>
+        <tool dir="custom" displayname="Gatunamn" name="search-dialog-vagmitt" parenttool="find" tooltip="Söker efter vägnamn"/>
+        <tool dir="custom" displayname="Enskilda skolresor" name="search-dialog-enskildaskola" parenttool="find" tooltip="Enskilda skolresor"/>
+        <!-- ****** Cartesia module ****** -->
+        <tool dir="standard" displayname="Cartesia" name="toolspacer" parenttool="analyze"/>
+        <!-- ****** Tools ********************************************************************************************************* -->
+        <tool dir="standard" name="tools"/>
+        <tool dir="standard" displayname="Vektyg" name="toolspacer" parenttool="tools"/>
+        <tool dir="standard" name="distance" parenttool="tools"/>
+        <tool displayname="Exportera kartbild (jpg)" module="export-image" name="export-image" parenttool="tools"/>
+        <tool displayname="Exportera kartbild (format)" module="export-image" name="export-image-format" parenttool="tools"/>
+        <!-- <tool module="linx1" name="linx1" parenttool="tools" tooltip="Länk till andra kartor"/> -->
+        <tool dir="standard" name="mapurl_fit" parenttool="tools"/>
+        <tool dir="standard" name="resetthemes" parenttool="tools"/>
+        <tool dir="standard" name="zoomscale" parenttool="tools"/>
+        <tool module="showcoordinates" name="showcoordinates" parenttool="tools"/>
+        <tool dir="standard" displayname="DownloadMS" ignore="not ModuleDefined('downloadMS')" name="toolspacer" parenttool="tools"/>
+        <tool ignore="not ModuleDefined('downloadMS')" module="downloadMS" name="downloadMS" parenttool="tools"/>
+        <tool dir="standard" displayname="Minimap" ignore="not ModuleDefined('minimap')" name="toolspacer" parenttool="tools"/>
+        <tool ignore="not ModuleDefined('minimap')" module="minimap" name="minimap" parenttool="tools"/>
+        <tool dir="standard" displayname="Blom URBX" ignore="not ModuleDefined('blom')" name="toolspacer" parenttool="tools"/>
+        <tool ignore="not ModuleDefined('blom')" module="blom" name="blom-urbexviewer" parenttool="tools"/>
+        <tool dir="standard" displayname="Google street view" ignore="not ModuleDefined('gsv')" name="toolspacer" parenttool="tools"/>
+        <tool ignore="not ModuleDefined('gsv')" module="gsv" name="gsvviewer" parenttool="tools"/>
+        <!-- ****** Settings ********************************************************************************************************* -->
+        <tool dir="standard" name="option"/>
+        <tool dir="standard" displayname="Basmodulen" name="toolspacer" parenttool="option"/>
+        <tool dir="standard" name="fractionalzoom" parenttool="option"/>
+        <tool dir="standard" name="legend" parenttool="option"/>
+        <tool dir="standard" name="overviewmap" parenttool="option"/>
+        <tool dir="standard" name="scalebar" parenttool="option"/>
+        <tool module="mouseover-info" name="coordinateview" parenttool="option"/>
+        <tool module="mouseover-info" name="infoview" parenttool="option"/>
+        <tool module="arrowpanner" name="arrowpanner" parenttool="option"/>
+        <tool dir="custom" displayname="Info" name="lathund"/>
+        <tool dir="standard" displayname="Lathundar" name="toolspacer" parenttool="lathund"/>
+        <!-- <tool dir="custom" displayname="Rita" name="pdf_test_dropdown" parenttool="lathund" tooltip="ÖPPNA PDF"/> -->
+        <tool dir="custom" displayname="Workspace" name="Workspace" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="custom" displayname="Infoknapp" name="Infoknapp" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="custom" displayname="Verktyg" name="Verktyg_i_kartvisningsprogram" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="custom" displayname="Temaväljaren" name="Temaväljaren" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="custom" displayname="Inställningar" name="Inställningar" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="custom" displayname="Redline" name="redline" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <tool dir="standard" displayname="Rapport" name="toolspacer" parenttool="lathund"/>
+        <tool dir="custom" displayname="Resvaneundersökning (Malmö 2013)" name="Resvqvw_rapport" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <!-- <tool dir="custom" displayname="email" name="email_försök2" parenttool="information-menu" tooltip="email"/> -->
+        <tool dir="standard" displayname="Länker" name="toolspacer" parenttool="lathund"/>
+        <tool dir="custom" displayname="Resvaneundersökning (QLview)" name="Resvqvw" parenttool="lathund" tooltip="ÖPPNA PDF"/>
+        <!-- ****** Plug-ins ********************************************************************************************************* -->
+        <!--         <tool displayname="Skriv ut... (pdf)" module="print" name="print_rotatet_contact" parenttool="print"/>
+ -->
+        <!-- tool displayname="Skriv ut... roterad (pdf)" module="print" name="print_rotatet" parenttool="print"/ -->
+        <!-- tool displayname="Skriv ut... standard (pdf)" module="print" name="print_full" parenttool="print"/ -->
+        <!-- tool displayname="Skriv ut... enkel (pdf)" module="print" name="print_standard" parenttool="print"/ -->
+        <!--
+        <tool dir="standard" name="print"/>
+        <tool dir="standard" displayname="HTML Print" name="toolspacer" parenttool="print"/>
+        <tool module="print" name="print_html" parenttool="print"/>
+        <tool dir="standard" displayname="" name="toolspacer" parenttool="print"/>
+        <tool dir="standard" displayname="PDF Print" name="toolspacer" parenttool="print"/> -->
+        <!-- ****** Print ********************************************************************************************************* -->
+        <tool module="spatialquery" name="sq_userdatasource-plugin"/>
+        <tool module="spatialquery" name="infobox-plugin"/>
+        <tool module="featureedit" name="featureedit-plugin"/>
+        <!--     <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_save"/>
+        <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_list"/>
+        <tool ignore="not ModuleDefined('favorites')" module="favorites" name="favorites_search" parenttool="favorites_list"/> -->
+        <!-- ****** Arbetsytor  ****** -->
+        <!-- ****** Analyze ********************************************************************************************************* -->
+        <!-- ****** Desktop Dig/edit ****** -->
+        <!-- ****** DSEdit ****** -->
+        <!-- ****** digitize in theme  ****** -->
+        <!-- ****** Redline ********************************************************************************************************* -->
+        <!-- ****** Cartesia modules ****** -->
+        <!--tool module="spatialquery"	name="sq_last_displayed"  	parenttool="find" 		displayname="-Drilldownsök på markerade sökobjekt i kartan"/-->
+        <!--tool module="spatialquery"	name="sq_area" 				parenttool="find" 		displayname="-Drilldownsök via Areal-yta"/-->
+        <!--tool module="spatialquery"	name="info"  				parenttool="find" 		displayname="-Drilldownsök via punkt"/-->
+        <!-- ****** Favorites ****** -->
+        <!-- ****** Middle bar menu ******************************************************************************************************* -->
+    </tools>
+    <!-- =================================== -->
+    <!-- Theme groups 					   -->
+    <!-- =================================== -->
+    <themegroups>
+        <themegroup displayname="Bakgrundskarta" expanded="false" name="lmv_baskartor" type="checkbutton"/>
+        <themegroup displayname="Utrustningar" expanded="false" name="utrustningar_oversikt" type="checkbutton"/>
+        <themegroup displayname="Ortofoton" expanded="false" name="ortofoto" type="checkbutton"/>
+        <themegroup displayname="ProjektSmart" expanded="false" name="projektsmart" type="checkbutton"/>
+        <themegroup expanded="false" name="kultur" type="checkbutton"/>
+        <themegroup displayname="Fastighetsägare" expanded="false" name="fastighets_gare" type="checkbutton"/>
+        <themegroup displayname="Mosaic" expanded="false" name="mosaic" type="checkbutton"/>
+        <themegroup displayname="LMV baskartor" expanded="false" name="geodatasamverkan" type="checkbutton"/>
+        <themegroup displayname="Cykelresor" expanded="false" name="cykelresor" type="checkbutton"/>
+        <themegroup displayname="Trygghetsmätning MOMS" expanded="false" name="trygghet" type="checkbutton"/>
+        <themegroup displayname="Cityundersökning (urval) - inte klar" expanded="false" name="marknadsundersokning" type="radiobutton"/>
+        <themegroup displayname="Kundservice - övergripande" expanded="false" name="kundservice" type="checkbutton"/>
+        <themegroup displayname="Cykelobjekter" expanded="false" name="cykelobjekter" type="checkbutton"/>
+        <themegroup displayname="Valresultat - riksdag" expanded="false" name="val" type="checkbutton"/>
+        <themegroup displayname="Trafik och mobilitet" expanded="false" name="mobility_management" type="checkbutton"/>
+        <themegroup displayname="Geografiska uppdelningar" expanded="false" name="omrade" type="checkbutton"/>
+        <themegroup displayname="Conzoomfaktorer (statistik IV nivå)" expanded="false" name="conzoom" type="checkbutton"/>
+        <themegroup displayname="Conzoomgrupper (statistik IV nivå)" expanded="false" name="conzoompunkt" type="checkbutton"/>
+        <themegroup displayname="Conzoomtyper (byggnadsnivå)" expanded="false" name="conzoom_byggnadsnivaa" type="checkbutton"/>
+        <themegroup displayname="Conzoomfaktorer (statistik V nivå)" expanded="false" name="conzoom_s4" type="checkbutton"/>
+        <themegroup displayname="Conzoomgrupper (statistik V nivå)" expanded="false" name="conzoom_grupper_s5" type="checkbutton"/>
+        <themegroup displayname="Conzoomgrupper och -typer (adressnivå)" expanded="false" name="conzoom_grupper_och_typer__adressnivaa_" type="checkbutton"/>
+        <themegroup displayname="Attraktivitetsindex (urval)" expanded="false" name="indexer" type="checkbutton"/>
+        <themegroup displayname="Trafikolyckor" expanded="false" name="olyckor" type="checkbutton"/>
+        <themegroup displayname="TROMP - färdmedelsandelar" expanded="false" name="tromp" type="checkbutton"/>
+        <themegroup displayname="Buller" expanded="false" name="buller" type="checkbutton"/>
+        <themegroup displayname="Trygghetsvandring" expanded="false" name="trygghetsvandring" type="checkbutton"/>
+        <themegroup displayname="Kundservice - synpunkter (18 månader)" expanded="false" name="synkund_18" type="checkbutton"/>
+        <themegroup displayname="Kundservice - felanmälan (18 månader)" expanded="false" name="kundarende_18" type="radiobutton"/>
+        <themegroup displayname="Kundservice - pågående ärenden" expanded="false" name="nuvarande_kundservis" type="checkbutton"/>
+        <themegroup expanded="false" name="kundtjanst" type="checkbutton"/>
+        <themegroup displayname="Felanmälan" expanded="false" name="felanmalan" type="checkbutton"/>
+        <themegroup displayname="Frågor" expanded="false" name="fragor" type="checkbutton"/>
+        <themegroup displayname="Befolkningsstatistik" expanded="false" name="befolkningsstatistik" type="checkbutton"/>
+    </themegroups>
+    <!-- =================================== -->
+    <!-- Themes 							   -->
+    <!-- =================================== -->
+    <themes>
+        <theme dir="custom/kundtjanst" name="theme-ovrigt_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Övrigt</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-vaxtlighet_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Växtlighet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-vagarbete_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Vägarbete</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-vintervaghallning_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Vinterväghållning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trad_och_buskar_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Träd och buskar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trafiksignaler_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Trafiksignaler</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trafik_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Trafik</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-strand_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Strand</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-parkeringstillstand_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Parkeringstillstånd</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-parkering_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Parkering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-nedskrapning_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Nedskräpning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-lekplatser_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Lekplatser</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-hundrastplats_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Hundrastplats</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-gatuunderhall_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Gatuunderhåll</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-broar_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Broar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-belysning_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Belysning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-badplats_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>fragor</group>
+                <selectable>true</selectable>
+                <displayname>Badplats</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <include onlychildnodes="true" src="[cbinfo.profiles.dir]/includes/standard/markings.xml"/>
+        <theme module="LMV-Geodatasamverkan" name="cartesia-lmvorto-combo-direkt">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>geodatasamverkan</group>
+                <selectable>true</selectable>
+                <displayname>LMV ortofoto</displayname>
+                <img>/images/custom/themeicons/lmvorto.jpg</img>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="LMV-Geodatasamverkan" name="cartesia-lmvfastkarta-direkt">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>geodatasamverkan</group>
+                <selectable>true</selectable>
+                <displayname>LMV fastighetskarta</displayname>
+                <img>/images/custom/themeicons/lmvfk.png</img>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="LMV-Geodatasamverkan" name="cartesia-lmvtopo-direkt">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>geodatasamverkan</group>
+                <selectable>true</selectable>
+                <displayname>LMV topowebkarta</displayname>
+                <img>/images/custom/themeicons/lmvfk.png</img>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="LMV-Geodatasamverkan" name="cartesia-lmvtopodim-direkt">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>geodatasamverkan</group>
+                <selectable>true</selectable>
+                <displayname>LMV topowebkarta svart/vit</displayname>
+                <img>/images/custom/themeicons/lmvfk_dim.png</img>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_SKOLCYKELRESOR_MANGDER_1483">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>cykelresor</group>
+                <selectable>true</selectable>
+                <displayname>ISML_SKOLCYKELRESOR_MANGDER_1483</displayname>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_STRADA_2012_1433">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>trygghet</group>
+                <selectable>true</selectable>
+                <displayname>Olycksinformation</displayname>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_MOMS13_KOOT_TRY_M_1479">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>trygghet</group>
+                <selectable>true</selectable>
+                <displayname>Upplevd trygghet man (2012)</displayname>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_MOMS13_KOOT_TRY_F_1478">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>trygghet</group>
+                <selectable>true</selectable>
+                <displayname>Upplevd trygghet kvinna (2012)</displayname>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_MOMS13_KOOT_TRY_T_1476">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>trygghet</group>
+                <selectable>true</selectable>
+                <displayname>Upplevd trygghet alla (2012)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_ARRENDE2014_CYKLAR_T_1536">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Cyklar arende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_ARRENDE2014_CYKELBANA_T_1534">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Cykelbana arende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/cluster" name="ISML_ARRENDE2013_PUNKTER_2007-copy">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Alla arende (2013)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_totaldel_arende2014_2295">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Total ärende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_totalsaml_syn2014_2298">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Synpunkter (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_totalsams_arende2014_2296">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Total ärende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_totaldel2_syn2014_2301">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Total ärende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_btotaldel_syn2014_2300">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Synpunkter per tusen invånare (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_btotaldel_arende2014_2299">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Felanmälan per tusen invånare (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_ARRENDE2014_CYKELPUMP_T_1535">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>kundservice</group>
+                <selectable>true</selectable>
+                <displayname>Cykelpump arende (2014)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_1960">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 1960</displayname>
+                <img>/images/custom/themeicons/orto1960.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_1973">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 1973</displayname>
+                <img>/images/custom/themeicons/orto1973.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_1998">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 1998</displayname>
+                <img>/images/custom/themeicons/orto1998.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2001">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2001</displayname>
+                <img>/images/custom/themeicons/orto2001.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2004">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2004</displayname>
+                <img>/images/custom/themeicons/orto2004.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2009">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2009</displayname>
+                <img>/images/custom/themeicons/orto2009.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2010">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2010</displayname>
+                <img>/images/custom/themeicons/orto2010.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2011">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2011</displayname>
+                <img>/images/custom/themeicons/orto2011.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2012">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2012</displayname>
+                <img>/images/custom/themeicons/orto2012.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2013">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2013</displayname>
+                <img>/images/custom/themeicons/orto2013.PNG</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2015">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2015</displayname>
+                <img>/images/custom/themeicons/orto2014.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/ortofoton" name="theme-malmo_2014">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Ortofoto 2014</displayname>
+                <img>/images/custom/themeicons/orto2014.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_GRUNDKARTA_mod_95" name="ISML_VAGNAMN_ORTOFOTO_1795">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>ortofoto</group>
+                <selectable>true</selectable>
+                <displayname>Vägnamn (anpassade för ortofoto)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_VARLOK_1392">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Vårlökar</displayname>
+                <img>/images/custom/themeicons/Varlak.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_VATTENANLAGGNINGAR_1387">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Vattenanläggningar</displayname>
+                <img>/images/custom/themeicons/Vattenanlaggning.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_UTSMYCKNINGAR_1391">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Utsmyckningar</displayname>
+                <img>/images/custom/themeicons/Utsmyckning.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_SKULPTURER_1380">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Skulpturer</displayname>
+                <img>/images/custom/themeicons/Skulptur.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_REKLAMANORDNINGAR_1378">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Reklamanordningar</displayname>
+                <img>/images/custom/themeicons/Reklamanordningar.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_POLLARE_1385">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Pollare</displayname>
+                <img>/images/custom/themeicons/Pollare.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_PARKSOFFA_1373">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Parksoffor</displayname>
+                <img>/images/custom/themeicons/Parksoffa.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_PARKBORD_1379">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Parkbord</displayname>
+                <img>/images/custom/themeicons/Parkbord.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_PAPPERSKORG_1236">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Papperskorgar</displayname>
+                <img>/images/custom/themeicons/Papperskorg.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_OLJEAVSKILJARE_1396">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Oljeavskiljare</displayname>
+                <img>/images/custom/themeicons/Oljeavskiljare.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_LIVRADDNINGSREDSKAP_1384">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Livräddningsredskap</displayname>
+                <img>/images/custom/themeicons/Livraddningsredskap.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_LINJEAVVATTNING_1381">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Linjeavvattningar</displayname>
+                <img>/images/custom/themeicons/Linjeavvattning.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_HUNDPASESTALLNING_1389">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Hundpåseställningar</displayname>
+                <img>/images/custom/themeicons/Hundpasestallning.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_HUNDLATRINKARL_1370">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Hundlatrinkärl</displayname>
+                <img>/images/custom/themeicons/Hundlatrinkarl.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_FLAGGSTANGER_1393">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Flaggstänger</displayname>
+                <img>/images/custom/themeicons/Flaggstang.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_DAGVATTENBRUNNAR_1375">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Dagvattenbrunnar</displayname>
+                <img>/images/custom/themeicons/DBR.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BANKBORD_1369">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Bänkbord</displayname>
+                <img>/images/custom/themeicons/Bankbord.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BLOMSTERURNOR_1394">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Blomsterurnor/blomsterpelare</displayname>
+                <img>/images/custom/themeicons/Blomsterurna.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BILJETTAUTOMAT_1382">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Biljettautomater</displayname>
+                <img>/images/custom/themeicons/Biljettautomat.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BILHINDER_1386">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Bilhinder</displayname>
+                <img>/images/custom/themeicons/Bilhinder.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_LEKPLATS_1371">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Lekplatser</displayname>
+                <img>/images/custom/themeicons/Lekplats.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_CSM_HUNDRASTNING_PUNKT_1667">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Hundrastgård</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BOLLPLAN_1388">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Bollplaner</displayname>
+                <img>/images/custom/themeicons/Bollplan.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_VINTERKARTA_mod_97" name="ISML_SKOLOR_1326">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Skolor</displayname>
+                <img>/images/custom/Malmo Stad/skola.jpg</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_VINTERKARTA_mod_97" name="ISML_ALDREBOENDE_1328">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Åldreboende</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_STAKET_1377">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Staket</displayname>
+                <img>/images/custom/themeicons/Staket.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_ASKKOPP_1383">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>utrustningar_oversikt</group>
+                <selectable>true</selectable>
+                <displayname>Askkoppar</displayname>
+                <img>/images/custom/themeicons/Askkopp.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_BIKE_RIDE_UNDER_2014_MALMO_C_1677">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>Bike och ride undersökningar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_BIKE_RIDE_UNDER_2014_TRI_1678">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>ISML_BIKE_RIDE_UNDER_2014_TRI_1678</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISMG_CYKELSTALLE_232">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>CykelStälle</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_BUSSLINJE_GRUPPERADE_1482">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>Busslinjer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_CYKELPUMPAR_1443">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>CYKELPUMPAR</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_LTF_HASTIGHETBEGRANS_1995">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>Hastighetbegräns</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_TRAFIKMANGDER4_1473">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>Bilmängder (2010)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_HALLPLATSER_1701">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>mobility_management</group>
+                <selectable>true</selectable>
+                <displayname>HallPlatser</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_FASTIGHETSAGARE_1755">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>fastighets_gare</group>
+                <selectable>true</selectable>
+                <displayname>Fästighetsägare</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_ENTREPRENADER_1463">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Entreprenadsområden</displayname>
+                <img>/images/custom/themeicons/Ent_all.png</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_TROMP2013_1620">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Tromp</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_STADSDEL_1613">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Stadsdelar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_DELOMRADEN_1612">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Delområden</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_POSTNUMMER_1619">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Postnummer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_statistik_v_omrade_2258">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Statistik V Område (3536 område)</displayname>
+            </themeselector>
+            <downloadable>true</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_SAMS_OMRADE_1615">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>omrade</group>
+                <selectable>true</selectable>
+                <displayname>Sams</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_MOSAIC_2015_1758">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>mosaic</group>
+                <selectable>true</selectable>
+                <displayname>MOSAIC</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-pg_stat_bakgrund_ent_gra-copy">
+            <themeselector>
+                <initialstate>visible</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Backgrundskarta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_CSM_OVERSIKT_GRUND_1856">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Översiktsyta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom" name="theme-belysningbakgrund">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Bakgrundskarta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/upplatelse" name="theme-bakgrund_ent-copy">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Bakgrundskarta2</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_KVARTER_1399">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Kvarter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_DISTRIKT_1453">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Distriktsnamn</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_Oversikt_jarnvag_1403">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Järnväg</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/grund_utanforklaring" name="ISML_MARKYTA_TYP_V_1398-copy">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Markyta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_BROYTA_TYP_V_1402">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Broyta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_HUS_1397">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Hus</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_GRUNDKARTA_mod_95" name="ISML_KOMMUNGRANS_1263">
+            <themeselector>
+                <initialstate>visible</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Kommungräns</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_CSM_VAGMITT_1854">
+            <themeselector>
+                <initialstate>visible</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Vägmitt</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_ENTREPRENADKARTA_mod_100" name="ISML_pg_vagmitt_attr_2363">
+            <themeselector>
+                <initialstate>visible</initialstate>
+                <group>lmv_baskartor</group>
+                <selectable>true</selectable>
+                <displayname>Vägnamn</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_HABITABILITYINDEX2014_3A_1430">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>indexer</group>
+                <selectable>true</selectable>
+                <displayname>Ljudnivåer</displayname>
+                <img>/images/custom/Malmo Stad/Ljudniva.jpg</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_HABITABILITYINDEX2014_3B_1435">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>indexer</group>
+                <selectable>true</selectable>
+                <displayname>Luftkvalitet</displayname>
+                <img>/images/custom/Malmo Stad/Luftkvalitet.jpg</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_MARKNADS2014_F1_3_1474">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>marknadsundersokning</group>
+                <selectable>true</selectable>
+                <displayname>ISML_MARKNADS2014_F1_3_1474</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_STATISTIKKARTA_mod_108" name="ISML_MARKNADS2014_F1_1_XXX_1486">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>marknadsundersokning</group>
+                <selectable>true</selectable>
+                <displayname>ISML_MARKNADS2014_F1_1_XXX_1486</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/cluster" name="ISML_OLYCKOR_FOTGANGARE_2003-copy">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>olyckor</group>
+                <selectable>true</selectable>
+                <displayname>Fotgängare</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/cluster" name="ISML_OLYCKOR_BIL_2001-copy">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>olyckor</group>
+                <selectable>true</selectable>
+                <displayname>Bilolyckor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/cluster" name="ISML_OLYCKOR_CYKEL_2002-copy">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>olyckor</group>
+                <selectable>true</selectable>
+                <displayname>Cykelolyckor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_TROMP_KOLLEKTIV_1974">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>tromp</group>
+                <selectable>true</selectable>
+                <displayname>Kollektiv</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_TROMP_CYKEL_1972">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>tromp</group>
+                <selectable>true</selectable>
+                <displayname>Cykel</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_TROMP_GANG_1973">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>tromp</group>
+                <selectable>true</selectable>
+                <displayname>Gång</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_TROMP_BIL_1971">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>tromp</group>
+                <selectable>true</selectable>
+                <displayname>Bil</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_TRAFIKKARTA_mod_98" name="ISML_bullerytor2012_2236">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>buller</group>
+                <selectable>true</selectable>
+                <displayname>Bullernivåer (2012)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-kundservis_arende">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>nuvarande_kundservis</group>
+                <selectable>true</selectable>
+                <displayname>Kundservis arende</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-kundservis-pagaendearenede">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>nuvarande_kundservis</group>
+                <selectable>true</selectable>
+                <displayname>Ärenede (pågående)</displayname>
+                <img>/images/custom/Malmo Stad/pagaendeservis.jpg</img>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-kundservis_fraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>nuvarande_kundservis</group>
+                <selectable>true</selectable>
+                <displayname>Kundservis frågor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-felanmalan">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>nuvarande_kundservis</group>
+                <selectable>true</selectable>
+                <displayname>Felanmälan</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-kundservis_pagaendefraga">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>nuvarande_kundservis</group>
+                <selectable>true</selectable>
+                <displayname>Frågor (pågående)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_anmarkningsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Anmarkningsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_antal_barnfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Antal barnfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_byggnadsarfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Byggnadsårfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_civilstandsfaktorn">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Civilstandsfaktorn</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_familjestorleksfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Familjestorleksfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_hustypsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Hustypsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_inkomstfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Inkomstfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_internetfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Internetfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_kapitalinkomstsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Kapitalinkomstsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_kulturellmix_faktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Kulturellmix_faktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_kopkraftsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Köpkraftsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_pensionsavdragsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Pensionsavdragsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_reklamfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Reklamfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_ranteintaktsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Ränteintäktsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_socialamedierfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Socialamedierfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_a12">
+            <themeselector>
+                <initialstate>visible</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>czsam15typ_a12</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_spenderingsfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Spenderingsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="czsam15_aldersfaktor">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom</group>
+                <selectable>true</selectable>
+                <displayname>Åldersfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="vinter">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Vinter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="va_syd">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>VA SYD</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="utrustning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Utrustning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="trafikteknik">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikteknik</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="trafikanordning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikanordning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="trafikanordningar">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikanordningar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="trafikplanering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikplanering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="torg">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Torg</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="renhallning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Renhallning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="parkering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Parkering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="park">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Park</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="offentliga_byggnader">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Offentliga Byggnader</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="natur">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Natur</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="markupplatelse">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Markupplatelse</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="konstbyggnader">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Konstbyggnader</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="gata">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Gata</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="folkets_park">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Folkets Park</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="dagvatten__ledning_brunnar">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Dagvattenledningar och brunnar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="broar">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Broar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="belysning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Belysning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="badstrander">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>Badstrander</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="programenheten">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kundarende_18</group>
+                <selectable>true</selectable>
+                <displayname>programenheten</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_ovrig_administration">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Övrig administration</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_vinter">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Vinter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_utrustning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Utrustning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_trafikmiljo">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikmiljo</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_trafikteknik">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikteknik</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_trafikreglering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikreglering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_trafikplanering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikplanering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_trafikanordning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Trafikanordning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_torg">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Torg</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_renhallning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Renhållning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_programenheten">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Programenheten</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_planering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Planering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_parkering">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Parkering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_park">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Park</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_offentliga_byggnader">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Offentliga byggnader</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_natur">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Natur</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_markupplatelse">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Markupplåtelse</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_kollektivtrafik">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Kollektivtrafik</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_konstbyggnader">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Konstbyggnader</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_gata">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Gata</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_forvalta">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Förvalta</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_folkets_park">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Folkets Park</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_dagvatten__ledning_brunnar">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Dagvattenledning brunnar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_broar">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Broar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_belysning">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Belysning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_badstrander">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Badstrander</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom//kund" name="syn_arrangemangsenheten">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>synkund_18</group>
+                <selectable>true</selectable>
+                <displayname>Arrangemangsenheten</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom" name="theme_s4grupper">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoompunkt</group>
+                <selectable>true</selectable>
+                <displayname>Conzoom grupper (statistik iv)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_anmarkningsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Anmärkningsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_antal_barnfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Antal barnfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_byggnadsarfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Byggnadsårfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_civilstandsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Civilstandsfaktorn</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_familjestorleksfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Familjestorleksfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_hustypsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Hustypsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_inkomstfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Inkomstfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_internetfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Internetfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_kapitalinkomstsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Kapitalinkomstsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_kulturellmix_faktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Kulturellmix_faktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_kopkraftsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Köpkraftsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_medvetenhetsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Medvetenhetsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_pensionsavdragsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Pensionsavdragsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_reklamfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Reklamfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_ranteintaktsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Ränteintäktsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_socialamedierfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Socialamedierfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_spenderingsfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Spenderingsfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_aldersfaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Åldersfaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_agandefaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Ägandefaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_ekonomiintressefaktor_s4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_s4</group>
+                <selectable>true</selectable>
+                <displayname>Ekonomiintressefaktor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/dialog" name="theme-valresultat">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>val</group>
+                <selectable>true</selectable>
+                <displayname>Valresultat 2014  </displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <!-- <theme dir="custom/conzoom_s4" name="czsam15typ_a1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Första parkett</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme> -->
+        <theme dir="custom/conzoom_s4" name="czsam15typ_a2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Aktiva barnfamiljer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_a3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Köpstarka seniorer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_a4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Trygghet i hemmet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_b1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Yrkesstolthet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_b2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Fredagsmysarna</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_b3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Allsång och tradition</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_c1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Gårdar och gods</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_c2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Lantbruk och landskap</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_c3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Gröna fingrar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_c4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Par i hjärter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_d1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Solsidan</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_d2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Väletablerade livsnjutare</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_d3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Välbeställda barnfamiljer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_d4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Gyllene hem</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_e1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Grannsämja</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_e2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Familjeband</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_f1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Flärd och karriär</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_f2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>På rätt adress</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_f3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Mingel med stil</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_f4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Kosmopolit</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_g1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Det goda livet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_g2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Vis veteran</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_h1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Studentliv</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_h2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Första milstolpen</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_i1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Stadspuls</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_i2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>På väg upp</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_i3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Kulturnaut</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_i4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Bostadskarriär</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_i5">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Vardagsliv i hyresrätt</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_j1">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Hemkär</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_j2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Lagom är bäst</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_j4">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Blandat i bostadsrätt</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15typ_j3">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Kryss och pyssel</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom" name="theme-conzoom_s5_typer">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_byggnadsnivaa</group>
+                <selectable>true</selectable>
+                <displayname>Alla conzoom grupper (statistik v)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_a">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Villaägare med marginal</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_b">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Villaliv</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_c">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Livet på landet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_d">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Guldkant i tillvaron</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_e">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Allmännyttan</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_f">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Välbeställd i våning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_g">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Seniorer</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_h">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Unga på väg</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_i">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Storstadsliv</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="czsam15_j">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>Conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Lägenhet i mindre stad</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="theme_punktgrupper_typ">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_grupper_och_typer__adressnivaa_</group>
+                <selectable>true</selectable>
+                <displayname>Conzoom typer uppdelade på adresspunktsnivå</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="theme_punktgrupper">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_grupper_och_typer__adressnivaa_</group>
+                <selectable>true</selectable>
+                <displayname>Conzoom grupper uppdelade på adresspunktsnivå</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/conzoom_s4" name="theme_BYGGNADgrupper">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>conzoom_grupper_s5</group>
+                <selectable>true</selectable>
+                <displayname>Conzoom grupper (byggnadsnivå)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/feature_edit_test" name="theme-askkopp2_fe">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kultur</group>
+                <selectable>true</selectable>
+                <displayname>theme-askkopp2_fe</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/feature_edit_test" name="theme-pg_pump2">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>kultur</group>
+                <selectable>true</selectable>
+                <displayname>theme-pg_pump2</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme module="ISM_CSM_DIALOGKARTA_mod_109" name="ISML_KULTUR_STRAKET_2428">
+            <themeselector>
+                <initialstate>hidden</initialstate>
+                <group>kultur</group>
+                <selectable>true</selectable>
+                <displayname>Kulturstrak (exempel)</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-ovrigt_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Övrigt</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-overgangsstallen_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Övergångsställen</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-vagmarkering_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Vägmarkering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-utegym_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Utegym</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-tunnel_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Tunnel</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trad_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Träd</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trappor_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Trappor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-trafiksignaler__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Trafiksignaler</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-torg__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Torg</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-toaletter__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Toaletter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-stangsel_staket__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Stängsel/staket</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-strander__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Stränder</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-stolpar_vagmarken__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Stolpar/Vägmärken</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-singlingsprogrammet__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Singlingsprogrammet</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-racken__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Räcken</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-ridv_gar__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Ridvägar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-rabatter__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Rabatter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-parkeringsautomat__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Parkeringsautomat</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-parkering__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Parkering</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-papperskorgar__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Papperskorgar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-murar__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Murar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-livraddningsredskap__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Livräddningsredskap</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-lekplatser__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Lekplatser</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-korbana__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Körbana</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-klotter__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Klotter</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-kantsten__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Kantsten</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-kanaler__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Kanaler</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-hundrastgard__fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Hundrastgård</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-hundlatriner_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Hundlatriner</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-gangbana_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Gångbana</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-gras_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Gräs</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-fontaner_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Fontäner</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-elskap_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Elskåp</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-djur_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Djur</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-cykelpump_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Cykelpump</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-cykelparkering_stall_garage_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Cykelparkering/ställ/garage</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-cykelbana_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Cykelbana</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-bankar_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Bänkar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-busshallplats_busskur_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Busshållplats/busskur</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-buskage_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Buskage</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-bullerplank_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Bullerplank</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-bryggor_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Bryggor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-brunnar_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Brunnar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-broar_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Broar</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-blommor_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Blommor</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/kundtjanst" name="theme-belysning_fel">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>felanmalan</group>
+                <selectable>true</selectable>
+                <displayname>Belysning</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/befolkningsgruppen" name="theme-gispak_kvarter">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>befolkningsstatistik</group>
+                <selectable>true</selectable>
+                <displayname>Befolkningsstatistik - kvartersnivå</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/befolkningsgruppen" name="theme-gispak_adress">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>befolkningsstatistik</group>
+                <selectable>true</selectable>
+                <displayname>Befolkningsstatistik - adressnivå</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+        <theme dir="custom/befolkningsgruppen" name="theme-gispak_byggnader">
+            <themeselector>
+                <initialstate>available</initialstate>
+                <group>befolkningsstatistik</group>
+                <selectable>true</selectable>
+                <displayname>Befolkningsstatistik -byggnadsnivå</displayname>
+            </themeselector>
+            <downloadable>false</downloadable>
+        </theme>
+    </themes>
+    <!-- =================================== -->
+    <!-- Copyright link 					   -->
+    <!-- =================================== -->
+    <copyright>
+        <include onlychildnodes="true" src="[cbinfo.profiles.dir]/includes/standard/copyright.xml"/>
+    </copyright>
+    <mapsize>
+        <include onlychildnodes="true" src="[cbinfo.profiles.dir]/includes/standard/mapsize.xml"/>
+    </mapsize>
+    <!-- =================================== -->
+    <!-- Mapfile parameters                  -->
+    <!-- =================================== -->
+    <mapfileparameters>
+        <include onlychildnodes="true" src="[cbinfo.profiles.dir]/includes/standard/mapfileparameters.xml"/>
+    </mapfileparameters>
+</profile>

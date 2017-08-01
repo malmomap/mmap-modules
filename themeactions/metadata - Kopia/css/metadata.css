@@ -1,0 +1,10 @@
+#infoSida {
+    /*height: 20px;*/
+    background-color: transparent;
+    position: absolute;
+    top: 3px;
+    left: 600px;
+    z-index: 9;
+    color: #FFFFFF;
+    font-weight: bold;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+    <!--
+    ===============================================================
+    SpatialMap, copyright Grontmij GIS&IT
+    ===============================================================
+    $URL: http://vinkel.ghop.lan/svn/SPS/spatialmap/branches/3.8/spatialmap/WEB-INF/config/modules/custom/themeactions/metadatalayer/deploy.xml $
+    $Date: 2014-12-18 17:54:04 +0100 (Thu, 18 Dec 2014) $
+    $Revision: 2974 $
+    $Author: ell $
+    ===============================================================
+    -->
+
+    <version>3.8.2</version>          <!-- The version of SpatialMap this module comes from -->
+    <lastupdated>3.8.2</lastupdated>  <!-- The SpatialMap version this module was last updated -->
+    <since>3.7.0</since>              <!-- The SpatialMap version this module was introduced in -->
+    <description>Meta Data</description>
+
+    <stoponerror>true</stoponerror>
+    <makedir dir="[cbinfo.wwwroot.dir]/modules/metadatalayer/html" />
+    <makedir dir="[cbinfo.wwwroot.dir]/modules/metadatalayer/js"/>
+    <copydir fromdir="[module:metadatalayer.dir]/images" todir="[cbinfo.wwwroot.dir]/skins/base/images/modules/metadatalayer" />
+     <copydir fromdir="[module:metadatalayer.dir]/html" todir="[cbinfo.wwwroot.dir]/modules/metadatalayer/html"
+          replacetext="true"/>
+    <!-- <param name="module.metadatalayer.js">/modules/metadatalayer/js/metadatalayer.js</param>
+  	<copyfile fromfile="[module:metadatalayer.dir]/js/metadatalayer.Js" tofile="[cbinfo.wwwroot.dir][module.metadatalayer.js]" replacetext="true" /> -->
+</deploy>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+    <cbinfo-metadata>
+        <param name="tool.help.text"><![CDATA[[text:metadata.helptext]]]></param>
+    </cbinfo-metadata>
+    <displayname><![CDATA[[text:metadata.displayname]]]></displayname>
+    <description><![CDATA[[text:metadata.description]]]></description>
+    <img>#skin#/images/modules/metadata/metadata.png</img>
+
+  
+
+
+    <src><![CDATA[
+
+
+
+        var setmetadataAction = new ThemeAction({
+                name: "metadataAction",
+               // cursor: 'url("images/custom/cursors/point.cur"),crosshair',
+                toolmode: null,
+
+         
+
+                
+
+                conditionfunction: function (theme) {
+                    return theme.isPrimaryDatasourceSpatial();
+                },
+                buttonoptions: {
+                    icon: Gui.SKIN_PATH_AND_NAME + "/images/modules/metadata/metadata.png",
+                    tooltip: "[text:metadata.tooltip]",
+                    clickResultHandler: function (theme, button, actionname, actionresult) {
+                    }
+                }
+            });
+            themeActions.registerAction(setmetadataAction);
+    ]]></src>
+</tool>

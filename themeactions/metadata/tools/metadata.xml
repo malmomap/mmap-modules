@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+    <cbinfo-metadata>
+        <param name="tool.help.text"><![CDATA[[text:metadata.helptext]]]></param>
+    </cbinfo-metadata>
+    <displayname><![CDATA[[text:metadata.displayname]]]></displayname>
+    <description><![CDATA[[text:metadata.description]]]></description>
+      <img>[cbinfo.images.url]/custom/Funktions_ikoner/pan3.png</img>
+
+   <script>
+    <![CDATA[
+
+    ]]></script>
+
+    <src><![CDATA[
+
+
+        var setmetadataAction = new ThemeAction({
+                name: "metadataAction",
+               // cursor: 'url("images/custom/cursors/point.cur"),crosshair',
+                toolmode: null,
+
+               actionfunction: function (theme) {
+                    var dialog = new Dialog({
+                       title: '[text:metadata.displayname]',
+                       id: 'metadata_main',
+                       resizable: true,
+                       width: 850,
+
+                       closeHandler: SpatialMap.Function.bind (this.close, theme)
+                    });
+
+
+                      var x = theme.displayname;
+
+                      var ansvar = "";
+                      ansvar = "";
+                      beskrivningen = "";
+                      uppdatering = "";
+                      dbsource = "";
+                      dbnamn = "";
+                      gisansvar  = "";
+
+                        (function(){
+                        switch (x){
+
+case "Renhållning":
+ansvar = "IT/GIS";
+beskrivningen = "Gångbanor som ska renhållas";
+uppdatering = "Varje sommar";
+dbsource = "Oracle - GKDB";
+dbnamn = "RENHALLNING";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Svevia":
+ansvar = "IT/GIS";
+beskrivningen = "Där Svevia ansvar för vintervägållning";
+uppdatering = "Vinter 2015";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_SVEVIA";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Gång och cykel prioritet 3":
+ansvar = "Kommunteknik";
+beskrivningen = "Gång och cykelbanor som ska renhållas och har P3 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Gång och cykel prioritet 2":
+ansvar = "Kommunteknik";
+beskrivningen = "Gång och cykelbanor som ska renhållas och har P2 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Gång och cykel prioritet 1":
+ansvar = "Kommunteknik";
+beskrivningen = "Gång och cykelbanor som ska renhållas och har P1 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Körbanor prioritet 3":
+ansvar = "Kommunteknik";
+beskrivningen = "Körbanor som ska renhållas och har P3 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Körbanor prioritet 2":
+ansvar = "Kommunteknik";
+beskrivningen = "Körbanor som ska renhållas och har P2 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Körbanor prioritet 1":
+ansvar = "Kommunteknik";
+beskrivningen = "Körbanor som ska renhållas och har P1 prioritering";
+uppdatering = "Varje höst";
+dbsource = "Oracle - GKDB";
+dbnamn = "VINTER_LINJESTRÅK";
+gisansvar  = "Raymond Timlin";
+link = "";
+break;
+case "Conzoom typer uppdelade på adresspunktsnivå":
+ansvar = "IT/GIS";
+beskrivningen = "Conzoom är en datadriven analys av invånarnas demografi, livsstil, beteenden och attityder och bygger på homogena kluster av adresser eller grupper av hushåll. Conzoom består inte av personlig eller individuell information utan all information visas i aggregerad form.I Conzoom är befolkningen är indelad i tio överordnade grupper (A till J) och i totalt 34 särskiljande typer indelade inom grupperna (A1, A2, osv.). De likheter och skillnader som finns i dataunderlaget har styrt utformningen. Det finns även ett antal Conzoomfaktorer vilka syftar till att snabbt ge en översiktlig bild av invånarna i ett geografiskt område utifrån olika faktorer uppdelade efter skalor. På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  Gatukontoret har köpt in Conzoomdata och lagt in i databasen för visning i WebGIS. Leverantören är Geomatic AB och datan är från 2015.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Conzoom grupper uppdelade på adresspunktsnivå":
+ansvar = "IT/GIS";
+beskrivningen = "Conzoom är en datadriven analys av invånarnas demografi, livsstil, beteenden och attityder och bygger på homogena kluster av adresser eller grupper av hushåll. Conzoom består inte av personlig eller individuell information utan all information visas i aggregerad form.I Conzoom är befolkningen är indelad i tio överordnade grupper (A till J) och i totalt 34 särskiljande typer indelade inom grupperna (A1, A2, osv.). De likheter och skillnader som finns i dataunderlaget har styrt utformningen. Det finns även ett antal Conzoomfaktorer vilka syftar till att snabbt ge en översiktlig bild av invånarna i ett geografiskt område utifrån olika faktorer uppdelade efter skalor. På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  Gatukontoret har köpt in Conzoomdata och lagt in i databasen för visning i WebGIS. Leverantören är Geomatic AB och datan är från 2015.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Åldersfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Indikation på hur gamla personer är som bor i ett område. Definierad utifrån en skala på 1-10. <br> <br> Områden som har en hög andel äldre personer får höga poäng och områden med hög andel yngre får låga poäng. Se nedan och på Komin för mer info.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Inkomstfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Indikation på områdets genomsnittliga inkomst beräknad utifrån inkomst av tjänst. Definierad utifrån en skala på 1-10. Områden som har en hög andel höginkomsttagare får höga poäng och områden med hög andel låginkomsttagare får låga poäng. Se nedan och på Komin för mer info.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Anmarkningsfaktorer":
+ansvar = "Dialogenheten";
+beskrivningen = "Anmärkningsfaktorn berättar för oss hur pass vanligt det är att invånarna i ett område har betalningsanmärkningar hos UC. <br> <br> Höga poäng får de områden där en stor andel av invånarna har eller flera betalningsanmärkningar registrerade, exempel på sådana grupper är: E2: <i>Familjeband</i>, E1 : <i>Grannsämja</i> och I5: <i>Vardagsliv i Hyresrätt</i> <br> <br> Låga poäng får områden där en låg andel av invånarna har en  betalningsanmärning registrerad, exempel är bland annat: D3: <i>Välbärgade Barnfamiljer</i>, D2: <i>Solsidan</i>, och A2: <i>Aktiva Barnfamiljer</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Antal_barnfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "AntalBarnsfaktorn berättar hur många barn det finns per familj i visst område. Denna faktor är definerad utifrån en skala på 1-10. <br><br> Höga poäng får de områden där det bor par med många barn. Höga poäng förekommer bland annat i typerna: D3: <i>Välbärgade Barnfamiljer</i>, A2: <i>Aktiva Barnfamiljer</i> och B2: <i>Fredagsmysarna</i><br><br> Låga poäng får områden med par eller singlar utan barn, vi hittar dessa främst i typerna F3: <i>Mingel med Stil</i>, G2: <i>Vis Veteran</i> och J3: <i>Kryss och Pyssel</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Byggnadsarfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Byggnadsårsfaktorn berättar hur pass gamla byggnaderna är i ett visst område. Denna faktor är definerad utifrån en skala på 1-10. <br><br> Höga poäng får de områden som har en hög andel av bostäderna är byggda på 90-talet och framåt. Höga poäng förekommer bland annat i conzoom®-typerna: A2: <i>Aktiva Barnfamiljer</i>, D3: <i>Välbeställda Barnfamiljer</i> och J4: <i>Blandat i Bostadsrätt</i> <br><br> Låga poäng får de områden där en hög andel av bostäderna är uppförda på 20-talet eller tidigare, vi hittar dessa främst i typerna C2: <i>Lantbruk och Landskap</i> och F3: <i>Mingel med Stil</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Andeln personer i ett område som är gifta eller änklingar":
+ansvar = "Dialogenheten";
+beskrivningen = "Civilståndsfaktorn är en indikation på andeln personer i ett område som är gifta eller änklingar. Denna faktor är definerad utifrån en skala på 1-10. <br><br> Höga poäng får de områden som har en hög andel personer som är gifta/änklingar . Höga poäng förekommer bland annat i conzoom®-typerna: G1: <i>Det Goda Livet</i>, D1: <i>Solsidan</i> och G2: <i>Vis Veteran</i> <br><br>Låga poäng får de områden där en låg andel är gifta/änklingar, vi hittar dessa främst i typerna H2: <i>Första Milstolpen</i>, J1: <i>Hemkär</i> och I1: <i>Stadspuls</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Familjestorleksfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Familjestorleksfaktorn berättar om hur stora familjer som bor i ett visst område. Denna faktor är definerad utifrån en skala på 1-10. <br><br>Höga poäng får de områden där det bor par med många barn. Höga poäng förekommer bland annat i typerna: A2: <i>Aktiva BarnFamiljer</i>, D1: <i>Solsidan</i> och D3 <i>Välbärgade Barnfamiljer</i> <br><br>Låga poäng får områden med en hög andel singelhushåll, vi hittar dessa främst i typerna H1: <i>Studentliv</i>, E1: <i>Grannsämja</i> och I3: <i>Kulturnaut</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Indikation på adressens genomsnittliga inkomst":
+ansvar = "Dialogenheten";
+beskrivningen = "Inkomstfaktorn är en indikation på adressens genomsnittliga inkomst beräknad utifrån inkomst av tjänst. Inkomstfaktorn är definerad utifrån en skala på 1-10. <br><br>Höga poäng får de områden som har en hög andel personer som är höginkomsttagare. Höga poäng förekommer bland annat i conzoom®-grupperna D: <i>Guldkant i tilvarona</i> och F: <i>Välbeställd i Våning</i>, men även typen C1 : <i>Gårdar och Gods</i><br><br> Låga poäng får de adresser där en hög andel låginkomstagare, vi hittar dessa främst i typerna H1: <i>Studentliv</i>, E2: <i>Familjeband</i> och I5: <i>Vardagslivs i hyresrätt</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Internetfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Definition:</b> Internetfaktorn är ett mått på hur pass aktiv man är på att använda Internet och hur man använder det. Vi mäter om man man anger att Internet är ens första källa för information och/eller man upplever att handla varor över Internet har gjort ens liv enklare. <br><br>Vi tittar även på hur stor andel i de olika faktorerna som har tillgång till en smartphone och/eller Surfplatta.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Adressens genomsnittliga inkomst beräknad enbart utifrån inkomst utav kapital.":
+ansvar = "Dialogenheten";
+beskrivningen = "Kapitalinkomstfaktorn är en indikation på adressens genomsnittliga inkomst beräknad enbart utifrån inkomst utav kapital. Inkomstfaktorn är definerad utifrån en skala på 1-10. <br><br>Höga poäng får de områden som i genomsnitt har en hög inkomst av kapital. Höga poäng förekommer bland annat i conzoom®-grupperna F2: <i>På rätt adress</i>, C1: <i>Gårdar och Gods</i> och G1: <i>Det Goda Livet<i> <br><br>Låga poäng får de områden där invånarna har en liten eller ingen inkomst utav kapital, dessa hittas främst i typerna H1: <i>Studentliv</i>, E2: <i>Familjeband</i> och B1: <i>Yrkesstolthet</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Kopkraftsfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Köpkraftsfaktorn är ett mått på hur pass köpstarkt invånarna i ett visst område är. Faktorn är indelad i en skala från 1 till 10. <br><br> Höga poäng får de områden där invånarna har en hög köpkraft, exempel på typer med höga poäng är bland annat: D1: <i>Solsidan</i>, D3: <i>Välbärgade Barnfamiljer</i> och A2: <i>Aktiva Barnfamiljer </i><br><br>Låga poäng får områden där invånarna i genomsnitt har en låg köpkraft, grupper som får låga poäng är bland annat: E2: <i>Familjeband, </i>H1: <i>Studentliv </i>och J1: <i>Hemkär</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Medvetenhetsfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Definition:</b> Med begreppet medvetenhet menar vi en människa som är beredd att betala extra för varor som är ekologiskt odlade, miljövänliga och/eller rättvisemärkta. Samtidigt så finns det en oro kring miljöutsläpp och man är samtidigt medveten kring hur ens handlingar påverkar klimat och närmiljö och därför gärna aktivt bidrar till ett bättre samhälle genom att sopsortera och liknande.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Pensionsavdragsfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Pensionsavdragsfaktorn är ett mått på hur många och mycket invånarna i ett område i genomsnitt gör skatteavdrag för pensionssparande. Faktorn är indelad i en skala från 1 till 10. <br><br>Höga poäng får de områden där en stor andel av invånarna gör avdrag för pensionssparande, exempel på sådana grupper är: D3: <i>Välbärgade Barnfamiljer, </i>D1: <i>BlaBla</i> och A4: <i>Trygghet i Hemmet </i><br><br>Låga poäng får områden där en låg andel av invånarna gör avdrag för pensionssparande, exempel är bland annat: H1: <i>Studentliv, </i>G2: <i>Vis Veteran </i>och E2: <i>Familjeband</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Reklamfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Definition: </b>Med Reklam menar vi den typ av marknadsföring som sker via Adresserade postala utskick, oadresserad reklam i brevlådan, Telemarketing och Reklam som sänds i de komersiella Tv-kanalerna. <br><br>I denna faktor mäter vi hur pass mottaglig en person är för marknadsföring i dessa kanaler och om man påverkas av reklam för att köpa varor.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Socialamedierfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Definition: </b>Med Sociala Medier menar vi hur ofta en person använder följande Sociala Medier <br><br>•Facebook <br><br>•Twitter <br><br>•LinkedIn <br><br>•Instagram <br><br>Det vi tittar på i denna faktor är hur ofta en person använder ovanstående sociala nätverk.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Spenderingsfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Conzoom® Spenderingsfaktor är en variabel som syftar till att segmentera Sveriges befolkning efter hur mycket de spenderar i förhållande till deras inkomst. <br><br>Det övergripande målet har varit att hitta de människor som konsumerar mer pengar än vad som faktiskt kommer in på kontot varje månad, och därigenom kunna särskilja en kreditbenägenhet. <br><br>Utifrån detta har tio kluster skapats med särskiljande karaktäristerik skapats, och därefter delats in i fyra större grupper som skiljer sig i konsumtionsbeteende.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Hur gamla personerna är som bor på en speciell adress":
+ansvar = "Dialogenheten";
+beskrivningen = "Åldersfaktorn är en indikation på hur gamla personerna är som bor på en speciell adress. Åldersfaktorn är definerad utifrån en skala på 1-10. <br><br>Höga poäng får de adresser som har en hög andel äldre personer. Höga poäng förekommer bland annat i conzoom®-grupp G: <i>Seniorer, </i>men även i typer så som: J3: <i>Kryss och Pyssel </i>och B3: <i>Allsång och Tradition </i><br><br>Låga poäng får de adresser med hög andel yngre människor och förekommer främst i Grupp H: <i>Unga på Väg</i>, men typerna J1: <i>Hemkär </i>och I1: <i>Stadspuls </i>får också låga poäng då dessa typer har en stor andel yngre människor i sig.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "Ekonomiintressefaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Definition: </b>Med begreppet ekonomi-intresse menar vi en person som är intresserad av dels frågor som behandlar privatekonomi, och dels frågor som behandlar olika former av Värdepapper (exempelvis aktier, fonder m.m) <br><br>Tillsammans utgör dessa båda intresse det som vi kallar för ett ekonomi-intresse";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "pby_czsam15_agandefaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Ägandefaktorn berättar hur vanligt det är med att man äger sitt boende i ett område. Denna faktor är definerad utifrån en skala på 1-5. <br><br>Höga poäng får de områden där det finns många hus som ägs av de de boende, exempel på typer som får höga poäng är: C1:  <i>Gårdar och Gods,  </i>A3:  <i>Köpstarka Seniorer  </i>och D3:  <i>Välbärgade Barnfamiljer </i><br><br>Låga poäng får områden där det finns en stor andel hyresrätter, vi hittar dessa främst i typerna E1:  <i>Grannsämja,  </i>E2  <i>Familjeband  </i>och F3:  <i>Mingel med Stil </i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "pby_czsam15_hustypsfaktor":
+ansvar = "Dialogenheten";
+beskrivningen = "Hustypsfaktorn berättar vilken typ av byggnad som finns i ett visst område. Denna faktor är definerad utifrån en skala på 1-5. <br><br>Höga poäng får de områden som till den övervägande delen består av friliggande villor, exempelvis: B2: <i>Fredagsmysarna, </i>D3: <i>Välbärgade Barnfamiljer </i>och G1: <i>Det Goda livet </i><br><br>Låga poäng får områden som består till största delen av flerfamiljshus, exempel på grupper med låga poäng är: hela grupp E: <i>Allmännyttan, </i>men även I3: <i>Kulturnaut </i>och J4: <i>Blandat i Bostadsrätt</i>";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "A Villaägare med marginal":
+ansvar = "Dialogenheten";
+beskrivningen = "Gruppen Villaägare med marginal består till största delen av familjer med eller utan barn. De bor framförallt i närheten av Sveriges större städer i olika typer av villor. Åldersprofilen på gruppen är bred och består främst av medelålders par, barnfamiljer och pensionärer. Gemensamt för alla är att de äger sitt eget boende, ofta i områden som är populära och relativt dyra. <br><br>Människorna i gruppen har generellt en ekonomiskt trygg situation vilket bland annat beror på högre inkomster jämfört med snittet av den svenska befolkningen. De höga inkomsterna är ofta en av anledningarna till varför de har råd att äga sitt boende samtidigt som de har pengar över till annat i slutet av månaden. Gruppen är köpstark och lägger gärna mycket pengar på mat och saker till hemmet, som t.ex. byggvaror och växter till trädgården. <br><br>Villaägare med marginal lever ofta ett liv fyllt av fart och aktiviteter för såväl stora som små. Gör-det-själv-mentaliteten är talande för hela gruppen och många har som hobby att fixa i hem och trädgård vilket leder till att de är stamgäster hos de lokala bygghandlarna. <br><br><b>Kommunicera med gruppen: </b><br>Villaägare med marginal tycker om att hålla sig uppdaterade. Stora delar av hushållen prenumererar på lokala morgontidningar, som skummas igenom innan dagens aktiviteter tar vid. En del prenumererar också på de allra största dagstidningarna som Dagens Nyheter och Svenska Dagbladet. Att se på TV är en naturlig del av vardagen och en aktivitet som samlar hela familjen på kvällarna. Till favoritkanalerna hör reklamkanaler som TV4, TV3 och Kanal 5. <br><br>Stora delar av gruppen Villaägare med marginal är vana internetanvändare. Många av dem uppger att de är medlemmar i sociala forum, dock är genomsnittsnivån nära rikssnittet. Flertalet av dem uppger sig vara mer positivt inställda till direktreklam genom brevlådan än till annonser på internet. <br><br>Förutom TV-reklam kan kommunikation med gruppen allra helst ske genom annons i de dagstidningar man läser eller i de magasin man får hem i brevlådan. Populära magasin kan exempelvis vara Vi i Villa och medlemstidningar som Buffé och Stadium Magazine. Villaägare med marginal är en typisk kundklubbsmedlem och har plånboken full med medlemskort. Flertalet uppger dessutom att de läser de magasin och utskick som butiker och kedjor ger ut.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "B Villaliv":
+ansvar = "Dialogenheten";
+beskrivningen = "Guldkant i tillvaron består till viss del av barnfamiljer men i många fall har barnen redan flugit ut. Det som knyter dem samman är den mycket goda ekonomin. Inkomsterna i gruppen tillhör de absolut högsta i Sverige. En stor del av de vuxna familjemedlemmarna befinner sig i åldrarna 35-50 år och njuter av tillvaron i sina större hus i attraktiva områden. Med år av utbildning bakom sig har man nu en ny typ av vardag, med ett arbete som ger god inkomst och ett familjeliv där yngsta barnet ofta är under 8 år gammal. Utbildningsnivån hör till den högsta i landet och ofta finner vi dem bosatta på Sveriges mest populära villaadresser i direkt närhet till landets största städer. <br><br>Närheten till vattnet gör sig ofta påmint i gruppens intressen där flertalet av dem uppger segling som ett stort intresse. Andra sporter som utförsåkning är även det något man gärna sysslar med. Gruppen Guldkant i tillvaron är en mycket aktiv och köpstark grupp som gärna lägger pengar både på produkter till sig själva och till hemmet, samt har en livsstil som innebär mycket resor och en aktiv vardag. Trygghet och säkerhet är något man prioriterar, varför flera är intresserade av larm till hemmet. <br><br><b>Kommunicera med gruppen: </b><br>Guldkant i tillvaron är välorienterade med ett stort intresse för omvärlden. Ofta prenumererar man på flera olika dagstidningar som Dagens Nyheter och Svenska Dagbladet, man håller sig gärna uppdaterad på vad som sker inom affärsvärlden, dagens ekonominyheter samt aktiekurser. En välinformerad konsument kan också vara en krävande konsument, där höga krav ställs på både nyheter och annan kommunikation i marknadsföringssyfte. Tid är en bristvara och alla typer av aktiviteter ska kännas givande att investera både tid och energi i. Vanligen är man lika intresserad av reklam i brevlådan som man är av annonsering på internet. <br><br>I gruppen finns många barn vilket avspeglas i de TV-kanaler familjen ofta tittar på, där SVT:s Barnkanalen och Disney Channel är överrepresenterade. Guldkant i tillvaron är vana internetanvändare och använder webben för aktiviteter både på jobbet och på fritiden. Största delen av tiden online spenderas på sociala nätverk eller på musiktjänster. Att handla via internet är också populärt, vilket ses både som tidssparande och som en möjlighet till ett större utbud med fler varumärken än vad fysiska butiker kan erbjuda. Fysiska butiker som gärna besöks av gruppen är Polarn o Pyret och varuhus som NK, PUB och byggvaruhus av olika slag. Man lägger ofta och gärna pengar på livsmedel, barnkläder, hus och trädgård. Guldkant i tillvaron läser ofta favoritbutikernas medlemstidningar, vilket blir en effektiv kanal för att kommunicera med gruppen. Många av dem uppger sig vara regelbundna läsare av medlemstidningar som exempelvis IKEA Family Living, ICA:s Buffé och Stadium Magazine.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "C Livet på landet":
+ansvar = "Dialogenheten";
+beskrivningen = "Gruppen Livet på landet utgörs av glesbygdsbefolkning i alla åldrar med familjer både med och utan barn. Familjer med hemmaboende barn har framförallt barn i tidiga tonåren och antalet barnfamiljer med familjemedlemmar som är under 8 år gamla ligger kring riksgenomsnittet. En stor andel av gruppen utgörs av pigga pensionärer som ofta lever i parförhållanden. <br><br>De allra flesta i gruppen bor i äldre bostadshus och man äger sitt eget boende. Vissa bedriver någon form av jordbruk och har djur eller är skogsägare. Andra uppskattar framförallt de gröna vidderna, lugnet som infinner sig när det är långt till närmaste granne och de billigare huspriserna. Gemensamt för dem alla är att man bor på landsbygden istället för i mer tätbebyggda områden, vilket till stor del speglar gruppens intressen. <br><br><b>Kommunicera med gruppen:</b><br>Den primära källan till information för gruppen Livet på landet utgörs inte av de större nationella dagstidningarna. Istället är det till viss del de regionala dagstidningarna man läser och framförallt veckomagasin som många prenumererar på jämfört med resten av Sverige. Många i gruppen uppger att de regelbundet läser tidningen Land, ATL-Lantbrukarens Affärstidning, tidningen Skogen, samt olika magasin för jakt och fiske. Många av dem föredrar brevlådan som reklamkanal före annonser på Internet.<br><br>Det som särskiljer Livet på landet jämfört med resten av Sverige är just deras bostadssituation, närheten till naturen och de öppna vidderna. Ett besök i närliggande städers köpcentrum kräver ofta specifika ärenden för att vara lockande. Många uppger att de gärna undviker storstaden och allra helst gör aktiviteter kopplade till hemmet. Dock står hus, djur, trädgård och motorsport ofta högt på intresselistan, vilket märks när man listar butiker man ofta besöker. Förutom matinköp spenderas pengar på någon av favoritbutikerna kopplat till handelsträdgårdar och byggvaruhus, vilket gör gruppen mottaglig för kommunikation från dessa typer av butiker.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "D Guldkant i tillvaron":
+ansvar = "Dialogenheten";
+beskrivningen = "Guldkant i tillvaron består till viss del av barnfamiljer men i många fall har barnen redan flugit ut. Det som knyter dem samman är den mycket goda ekonomin. Inkomsterna i gruppen tillhör de absolut högsta i Sverige. En stor del av de vuxna familjemedlemmarna befinner sig i åldrarna 35-50 år och njuter av tillvaron i sina större hus i attraktiva områden. Med år av utbildning bakom sig har man nu en ny typ av vardag, med ett arbete som ger god inkomst och ett familjeliv där yngsta barnet ofta är under 8 år gammal. Utbildningsnivån hör till den högsta i landet och ofta finner vi dem bosatta på Sveriges mest populära villaadresser i direkt närhet till landets största städer. <br><br>Närheten till vattnet gör sig ofta påmint i gruppens intressen där flertalet av dem uppger segling som ett stort intresse. Andra sporter som utförsåkning är även det något man gärna sysslar med. Gruppen Guldkant i tillvaron är en mycket aktiv och köpstark grupp som gärna lägger pengar både på produkter till sig själva och till hemmet, samt har en livsstil som innebär mycket resor och en aktiv vardag. Trygghet och säkerhet är något man prioriterar, varför flera är intresserade av larm till hemmet. <br><br><b>Kommunicera med gruppen: </b><br>Guldkant i tillvaron är välorienterade med ett stort intresse för omvärlden. Ofta prenumererar man på flera olika dagstidningar som Dagens Nyheter och Svenska Dagbladet, man håller sig gärna uppdaterad på vad som sker inom affärsvärlden, dagens ekonominyheter samt aktiekurser. En välinformerad konsument kan också vara en krävande konsument, där höga krav ställs på både nyheter och annan kommunikation i marknadsföringssyfte. Tid är en bristvara och alla typer av aktiviteter ska kännas givande att investera både tid och energi i. Vanligen är man lika intresserad av reklam i brevlådan som man är av annonsering på internet. <br><br>I gruppen finns många barn vilket avspeglas i de TV-kanaler familjen ofta tittar på, där SVT:s Barnkanalen och Disney Channel är överrepresenterade. Guldkant i tillvaron är vana internetanvändare och använder webben för aktiviteter både på jobbet och på fritiden. Största delen av tiden online spenderas på sociala nätverk eller på musiktjänster. Att handla via internet är också populärt, vilket ses både som tidssparande och som en möjlighet till ett större utbud med fler varumärken än vad fysiska butiker kan erbjuda. Fysiska butiker som gärna besöks av gruppen är Polarn o Pyret och varuhus som NK, PUB och byggvaruhus av olika slag. Man lägger ofta och gärna pengar på livsmedel, barnkläder, hus och trädgård. Guldkant i tillvaron läser ofta favoritbutikernas medlemstidningar, vilket blir en effektiv kanal för att kommunicera med gruppen. Många av dem uppger sig vara regelbundna läsare av medlemstidningar som exempelvis IKEA Family Living, ICA:s Buffé och Stadium Magazine.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "E Allmännyttan":
+ansvar = "Dialogenheten";
+beskrivningen = "Gruppen Allmännyttan utgörs främst av människor i åldrarna 20-40 år som är bosatta i Sveriges medelstora städer och i förorter till de större städerna. Dessa områden är ofta multikulturella och har en betydligt högre andel som identifierar sig som invandrare än andra grupper. Områdena har ofta mycket hög befolkningstäthet och de flesta bor i hyresrätter i flerbostadshus. Byggstarten på lägenheterna skedde oftast någon gång under 50-70-talet, och en stor andel av lägenheterna som byggdes inom ramen för det så kallade miljonprogrammet finns i dessa områden. <br><br>Många i gruppen lever i ensamhushåll, men här finns även de som lever som ensamstående föräldrar och i andra familjekonstellationer, med barn i varierande åldrar. Här blandas ofta olika kulturer med varandra och många är födda i länder utanför Sverige eller har föräldrar som någon gång flyttat hit. Inkomsterna hör inte till landets högre och det är en grupp som ofta präglas av hög social samvaro med människor i sin närhet. Man har tid och energi över till annat än arbetet. Att konsumera är något som får göras med eftertanke då ekonomin ofta är begränsad och ska räcka till livets alla förnödenheter. Ofta ses just inkomst som en statusmarkör i gruppen där många uppger att en hög inkomst visar att man är lyckad och framgångsrik. Fritidsaktiviteter behöver dock inte vara något som kostar pengar där social gemenskap med vänner och familj är viktiga och betydelsefulla inslag i vardagen. En stor del framhåller också sin religiösa tro som viktig och de går gärna på gudstjänster eller andra sammankomster med likasinnade. <br><br><b>Kommunicera med gruppen: </b><br>Allmännyttan hämtar framförallt sin information från TV och internet. Att prenumerera på dagstidningar ses som onödig lyx. Dock är gratistidningen Metro ett bra alternativ eftersom man ofta reser med kollektivtrafik. Många kollar gärna på TV och stora delar uppger att man spenderar en hel del tid på kanaler som TV8, Kanal 5, MTV eller Comedy Central för underhållning. Vanan i att använda internet ligger kring riksgenomsnittet, där det hämtas både information från resten av världen så väl som det ger en möjlighet att hålla kontakt med människor. Många i gruppen Allmännyttan använder internet för att chatta, blogga, använda sociala nätverk, lyssna på musik, samt se på webb-TV och YouTube-klipp. Internet är därmed en populär källa till information och tidsfördriv samt en effektiv kanal för att kommunicera med gruppen.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "F Välbeställd våning":
+ansvar = "Dialogenheten";
+beskrivningen = "Som namnet antyder är det här en grupp människor med mycket god ekonomi. Flertalet bor i större bostadsrätter, framförallt i Stockholm med omnejd. Alla åldrar finns representerade en stor del är mellan 25-40 år och bor i ensamhushåll. Vi kan även se att det finnas en större del pensionärer med utflugna barn som nu vill nyttja vad staden har att erbjuda. <br><br>Utbildningsnivån inom gruppen tillhör den allra högsta i landet där de flesta har flera år med högre utbildning bakom sig på landets universitet och högskolor. Full fart och aktivitet kännetecknar gruppen, vare sig det handlar om effektivitet på arbetet eller på sin fritid. Många eftersträvar att leva hälsosamt, så att träna och äta sunt är något som prioriteras, dock intas många av måltiderna ute på restauranger istället för att lagas till i hemmet. <br><br>Välbeställd i våning är en köpstark grupp som ofta lägger pengar på caféer, restauranger, kläder och heminredning. När man handlar livsmedel lägger man gärna ned extra pengar på varor som kommer från etiska företag samt är ekologiska och rättvisemärkta. Att man har pengar över märks på gruppens resvanor då man reser ofta och mycket, både innanför och utanför Europas gränser. <br><br><b>Kommunicera med gruppen: </b><br>Omvärldsbevakningen ligger ofta på topp inom gruppen Välbeställd i våning. Att hålla sig uppdaterad på nyhetsfronten med hjälp av de stora morgontidningarna, samt med hjälp av internet i både datorn, surfplattan och den smarta telefonen anses som en självklarhet. Att se på TV är inte något som prioriteras, men när det händer tittar man gärna på webb-TV som passar ens egen agenda istället för att följa tablåernas utbud. Man vill gärna se sig själv som en mycket medveten världsmedborgare som är intresserad av samhälle och politik långt utanför den lokala miljön. Ofta är gruppen Välbeställd i våning flitiga bidragsgivare till föreningar som Amnesty, Greenpeace och Rädda Barnen. <br><br>Flertalet i gruppen är medlemmar i SATS eller Friskis & Svettis, och träningskedjornas medlemstidningar är något som flera uppger att de läser regelbundet. Att kommunicera med gruppen Välbeställd i våning sker allra helst online, men även genom magasin man prenumererar på. Ett bra exempel är tidningen Filter, vars prenumeranter finns tydligt överrepresenterade inom Välbeställd i våning jämfört med resten av Sverige.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "G Seniorer":
+ansvar = "Dialogenheten";
+beskrivningen = "Seniorer är en grupp sammansatt av många olika typer av människor. De bor i olika delar av landet, i bostadsrätter, i hyresrätter, i hus och på olika typer av vårdhem. Åsikter, bostadssituation och vart man befinner sig i livet skiljer dem åt. Det de har gemensamt är deras ålder där de flesta befinner sig i pensionsåldern och uppåt med en stor samling livserfarenheter. Deras inkomster består framförallt av pensionen, en anledning till att inkomsten ofta ligger lite under riksgenomsnittet. Konsumtionsmönstret har självklart förändrats med både tid och ålder. Det är fortfarande mat som prioriteras i konsumtionen, men inte i lika mycket stor utsträckning som tidigare. Man är ofta beredd att leta lite längre efter det billigaste priset och utnyttjar rabatter och andra erbjudanden. Många i gruppen gillar att fixa och dona i hus och hem så som att baka någonting och man går gärna till den lokala blomsterhandlaren. <br><br>De flesta i gruppen Seniorer uppskattar traditioner och det närområdet har att erbjuda. När man reser görs det oftast i form av seniorresor och bussresor inom Sveriges gränser eller vid enstaka tillfälle med buss ut i Europa. Stora delar i gruppen Seniorer är aktiva och lever ett liv med stort socialt skyddsnät i form av vänner och familj. Till intressen listas ofta vitt skilda saker som att gå på café, sjunga i kör, kolla på sport, baka och att lösa korsord. Många framhåller sin religiösa tro som speciellt viktig i deras dagliga liv. <br><br><b>Kommunicera med gruppen: </b><br>Gruppen Seniorer läser gärna och mycket och prenumererar ofta på flera olika månadsmagasin vars innehåll man finner intressant. Svensk Damtidning, Allers, Året runt, Antik & Auktion samt Hemmets Journal tillhör alla favoriterna. Även medlemstidningarna Veteranen och PRO Pensionären läses av flertalet. Många Seniorer är aktiva på internet, både för att hämta information av olika slag och som medlemmar i något socialt nätverk. Dock ligger användarfrekvensen långt under genomsnitt i Sverige. För att kommunicera med gruppen Seniorer är det främst tidningar och månadsmagasin som är bra kanaler och som fungerar som källa till inspiration och information. Stora delar av gruppen uppger sig vara mycket intresserade av reklam i brevlådan. Även TV är ett medium som gärna används av gruppen. Det är stor variation mellan de kanaler man helst tittar på, men till favoriterna hör SVT, TV4, Kunskapskanalen och TV4 Sport. De dagstidningar man föredrar att läsa ska helst ha en regional anknytning. Det som sker i lokalsamhället är trots allt det som är allra mest intressant och relevant för gruppen.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "H Unga på väg":
+ansvar = "Dialogenheten";
+beskrivningen = "Unga på väg är en ung och föränderlig målgrupp. Här möts unga vuxna från hela landet som studerar, arbetar och kanske bor själva för första gången. Man hittar dem framförallt i städer med välkända lärosäten som Lund, Umeå, Linköping och Uppsala, men även i Sveriges större städer som Göteborg och Malmö. Gruppen råder inte över några större personliga förmögenheter, men vad gör väl det. Ofta studerar man istället eller har nått Den första milstolpen med ett meriterande arbete. De flesta har stora planer inför framtiden och en blivande karriär är något som prioriteras. När man umgås med vänner gör man det gärna på café, konserter eller på krogen. Resor görs i varierande grad i gruppen. Hos vissa finns varken tiden eller ekonomin att göra några längre resor medan andra gärna tar en weekend till någon storstad. Tåg och buss inom Sverige är däremot de vanligaste resorna man företar sig. <br><br><b>Kommunicera med gruppen: <b/><br>Hela gruppen Unga på väg är några av Sveriges allra flitigaste internetanvändare. Man använder webben som källa för information, tidsfördriv och underhållning. Framförallt är det sociala nätverk, musik, TV, radio och film man lägger mycket tid på. Få i gruppen Unga på väg prenumererar på morgontidningar, något fler i typen Första milstolpen än i typen Studentliv, men gemensamt för de båda typerna är dock att man i fysisk form ofta läser gratistidningar som Metro och Nöjesguiden än Dagens Nyheter och Svenska Dagbladet. Många ligger i framkant och provar saker före alla andra. Det gäller även för de sociala nätverk man är användare av och de webbplatser man besöker. En kommunikationskanal att föredra är således internet generellt. Många i gruppen Unga på väg får också hem medlemstidningar kopplade till studielivet så som exempelvis Civilekonomen, Jusek och Ingenjören.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "I Storstadsliv":
+ansvar = "Dialogenheten";
+beskrivningen = "Gruppen Storstadsliv bor i både hyresrätter och bostadsrätter. Familjesituationerna är av blandad art där barnfamiljer, par och singlar finns alla representerade. Alla bor de vanligen i Sveriges större städer, med ett invånarantal som ligger över 70 000. Till skillnad från gruppen Välbeställd i våning bor betydligt fler i gruppen Storstadsliv i hyresrätter och man bor heller inte på de allra dyraste adresserna. Inkomsten ligger vanligen på snittet jämfört med resten av Sverige eller något över. Gruppen Storstadsliv kan variera mycket i både intressen och livsstil, då åldrar och livssituationer skiljer sig åt mellan de olika typerna. Gemensamma intressen som gärna framhålls av gruppen är speglat av stadens stora utbud, där många gillar att äta ute på restauranger, umgås på barer, shoppa och träna på gym. Att bo nära stadens butiker och caféer utnyttjas gärna. <br><br><b>Kommunicera med gruppen: </b><br>De morgontidningar som Storstadsliv föredrar att prenumerera på är de med lokal anknytning. Beroende på vart i landet man bor är det exempelvis Sydsvenskan eller Göteborgsposten som föredras. Många tycker om att läsa både morgontidningar och magasin. Vilka som är favoriterna skiljer sig dock åt, vilket inte är så konstigt då de samtidigt speglar de olika typernas intressen. <br><br>Gemensamt för hela gruppen är deras närvaro på webben. Användandet av internet ligger vanligen högt över genomsnittet i Sverige och många i gruppen Storstadsliv är aktiva på olika sociala nätverk. Man kollar gärna på TV och YouTube-klipp på nätet eller så lyssnar man på musik och radio. De som föredrar vanlig TV kollar ofta på filmkanaler och betalkanaler av olika slag, men även sport på TV är något som uppskattas av många.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "J Lägenhet i mindre stad":
+ansvar = "Dialogenheten";
+beskrivningen = "Gruppen Lägenhet i mindre stad bor vanligen i de städer i Sverige som har färre än 70 000 invånare. Precis som invånare i större städer uppskattar man här att besöka restauranger, caféer och att shoppa. Dock kanske shoppingen hellre görs på ett köpcentrum än på närmaste shoppinggata. Ekonomin är ofta begränsad, vilket gör att shopping ses som ett lyxigt inslag i vardagen. Maten handlar man gärna på Netto, Willys eller andra stormarknader. Att besöka sportevenemang, se på TV eller spela TV- och dataspel är andra intressen som framhålls av gruppen. Precis som invånarna i gruppen Storstadsliv finns här alla familjekonstellationer representerade i form av singlar och familjer med eller utan barn. Oftast bor man i hyresrätter och har en inkomst som ligger något under genomsnittet i Sverige. Många av invånarna i gruppen har fått sin utbildning på yrkesgymnasium och befinner sig nu mitt i arbetslivet. <br><br><b>Kommunicera med gruppen: </b><br>Lägenhet i mindre stad bryr sig främst om lokalsamhället och information hämtas från de lokala morgontidningarna snarare än de rikstäckande tidningarna. I gruppen är även tidningar som Hem & Hyra, Allers och Buffé populära. Att använda TV:n som informationskälla är betydligt vanligare och den är en ypperlig kommunikationskanal för att nå gruppen. Framförallt är kanalerna TV3, TV4, Kanal 5 och sportkanalerna överrepresenterade. <br><br>Internetanvändandet i gruppen Lägenhet i mindre stad ligger generellt på riksgenomsnittet, och man spenderar gärna mycket tid på sociala nätverk och YouTube. Sammanfattningsvis så kommunicerar man bäst med gruppen Lägenhet i mindre stad via TV, lokala tidningar och i viss mån genom internet.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "A1 Första parkett":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Geodemografi</b><br> Första parkett utgörs främst av familjer, både med och utan barn, samt av par i medelåldern. Många av de vuxna har vidareutbildat sig på universitet och högskola först, för att därefter skaffa familj och arbeten med god inkomst. Detta är en av anledningarna till att flertalet har en angenäm tillvaro. <br><br> Gemensamt för människorna i typen är den goda ekonomin. Jämfört med de andra typerna inom grupp A är det här man ofta har mest pengar över i slutet av månaden och man har ett rikt överskott i vardagen. Det finns gott om utrymme för aktiviteter som kräver kapital. <br><br> Familjerna bor typiskt sett i hus byggda på 70- och 80-talet och man finner dem på olika platser i landet, ofta i närheten av stora och medelstora svenska städer. <br><br> <b>Livsstil och åsikter</b><br> Efter en lång dag på jobbet samlas familjen för en gemensam måltid runt middagsbordet eller så väljer man att äta framför TV:n. Nu börjar ju faktiskt det där programmet som hela familjen gillar att titta på. Att se på TV är ett uppskattat inslag i vardagen och något familjen gärna lägger tid på, särskilt på TV4 och SVT:s utbud. <br><br> Gör-det-själv-aktiviteter är något som hushållets medlemmar värdesätter högt. På det lokala byggvaruhuset hälsar man glatt när familjen återigen dyker upp. Man är en trofast kund och har ständigt ett nytt byggprojekt på gång i hemmet som innefattar att snickra, måla, bygga om eller renovera. Flera av landets byggvaruhus hamnar i topp när de mest populära och mest frekvent besökta butikerna listas. Många uppskattar att arbeta i trädgården och är även stamgäster hos den lokala blomsterhandlaren. <br><br> På helgerna fixas och donas det i hemmet eller så besöker man gärna sportevenemang av olika slag. Sportresultaten följer man även i den morgontidning man prenumererar på. Flertalet av hushållen i typen Första parkett får hem pappersvarianten av någon stor nationell morgontidning, eller så prenumererar man på de mer lokala alternativen, som exempelvis GP eller Sydsvenskan. De flesta hushållen läser även medlemsmagasin som Vi i Villa och mataffärernas Mer Smak eller Buffé. <br><br>Tidningarna får gärna innehålla även restips. Första parkett drömmer ständigt om och planerar nästa års semester. Gärna en skidresa, en weekend i Europa eller en vecka med sol och bad.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "A2 Aktiva barnfamiljer":
+ansvar = "Dialogenheten";
+beskrivningen = "<b>Geodemografi</b><br> Aktiva barnfamiljer utgörs primärt av vuxna i åldrarna 35 till 50 år, där större delen av hushållen har barn i varierande åldrar. Precis som i typen Första parkett har man här råd till aktiviteter och nöjen när räkningarna är betalda. Den största skillnaden är det större antalet barn som finns i typen Aktiva barnfamiljer. En del har valt att läsa en eftergymnasial utbildning medan andra läst yrkesinriktad eller teoretisk gymnasieutbildning. Dock är inkomsten för flertalet högre än riksgenomsnittet. Man äger sitt boende och kan lita på en hög, månatlig inkomst. Den typiska familjen äger sin villa som är byggd på 70- eller 80-talet och vi finner dem ofta i direkt närhet till Sveriges större städer. <br><br> <b>Livsstil och åsikter</b><br> Det är lördagsmorgon och familjen vaknar upp. Barnkanalen sätts på åt familjens yngre medlemmar innan frukosten serveras. På matbordet väntar dagens utgåva av den regionala morgontidningen. Idag är det storhandel som står på schemat. Varje lördag åker nämligen hela familjen till stormarknaden och handlar förnödenheter inför den kommande veckan. Familjen är storkonsumenter vad gäller mat, och mycket tid och pengar spenderas på större matvarubutiker som Citygross och ICA Maxi. Man planerar gärna sina inköp för att endast behöva kompletteringshandla på vardagarna. Under arbetsveckan är det svårt nog att få tiden att räcka till. Förutom förskola, skola och arbete ska även fritidsaktiviteter hinnas med. Ofta är barnen medlemmar i olika föreningar vilket gör hela familjen involverad i föreningsverksamheter.  <br><br>Ett besök på byggmarknaden hinns också med. Denna vecka är det äldsta sonen som tröttnat på sitt rum och vill ha en förändring. Man passar även på att handla lite nyheter inför våren och uteplatsen som ska ställas i ordning. <br><br>Väl hemma igen börjar det bli dags för lördagsmiddag. Familjen är gästvänlig och bjuder gärna in både grannar och vänner med barn för gemenskap och umgänge. TV:n är gärna påslagen i bakgrunden och på fredagar och lördagar är det gott om program som hela familjen följer. <br><br>Att resa med barn kan vara utmanande. Det är dock inget som hindrar den aktiva barnfamiljen som både har lust och råd att åka på semester utomlands. Den årliga resan får gärna vara en barnvänlig charter med sol och bad och man undviker att åka tillbaka till samma ställe två gånger utan vill istället se och uppleva något nytt för varje gång. Många uppger att de är intresserade av All Inclusive-paket.";
+uppdatering = "Sommar 2016";
+dbsource = "PostGIS - conzoom";
+dbnamn = "conzoom_radata_grupp";
+gisansvar  = "Raymond Timlin";
+link = "https://komin.malmo.se/Forvaltningar/Gatukontoret/Stod--service-pa-gk/WebGIS.html";
+break;
+case "A3 Köpstarka seniorer":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Köpstarka seniorer utgörs i första hand av lite äldre par utan hemmaboende barn. Åldersmässigt sett är de vanligtvis relativt nyblivna pensionärer. <br><br>Att man har det gott ställt och pengar över till konsumtion kan delvis förklaras av att man äger sitt eget boende. Ofta har man en hög kapitalvinst kopplad till bostaden och eventuell pension som utbetalas är högre än riksgenomsnittet. Vissa är även yrkesverksamma och har därmed fortfarande en månadslön. <br><br>Köpstarka seniorer finner vi i större delen av Sverige, vanligen i närheten av små och medelstora städer. Ofta bor de i villor byggda på 50- 70- eller 80-talet. <br><br><b>Livsstil och åsikter</b><br>Söndagssteken är i ugnen. Mannen i huset läser sportbilagan i dagens morgontidning och frun är i färd med att plantera om rabatten på framsidan som precis blivit frostfri efter den långa vintern. På soffbordet ligger senaste numren av tidningarna PRO Pensionären, Veteranen, Året Runt och Allers. Det är magasin man prenumererar på men ännu inte hunnit läsa igenom. <br><br>Tidigare i veckan har årets första omgång med vårlökar inhandlats och nu är det äntligen dags för plantering. Att arbeta i hem och trädgård är ett intresse som delas av båda och man lägger gärna ned mycket tid och pengar på sin trädgård. <br><br>Köpstarka seniorer är ofta stamkunder hos de handelsträdgårdar som finns i deras närhet som exempelvis Blomsterlandet eller Plantagen. Plantor och växter köps hem och trädgården är generellt ett välskött smycke för gatan. Enligt gammal vana är det inte särskilt många nyheter som införskaffats i årets första uppsättning med lökar. Trygghet och tradition är något som uppskattas i många olika former, inklusive när det gäller vad man väljer att sätta i rabatten. Många i gruppen säger just att de generellt sett är nöjda med tillvaron och vill förändra så lite som möjligt. <br><br>Traditionsenligt kommer också ett av de utflugna barnen med sin nya familj hem till veckans söndagsmiddag. Ett vanligt samtalsämne, när det inte handlar om sport eller barnbarnens förehavanden, är resor. Köpstarka seniorer reser både med bil och buss och gärna på sol- och badresor. Många gillar även att campa inom Sveriges gränser på sin fritid.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "A4 Trygghet i hemmet":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Trygghet i hemmet består primärt av familjer både med och utan barn. De vuxna är ofta i åldrarna 35-60 år. Eventuella hemmaboende barn är vanligen lite äldre, ofta över 15 år. Jämfört med de övriga typerna i gruppen Villaägare med marginal är det fler i typen Trygghet i hemmet som fått sin utbildning på yrkesgymnasium. Ofta bor man i eller i närheten av Sveriges små och medelstora städer. <br><br><b>Livsstil och åsikter</b><br>I familjen, som består av två föräldrar och två barn i tonåren, är det full fart. Läxor att plugga på inför matteprovet. Fotbollsträning och kvällsmat ska hinnas med under eftermiddagens och kvällens knappa timmar och samtidigt är det dags att planera sommarens semester. Kanske är det sista sommaren man får med båda barnen på den årliga campingresan inom Sverige? Det vore tråkigt men kanske oundvikligt att bryta den fina traditionen. Ett alternativ är förstås att åka på charter istället. En solsemester inom Europas gränser kanske uppskattas mer av en tonåring? <br><br>Den årliga semesterresan är inget man vill missa. Dock trivs Trygghet i hemmet bra hemma i sin villa, då flera av deras intressen handlar om just hus, hem och trädgård. När man besöker butiker prioriteras ofta bygg- och trädgårdshandlare, där Blomsterlandet och Byggmax är favoritbutiker. Man lägger också en hel del pengar på sport där framförallt fotboll och motorsport prioriteras. En vända till spelbutiken är också viktig då många tycker om att spela på hästar, fotboll och Lotto. <br><br>Trygghet i hemmet bryr sig mest om lokalsamhället och vad som händer där man bor. Grannsämja och tradition är viktigt. Man prenumererar gärna på den lokala dagstidningen i form av exempelvis Sydsvenskan, men läser även medlemstidningar som Buffé, Kommunalarbetaren, Vi i Villa och Villaägaren när de dyker upp i brevlådan. <br><br>Som vanligt avslutas dagen med att hela familjen samlas i TV-soffan. Trygghet i hemmet följer gärna populära TV-serier eller tittar på sport och den här familjen är inget undantag. Man tittar gärna på TV och inte sällan blir det program på TV4 eller en film på någon av filmkanalerna. En fin tradition som gärna får finnas kvar länge framöver, i alla fall enligt föräldrarna.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "B1 – Yrkesstolthet":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Yrkesstolthet består primärt av vuxna i åldrarna 40 till 60 år, med utflugna barn eller äldre barn som fortfarande bor hemma. Karaktäristiskt för gruppen är att man ofta bor i äldre hus runt om i Sverige, ofta i direkt närhet av lite mindre städer och samhällen. De flesta har inte tagit högre examen än grundskola, men många har dock gått på olika typer av yrkesgymnasium och på så vis lärt sig sitt yrke. En del har även en examen på eftergymnasial nivå. <br><br>Ofta äger man sin egen bostad och inkomstnivån för typen Yrkesstolthet ligger enligt genomsnitt jämfört med resten av landet. <br><br><b>Livsstil och åsikter</b><br>De utflugna barnen har precis varit på besök i barndomshemmet och tillsammans har man ätit en stor omgång traditionell husmanskost. Maten är ofta inhandlad på någon av stadens större stormarknader så som Netto eller Willys, där man vet att det är bra och billiga priser. För att kompletteringshandla besöker man gärna någon av närbutikerna, såsom Coop Nära eller ICA Nära. Det allra bästa är om matbutiken ligger i samma område som butikerna Jysk och Jula, där man är en flitig besökare. <br><br>Efter den goda måltiden avslutar man gärna kvällen framför TV:n där man helst av allt kollar på sport, gärna motorsport, eller en film på någon av filmkanalerna. Många prenumererar på den lokala dagstidningen men det är framförallt magasin som Hemmets journal, Hemmets veckotidning, Kommunalarbetaren, Se & Hör och Hänt Extra som lockar en kväll som denna. <br><br>Generellt är Yrkesstolthet mer intresserad av lokalsamhället än av samhället i stort. Man har det bra där man är och undviker gärna storstaden i så stor mån som möjligt. På sin fritid mekar man med bilen, håller på med sportfiske och pysslar i hemmet, snarare än reser bort någonstans. <br><br>Om man frågar Yrkesstolthet vad deras politiska åsikter är, framhäver man gärna sitt intresse och engagemang för lokalsamhället. Många röstar på Socialdemokraterna, men flera partier finns representerade bland väljarna.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "B2 – Fredagsmysarna":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I typen Fredagsmysarna är barnfamiljer överrepresenterade. Ofta är man bosatt i Sveriges lite mindre städer och samhällen eller i direkt närhet av dessa. Vanligen äger man sitt eget boende. Många vuxna i denna typ har gått på olika sorters yrkesgymnasium och har en inkomst som vanligen ligger på riksgenomsnittet. <br><br><b>Livsstil och åsikter</b><br>Det är fredagskväll och hela familjen har längtat efter denna stund i soffan tillsammans. Soffbordet är fullt av godsaker. Tur att familjen hann storhandla innan helgen slog till! Sin vana trogen har man besökt någon av favoritbutikerna Netto, Citygross eller Ica Maxi och familjen tycker att alla har bra och billiga priser, för att inte tala om lukrativa extraerbjudanden när helgen närmar sig. Oavsett vad man handlar vill familjerna i typen Fredagsmysarna gärna känna att de gör ett fynd. Ofta anpassar man sin shopping efter dagens extraerbjudanden och rabatter. <br><br>När man ändå är på besök i staden passar man på att besöka de närliggande butikerna i storcentret, framförallt Jysk och Överskottsbolaget. Mamma tar med barnen och går in en sväng på Cubus och KappAhl och under tiden besöker pappa spelbutiken och lämnar in veckans tipsrad. <br><br>Nu är det kväll och fritiden spenderar familjen i hemmet tillsammans i soffan. Man finner gemenskap framför TV:n och det är ett uppskattat sätt att umgås på. Favoritkanalerna är väldigt blandade där man förutom TV4 och SVT tittar på betalkanaler som Disney Channel, TV4 Film. När familjen listar sina favoritprogram blir det gärna spelprogram och frågesport som Bingolotto och Postkodlotteriet, en underhållning som passar hela familjen. Senare under helgen, när långfrukosten är avklarad i sällskap med morgontidningen eller senaste numret av tidningarna Året Runt, Se & Hör eller Allers, gör man helst aktiviteter kopplade till hemmet. Om vädret tillåter får det gärna bli lite pyssel i trädgården. Man fixar och donar i hemmet och passar på att meka lite med bilen.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "B3 – Allsång och tradition":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Allsång och tradition utgörs primärt av äldre medelålders par, samt de som gott och väl trätt in i pensionsåldern. Främst är det par som inte har några egna barn eller de vars barn har flyttat hemifrån. Man har helt enkelt bra med plats hemma i villan. <br><br>Efter ett långt och yrkesverksamt liv är nu många av dem på väg mot pensionsåldern eller befinner sig redan där. De allra flesta har gått ut grundskolan eller gått yrkesgymnasium, snarare än att läst högre utbildningar. Inkomsten består nu framförallt av pension och kan sägas vara genomsnittlig jämfört med resten av landet. Ofta byggdes villan de bor i under 50- till 70-talet och de finns spridda över landet, vanligen i mindre städer och samhällen. <br><br><b>Livsstil och åsikter</b><br>Morgonen har blivit förmiddag och ett behagligt lugn råder i köket. I bakgrunden hörs radion och köksbordet är fyllt av månadens skörd av medlemstidningar som PRO Pensionären, Allers, Hemmets Journal, Hemmets Veckotidning men även den regionala morgontidningen. Förutom tips och råd om hem och trädgård är man gärna ute efter korsord och baktips. Att lösa korsord är både underhållande och avslappnande och tid för att baka finns det alltid. Särskilt ikväll när det som vanligt väntas besök av närmaste grannarna för lite fika och gemenskap. Kanske kan man till och med få dem intresserade av att följa med på den där trevliga bussresan man precis läst om? <br><br>Innan besöket ska ärenden uträttas, men var sak har sin tid och man har inget behov av att stressa. Man undviker gärna storstaden och gör så många ärenden som möjligt på en och samma gång. Tur att det finns köpcentrum där favoritbutikerna ligger samlade. <br><br>Förutom att handla mat på Netto ska man passa på att besöka spelbutiken, Jysk, Jula, Biltema och den lokala blomsterhandlaren. Idag ska man även till banken och tala med sin privata banktjänsteman. Räkningar ska betalas och det är skönt att känna att man har kontroll över den privata ekonomin med hjälp av bankens expertis. Man uppskattar den personliga servicen och skulle aldrig komma på tanken att skaffa sig en sådan där internetbank. <br><br>Efter några timmar på stan längtar man hem igen till hemmets trygga vrå. Den här typen trivs bäst med att pyssla och dona i hemmet och man reser inte särskilt mycket jämfört med resten av Sveriges befolkning. Intressen innefattar istället hem, trädgård, jakt och korsord. Tradition och trygghet är två saker man värdesätter. Det gäller både när man på valdagen röstar på Kristdemokraterna, Socialdemokraterna eller Moderaterna, eller när man som vanligt tar en kaffe med dopp på eftermiddagen.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "C1 – Gårdar och gods":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Gårdar och gods utgörs primärt av äldre par utan hemmaboende barn, men det finns även en hel del barnfamiljer. Gemensamt för typen är kärleken till livet på landet och de höga inkomsterna. Generellt sett ligger inkomsten över genomsnittet i landet och man har gott om pengar att röra sig med. Gårdar och gods finner man spridda över större delen av Sveriges landsbygd, vanligen i närheten av kusten eller Sveriges större städer. De flesta människor i Gårdar och gods har en yrkesinriktad gymnasieutbildning. Man har kanske läst en gymnasieinriktning för att kunna sköta om sin skog, mark eller gård och sedan samlat på sig en del praktiska kunskaper. <br><br><b>Livsstil och åsikter</b><br>Familjen är precis hemkommen efter ett besök på det lokala byggvaruhuset där man ofta handlar. Nästa projekt är en ny uteplats, därför har besöket kombinerats med ett stopp på handelsträdgården. Dessutom passade man på att göra den stora veckohandeln på Coop Forum, det är ju så sällan man är inne i staden. <br><br>Medan föräldrarna bär in både byggmaterial, blommor och mat till huset passar de äldre barnen på att meka med sin motocross i garaget. Motorsport är något som intresserar hela familjen. Tillsammans med jakt, ridning och att meka med bilen är faktiskt motorsport familjens största intresse. Att fixa med hus, hem och trädgård är alla saker man gärna lägger ned mycket tid och energi på, men ses som ett vanligt inslag i vardagen snarare än en hobby eller ett intresse. <br><br>Frågar man om familjens värderingar och politiska ståndpunkt får man ofta till svar att man är mycket nöjd med sitt liv, man vill förändra så lite som möjligt och man bryr sig mest om lokalsamhället. Det är sällan man prenumererar på någon av de rikstäckande dagstidningarna men man får ofta hem medlemsmagasin som mer speglar ens intressen: tidningarna Lantbruk, Land, ATL – Lantbrukarens Affärstidning, Svensk Jakt och Hundsport. När det är dags för politiska val i Sverige hamnar rösten oftast på Centerpartiet, Kristdemokraterna eller Moderaterna. <br><br>När strukturen för uteplatsen börjar ta form är det dags för kvällen. Tittar man på TV är det helst SVT eller någon betalkanal som gäller, men man kan lika gärna koppla av med läsning eller kanske genom att baka något. Far i huset ska bara ta svängen förbi garaget först. Ofta blir det sena kvällar innan hela familjen slagit sig till ro.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "C2 – Lantbruk och landskap":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I typen Lantbruk och landskap finner vi främst människor över 40 år där många redan uppnått pensionsålder. De lever i äktenskap, men det finns även en del ensamstående. Om barn finns i huset är de ofta lite äldre men i de flesta fall är barnen redan utflugna. Inom typen Lantbruk och landskap arbetar man inom lantbruk och driver ett aktivt sådant med en genomsnittlig inkomst eller i vissa fall lite högre jämfört med resten av Sveriges befolkning. Många människor från denna typ bor i gårdar eller villor från 30- och 50-talen. <br><br><b>Livsstil och åsikter</b><br>Man trivs som allra bäst hemma på sin egen gård och undviker storstaden i den mån det är möjligt. Lantbruk och landskap bryr sig mest om lokalsamhället. Det är viktigt med traditioner och därför inget konstigt att en del fortfarande anser att kvinnan bör ha huvudansvar för hem och familj. <br><br>Många säger sig ha svårt att få tiden att räcka till, därför är det skönt när det äntligen är helg. Nu har man tid för sin favoritsysselsättning som jakt, ridning eller att pyssla i hemmet. Religion är en viktig del av livet och man vill gärna hinna med en gudstjänst under helgen. På vardagskvällar är det inte mycket som hinns med, då man istället landar framför TV:n efter en lång arbetsdag. Människor ur denna typ arbetar mest i Sverige och många uppger att deras arbetsvecka överstiger 47 timmar. När man hinner med TV-tittande är det ofta SVT, TV4 eller inspelade program som gäller. <br><br>Denna typ reser mindre än riksgenomsnittet, men när man väl reser är det kultur, storstäder eller sol och bad som gäller. Den svenska sommaren är oftast bra och man tycker att det är gott nog med en bilresa genom Sverige. Det viktigaste med semester är ju faktiskt att koppla av. <br><br>Coop Nära och ICA Nära har det mesta man behöver i matväg och det är ofta där man kompletteringshandlar saker som missats eller tagit slut sedan man storhandlade på ICA Maxi i början av veckan. Det händer även att man passar på att klara av inköp på bensinstationen medan man tankar bilen. De butiker som besöks regelbundet för inköp av byggmaterial och andra tillbehör är Granngården, Colorama, Järnia, XL-bygg då det alltid finns projekt hemma på gården och det går åt en hel del material. <br><br>Lantbruk och landskap tycker om att ha personlig kontakt med sin bankman och tar sig gärna in till den närmsta orten för att uträtta sina bankärenden en eller ett par gånger i månaden. <br><br>Tidningarna man vanligtvis får hemskickade speglar de intressen familjen gärna ägnar sig åt. Många får hem tidningarna Land Lantbruk, Lantmannen, Land och ATL – Lantbrukarens Affärstidning. Man prenumererar även gärna på tidningarna Hemmets Veckotidning, Svensk Jakt och Traktorpower.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "C3 – Gröna fingrar":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Gröna fingrar består framförallt av äldre par som lever ensamma eller i äktenskap på landsbygden. Barnen har för länge sedan flugit ut ur boet eller så har man inga egna barn. Flertalet är pensionärer vars huvudinkomst är den statliga pensionen och inkomstnivån ligger på rikssnittet. Jämfört med de andra i gruppen Livet på landet är man den äldsta typen. <br><br>Gröna fingrar finns spridda över hela Sveriges landsbygd, men är överrepresenterade på norrländska landsbygden. <br><br><b>Livsstil och åsikter</b><br>Gröna fingrar njuter av vad livet på landet har att erbjuda. Som pensionär behöver man inte längre ha så stort fokus på vilken dag i veckan det är, såväl en lördagsförmiddag som en tisdag kan tillbringas i godan ro med en kopp kaffe framför sig på köksbordet. Gärna i sällskap med en tidning som Lantbruk, Land, Jaktmarker & Fiskevatten eller varför inte serietidningen Hälge? Annars räcker det fint med utsikten från köksfönstret som sällskap. <br><br>Gröna fingrar arbetar gärna med händerna. Intressen inkluderar både trädgårdsarbete och krukväxter såväl som handarbeten. Många gillar att sy, sticka och brodera. Som ofta i gruppen Livet på landet känner man ingen större längtan efter vad storstaden har att erbjuda. Man är hellre hemma och donar i bostaden eller i trädgården än beger sig ut på äventyr. Att uträtta ärenden i staden kan väl vara trevligt, men då passar man ofta på att genomföra så många som möjligt på en och samma gång så man inte behöver åka in alltför ofta. Det blir både dyrt och krångligt. Butiker man gärna besöker innefattar Järnia, Granngården, Mekonomen, Jula och Byggmax. <br><br>Bankärenden sköter man helst med personlig kontakt på bankkontor och faktiskt är det butiker på bensinstationer som allt som ofta får sig ett besök av denna typ. Gröna fingrar värnar om lokalsamhället och värderar ofta de lokala frågorna allra högst. När det är dags för val i Sverige röstar man ofta på Centerpartiet eller Socialdemokraterna. En relativt hög andel i gruppen väljer även att rösta blankt eller att rösta på Sverigedemokraterna. <br><br>Men idag är det tisdag. Till kvällen väntar veckans repetition med kören för frun i huset. Mannen passar samtidigt på att meka med bilen eller kanske kolla på motorsport. Något man gör tillsammans är dock att besöka gudstjänster, vilket man försöker göra regelbundet.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "C4 – Par i hjärter":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Par i hjärter består av människor i alla åldrar, där flertalet lever i par. På många sätt är man en typisk invånare på Sveriges landsbygd. Många av dem har gått på yrkesgymnasium medan nästan en tredjedel har skaffat sig en eftergymnasial utbildning, arbetar och har en medelinkomst jämfört med resten av Sverige. Man har heller inte så många småbarn. Eventuella hemmaboende barn befinner sig lite högre upp i åldrarna. <br><br><b>Livsstil och åsikter</b><br>Det är lördagsmorgon och rutinerna sitter där de ska. På bordet ligger tidningen man alltid fått hem i brevlådan, ofta en av de lokala morgontidningarna men också magasin som handlar om både hans och hennes intressen: Traktorpower, ATL – Lantbrukarens Affärstidning, Land, Lantbruk, Skogen, Jaktjournalen och Svensk Jakt. På bänken puttrar kaffekokaren och radion står på i bakgrunden. Även konsumtionen speglar ens intressen. Ofta är man stamkund på Järnia, Beijer Byggmaterial, Byggmax, Biltema, Jula och olika handelsträdgårdar. Helt beroende på vilka av dess butiker som faktiskt finns i ens direkta närhet. <br><br>Frågar man Par i hjärter vad som intresserar dem får man ofta till svar att det är lokalsamhället man framhåller som allra viktigast. Man undviker gärna storstan och har det bra där man är. Många är nöjda med livet och vill förändra så lite som möjligt. Tradition och rutiner är något som uppskattas. Politiskt sett så röstar Par i hjärter allt som oftast på Socialdemokraterna, Centerpartiet, Kristdemokraterna och Sverigedemokraterna. <br><br>På fritiden ser man gärna motorsport på TV. Par i hjärter rider gärna, snickrar på huset, pysslar i trädgården, ägnar sig åt jakt, sportfiske och andra utomhusaktiviteter. Man reser inte särskilt mycket, men när det väl sker är det gärna en bussresa som inplaneras. Många drömmer också om att åka iväg på en spa-resa. Tänk vad lyxigt att bli omhändertagen en hel helg, göra sköna behandlingar, äta gott och bara vara med varandra! Majoriteten av denna typ uppger också att de skulle vilja åka iväg på en sol- och badsemester. <br><br>Efter avklarad frukost är det dags att sätta igång med arbetet. Det finns mycket att ta itu med även denna lördag. Projektet för dagen handlar främst om att fixa i trädgården. Kanske hinner man även med en fisketur innan kvällen avslutas framför lördagens underhållningsprogram som visas på TV4.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "D1 – Solsidan":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Säg ordet Solsidan och många tänker numera på den populära TV-serien med samma namn. I första hand är det dock en välmående ort utanför Stockholm där många i typen Solsidan faktiskt bor. Solsidan består framförallt av familjer med eller utan barn i medelåldern. De familjer som har barn har betydligt oftare tre barn eller fler jämfört med resten av Sverige. Ett stort ekonomiskt överskott är det som framförallt kännetecknar dem och inkomsterna hör till landets allra högsta. Det är en högutbildad typ av människor. En betydande del bor i större nybyggda villor i direkt närhet till Sveriges största städer. Villorna kan även vara byggda under 30- och 50-talen. <br><br><b>Livsstil och åsikter</b><br> Att tillhöra den högsta inkomstklassen innebär hårt arbete och långa dagar för familjen, som består av ett par i medelåldern utan egna barn. Att jobba mer än 47 timmar i veckan ses inte som något ovanligt och jobb och fritid går ofta hand i hand. En stor del av vardagen går ofta till arbete, en av anledningarna till varför man gärna använder sig av hushållsnära tjänster. Man har råd att hyra in hjälp och lust att spara in tiden det faktiskt tar att göra arbetet själv. <br><br>Idag är det söndag och andra saker prioriteras framför arbete. Smartphonen ligger dock ständigt i fickan och man är tillgänglig för jobbsamtal eller ett snabbt mail oavsett tidpunkt. Dagen inleds gärna med en långfrukost ackompanjerad av Svenska Dagbladet eller Dagens Industri. Många är frekventa läsare av Di Weekend. Familjen prenumererar på flera morgontidningar och håller sig uppdaterade både vad gäller internationella nyheter och aktiekurser. I bakgrunden står TV:n inställd på CNN på låg volym. <br><br>Solsidan är en väldigt aktiv typ där man ser till att utnyttja tiden för att nå maximal effektivitet. Innan dagen sätter igång är det dags att planera både kommande tillbyggen av huset samt den stundande semestern. Solsidan reser gärna långt och mycket samt ofta utanför Europas gränser. Man uppskattar både den årliga skidsemestern såväl som vinresor när man reser privat. Flertalet av dem reser även mycket i tjänsten. <br><br>Senare väntar en lång powerwalk i sällskap med en väninna för frun i huset medan mannen ska spela en tennismatch tillsammans med en barndomsvän. Varför inte göra motion till både en rolig och social tillställning? Om tid finns över i dagens planering spenderar man den gärna på något av stadens gallerier eller museer. Heminredning är ett stort intresse och man köper gärna in lite dyrare och originella ting till hemmet. Att avsluta kvällen med ett magasin som Gods och Gårdar eller Residence - det är söndagslyx!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "D2 – Väletablerade Livsnjutare":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Väletablerade Livsnjutare består av människor med högre inkomst än genomsnittet i Sverige. Typen består främst av medelålders par och där vissa rentav trätt in i pensionsåldern. En del har hemmaboende barn medan de flesta inte har det. De väletablerade livsnjutarna har i likhet med Solsidan ett ekonomiskt överskott. Även om man inte riktigt når upp till Solsidans inkomstnivåer så har man mycket pengar över för att njuta av det goda livet. De flesta bor i villor från 50- och 70-talen medan en del bor i lägenhet i direkt närhet till Sveriges största städer. De allra flesta äger sin bostad. <br><br><b>Livsstil och åsikter</b><br> I likhet med Solsidan så finns det i Väletablerade Livsnjutare många människor som arbetar mer än 47 timmar per vecka, även fast det är något färre i denna typ. Detta syns i lönekuvertet och man är efter Solsidan den typ som tjänar mest i Sverige. Nästan hälften av dem har hemmaboende barn, men sällan är de småbarnsföräldrar utan barnen befinner sig lite högre upp i åldrarna. <br><br>När arbetsveckan går över i helg vill man gärna få ut det mesta möjliga av tiden. Ledig tid spenderas helst i trädgården då det anses vara viktigt att hålla den fin och dessutom passar man på att prata lite med grannarna. Idag är det fint väder och man bestämmer sig för att ge sig ut på en lång cykelrunda efter trädgårdsskötseln. Det är skönt att kunna motionera utomhus nu när vintern är förbi. Bland andra intressen finns segling, dykning, tennis, löpning, inomhusträning och ridning. Motion är A och O för att kunna få en bra balans i livet när vardagarna präglas av mycket jobb. På vintern ägnar man sig förstås åt skidåkning och då är det både utförs- och längdåkning som gäller. Tidningar man läser är Dagens Industri, Göteborgsposten, Dagens Nyheter och Svenska Dagbladet, lite beroende på var i landet man bor. Ungefär 60 procent uppger att de prenumererar på en morgontidning. De flesta tittar på TV dagligen och ser helst något program på SVT och TV4 eller inspelade program. <br><br>Mycket av ens tid handlar om arbete och därför tar man till vara på semester och åker gärna långt iväg. Storstad och sol & bad är lika högt i kurs, varför dessa alterneras när det är dags att planera semestern. Att åka iväg till ett exotiskt resmål för att dyka och ägna sig åt att utforska havets rika liv – det är livskvalitet!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "D3 – Välbeställda barnfamiljer":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Som namnet antyder består Välbeställda barnfamiljer till största delen av just barnfamiljer som har det riktigt gott ställt. Många av familjerna har i en större omfattning än riket tre eller fler barn. Man finner dem ofta i direkt närhet av Sveriges allra största städer. Precis som typen Solsidan är man högutbildad och bor vanligen i nybyggda hus, även om inkomstnivåerna inte riktigt når upp till samma standard. <br><br><b>Livsstil och åsikter</b><br> Det är söndagsmorgon och familjen är uppe med tuppen. Barnen parkeras framför Disney Channel eller med varsin surfplatta medan föräldrarna planerar dagens aktiviteter. Helgerna är heliga för familjen och det är viktigt att verkligen få umgås och vara med varandra. Något som inte alltid hinns med under arbetsveckorna. Ofta arbetar föräldrarna mycket och tar gärna hjälp av allt som kan göra vardagen lite lättare. Detta innefattar att man gärna använder sig av hushållsnära tjänster, då tiden man sparar på att inte göra arbetet själv är ytterst välkommen. <br><br>Om man frågar Välbeställda barnfamiljer vad de värdesätter i livet kommer familjens liv och leverne i allra första rum. Många sätter gärna larm på huset och har familjens säkerhet som högsta prioritet. Man fixar också gärna med hemmet och kanske har man en utbyggnad av huset planerad eller så vill man bygga om en viss del. Många är också intresserade av matlagning. <br><br>Andra intressen som delas av hela familjen är båtlivet. Många bor nära vatten och har en motorbåt eller segelbåt som gärna används. Man är även sportintresserad och spelar med nöje golf och åker skidor. <br><br>Familjens intressen speglas i deras konsumtionsmönster. Man lägger ned mycket pengar på både hem och trädgård. Familjen åker gärna gemensamt och handlar på den välsorterade stormarknaden i närheten. Även teknik och design är något som gärna får kosta och att använda ny teknik i vardagslivet är ett stort intresse där ljud och bild ska vara av yttersta kvalité. Man är även stora användare av digitala tjänster som exempelvis sociala nätverk och musiktjänster online. Kläder och mode för stora och små inhandlas både på nätet och på det välfyllda köpcentret. Polarn o Pyret är en butik man alltid ser till att besöka. <br><br>Men nu är det söndag och det är dags för veckans slalomskola för de minsta barnen. En skidsemester väntar för hela familjen och det är viktigt att förbereda sig. Årets nästa resa blir en familjesemester till någon destination långt utanför Europas gränser. Familjen besöker gärna Thailand ytterligare en gång där värmen, maten, stränderna och barnvänligheten lockar. Att kunna koppla av helt och bara vara med varandra är viktigt.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "D4 – Gyllene hem":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Typen Gyllene hem består framförallt av lite äldre par. Vissa av dem har redan trätt in i pensionsåldern medan andra är på väg dit. Gemensamt för dem är att barnen ofta är utflugna sedan länge och att ekonomin fortfarande är väldigt god, trots att den huvudsakliga inkomsten i många fall har ändrats från månadslön till pension. Till skillnad från de övriga i gruppen Guldkant i tillvaron bor man ofta i lite äldre hus, byggda senast på 70-talet. Till skillnad från de övriga i denna grupp så har fler människor en gymnasieutbildning även fast det fortfarande är fler än genomsnittet som har en eftergymnasial utbildning. <br><br><b>Livsstil och åsikter</b><br> Äntligen har man tid att göra allt det där man inte hann med när yrkesarbete och småbarnsliv var vardag och tiden svår att få att räcka till. Många intressen har funnits hos paret länge, men det är först nu man verkligen hinner njuta av dem. <br><br>Vardagsmorgonen inleds med en lång och tidig frukost för herrskapet. Till sällskap har man antingen Svenska Dagbladet eller Dagens Nyheter. Man är intresserad av sin omvärld och vill hålla sig uppdaterad på vad som händer. Kanske hinner man även bläddra i något av de magasin som blir hemskickade varje månad, exempelvis medlemstidningen Ingenjören, Femina, Chef, Veteranen eller Vi i villa. <br><br>Idag ser det ut att bli en dag med vackert väder, därför står trädgårdsarbete på agendan men först krävs en liten inköpstur. Handelsträdgårdar är den typ av butik man gärna besöker och spenderar mycket pengar på. Endast det bästa är gott nog för trädgården. Man besöker gärna också golfbutiker och bokhandlare då att spela golf på fritiden är en uppskattad fritidssyssla men det är även läsning av skönlitteratur. Att resa är också ett stort intresse och man reser ofta och gärna på sol- och badsemester. Resor får gärna kombineras med parets andra intressen som golf och vinprovning, eller varför inte med segling. <br><br>Dagens projekt är rabatterna på framsidan av huset, ser de inte lite molokna ut? Idag finns det dock en viktig tid att passa på eftermiddagen, så det är bäst att inte bli alltför långrandig. Finkultur i olika former är något som intresserar och idag har man biljetter till en operaföreställning. Det är verkligen skönt att bo så nära Sveriges större städer att kulturutbudet alltid kan nyttjas.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "E1 – Grannsämja":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Typen Grannsämja består framförallt av singelhushåll. Till stor del är det unga människor i åldrarna 20 till 35 år som bor trångt och nära varandra i hyresrätter. De flesta bor i förorter i direkt närhet till Sveriges allra största städer. De flesta har gått ut grundskolan eller yrkesinriktad gymnasieutbildning och här finns både arbetstagare och ett stort antal arbetssökande. Generellt är man låginkomsttagare och har en inkomst som ligger under riksgenomsnittet. Grannsämja är en av typerna där man finner flest första och andra generationens invandrare. <br><br><b>Livsstil och åsikter</b><br> Inkomsten kanske inte är på topp vilket gör att man måste vara noggrann med hur man spenderar sina pengar. Som tur är gäller samma sak även för ens kompisar vilket gör att man kan hitta på saker tillsammans utan att det behöver kosta så väldigt mycket. Man ses gärna på caféer och går på konserter tillsammans när man har möjlighet. Idag har man bestämt sig för att hänga på närmaste gallerian. Köpcentret i förorten har fått en rejäl ansiktslyftning och har nu betydligt fler affärer som är intressanta. Till favoriterna hör accessoarbutiker som Accent och Ur & Penn, men även hemelektronikkedjan Siba. Inte minst finns det här en massa schyssta ställen att äta på och till favoriterna hör snabbmat som McDonalds, Subway, Burger King och Pizza Hut. <br><br>Innan man rör sig hemåt igen med vännerna passar man på att handla mat för kvällen. Vanligtvis blir det ett besök på Netto eller Lidl för de har bäst priser. Kanske Hemköp om man bara ska ha något litet. Ofta hamnar även någon av veckotidningarna som handlar om kändisar i handlingskorgen, gärna Svensk Damtidning, Hänt Extra eller Hänt Bild. Baka, Veckorevyn, Hem & Hyra, Metro Student Magazine och TV Guiden är tidningar som man läser många nummer utav. När man åker kollektivt plockar man gärna på sig någon av gratistidningarna Metro eller City. <br><br>När man kommer hem för dagen ekar olika röster och språk över innergården. Ofta är det många olika kulturer som möts här. Det märks på deras intressen att det är en typ som är måna om sin omvärld, många värdesätter samtal om politik och samhälle högt, säger att de är intresserade av andra länders kulturer och vill att Sverige ska ta emot fler flyktingar. Många ser också religion som en väldigt stor del av deras liv. Politiskt sett röstar man gärna på Socialdemokraterna, Vänsterpartiet eller Miljöpartiet. <br><br>Dagen avslutas i soffan tillsammans med vännerna. Helst av allt tittar man på någon av MTV:s realityserier men också Kanal 5 eller Kanal 9 funkar en kväll som denna. Man är en flitig användare av internet generellt och sociala medier framförallt. Troligen passar man på att kolla roliga klipp på YouTube eller vad vänner och bekanta har för sig på sociala medier. Detta samtidigt som TV:n är igång.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "E2 - Familjeband":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Typen Familjeband utgörs framförallt av blandade familjer i alla åldrar. Till största delen består den av unga föräldrar med små barn där tre barn eller fler är överrepresenterat inom typen. Många i typen Familjeband har sitt ursprung i andra kulturer än den svenska då tre fjärdedelar identifierar sig som första eller andra generationens invandrare. Här finns också många ensamstående föräldrar. Gemensamt för typen är att man bor trångt och nära varandra i hyresrätt, ofta i förorter till Sveriges största städer. Flertalet har gått ut grundskolan och inkomsten ligger lite under genomsnittet. <br><br><b>Livsstil och åsikter</b><br> Det är full fart i lägenheten. Det är onsdagskväll och försommar i luften. Dörrarna till balkongen står vidöppna, på avstånd hörs skratt från innergården och ett barn som ropar. <br><br>Familjen, som består av två föräldrar och tre barn, är precis hemkomna efter dagens aktiviteter, fullastade med matkassar. Man gör helst sina inköp på Lidl, Citygross eller Willys. Idag blev det Willys för att butiken låg närmast. Att shoppa och gå på köpcentrum är något familjen gärna har som aktivitet på helgerna när man har mer tid över. Favoritbutikerna på den lokala gallerian är Glitter, Cubus, Ur & Penn, Guldfynd eller andra guldaffärer. Behöver man skor handlar man gärna på Deichmann. <br><br>TV:n står påslagen i hörnet med Barnkanalen på som underhållning för den allra minsta familjemedlemmen. De vuxna lagar mat och de äldre barnen är upptagna med att spela dataoch tv-spel. Senare väntar fotbollsträning för dem. På köksbordet ligger tidningarna Hänt Extra, Se & Hör, Baka och dagens Metro. Kändisnyheter är något man uppskattar precis som astrologi och bantningstips, något som tidningarna gärna får skriva om. <br><br>De flesta i Familjeband säger att deras religiösa tro är väldigt viktig för dem. Många menar också att lönen visar om man är framgångsrik eller inte. När det gäller politik röstar man ofta på Socialdemokraterna eller Vänsterpartiet, men många väljer även att rösta blankt. Familjeband är intresserade av sin omvärld och kollar gärna på utländska serier eller program. Man reser inte lika ofta som man skulle önska vara möjligt och när man åker någonstans blir det ofta en kryssning inom Europa eller en bussresa med hela familjen. <br><br>Medan två av barnen försvinner på fotbollsträning återstår de sista kvällsbestyren och förberedelserna inför morgondagen. Kvällen avslutas gärna tillsammans i soffan framför en film på någon av betalkanalerna, eller kanske framför ett program på Comedy Central. Hela familjen är vana internetanvändare och använder gärna webben som nyhetskälla, för att hämta film, musik och för sociala medier.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "F1 – Flärd och karriär":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Flärd och karriär kännetecknas av personer med mycket pengar och hög inkomst som verkligen satsar på sin karriär. Gemensamt för dem alla är att de tillhör en av de högsta inkomstgrupperna i Sverige. I denna typ bor merparten av människorna i lägenhet och då oftast bostadsrätt. Bostadshuset är vanligen nybyggt eller byggt före 1930-talet. Flertalet är välutbildade och de flesta har en magister- eller masterexamen från universitet eller högskola. Merparten av människorna lever i äktenskap utan hemmaboende barn. Många är i medelåldern eller äldre och skördar nu frukten av en bra karriär, ett välbetalt jobb och njuter av det goda livet. <br><br><b>Livsstil och åsikter</b><br> Nästan en femtedel av denna typ har hunnit gå i pension, medan de allra flesta ännu är yrkesarbetande. Många uppger att de arbetar mycket och en arbetsvecka består sällan av färre än 47 timmar. Nästan en fjärdedel uppger att de arbetar i en chefsroll. Gemensamt för typen är att de tycker det är viktigt att fullgöra sina plikter mot omgivningen och många uppger att de vill nå långt i sin karriär. <br><br>Flärd och karriär utmärks av ett stort intresse för sin omvärld. Mer än hälften prenumererar på minst en dagstidning. Många läser Svenska Dagbladet eller Dagens Nyheter och man tycker om att ge sig in i politiska diskussioner tillsammans med vänner och bekanta. TVtittandet ligger ungefär kring rikssnittet. När man tittar på TV ser man helst på SVT eller TV4. Eventuellt kan det annars finnas något program på TV3 eller Kanal 5 som lockar. När jobbet har fått nog uppmärksamhet för dagen kopplar man gärna av med att gå en tennismatch mot en gammal vän, löpträna eller att gå på ett träningspass på gymmet. Ett annat stort intresse är mat. Man går gärna såväl ut och äter som försöker sig på att laga någon avancerad rätt hemma i köket. Matlagning ska vara socialt och utmanande och det är viktigt att ständigt lära sig nya saker. Mat hör ihop med goda drycker. Därför passar man ibland på att besöka Systembolaget för att botanisera bland dess utbud. <br><br>Många handlar på ICA Nära och Hemköp, samtidigt som det är skönt att Pressbyrån och 7-eleven har generösa öppettider och ligger på bekvämt avstånd ifall man skulle ha glömt något. När man shoppar för nöjes skull är det helst PUB, Åhléns eller NK som gäller - det är praktiskt att ha allt samlat och sparar mycket tid för den aktiva. <br><br>När semestern stundar vill man helst njuta av en storstad eller sol och bad. Temaresor lockar likaså och det har de senaste åren lanserats en stor variation inom vinresor, matresor, träningsresor och andra spännande teman som man ser fram emot att testa.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "F2 – På rätt adress":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> På rätt adress består primärt av människor mellan 30 och 65 år. Här finns människor som har familj och barn, men många lever även som singlar. Flertalet bor i bostadsrätt i stadskärnan i någon av Sveriges största städer. Ofta i områden som fått en högre status de senaste åren, eller i områden med nybyggda hus. Som namnet på typen skvallrar om är det av stor vikt att bo på rätt adress. <br><br>Det är generellt en högutbildad typ av människor då denna grupp tillsammans med Flärd och karriär tillhör de mest välutbildade i Sverige. Flertalet har en kandidatexamen från universitet eller högskola men har ofta gått längre än så i sina studier och tagit en masterexamen eller motsvarande. Många njuter nu av en hög inkomst efter många år som student. <br><br><b>Livsstil och åsikter</b><br> Livet fick en radikal vändning när livet som småbarnsförälder började. Att vakna en helgmorgon av ett barn som vill ha uppmärksamhet istället för att alarmet på smartphonen ringer är bara en av dessa. Dock är det skönt när dagen börjar tidigt. Arbetsveckorna består av mycket arbete och nu är det dags att umgås med familjen. Självklart är man alltid tillgänglig om det skulle vara något arbetsrelaterat. Man har ständig koll på mailen och tar eventuellt några timmar av eftermiddagen för att jobba lite, men fram till dess är det andra saker som ska prioriteras. Arbetet tar ofta mycket tid i anspråk och På rätt adress är några av de största konsumenterna när det gäller användandet av hushållsnära tjänster. Man har råd att anlita hjälp och använder gärna detta alternativ. <br><br>Dagen inleds med att hela familjen beger sig ut på stan för att äta brunch tillsammans. Morgontidningen får vänta, det viktigaste kan man läsa via telefonen. Att använda webben för både nyheter, film, tv, radio och sociala medier är något som känns självklart. På rätt adress är också den typ som säger sig äta på restaurang allra mest i Sverige. Idag kommer exempelvis både familjens första och andra måltid att avnjutas ute. <br><br>Man passar gärna på att uträtta ärenden nu när den lediga tiden finns. Ett besök på NK och PUB prioriteras för de som bor i närheten av dessa varuhus. Skor handlar man gärna på Rizzo och barnens kläder kommer framförallt från Polarn o Pyret. Vackra saker till hemmet köps gärna in då man är intresserad av inredning och konst. Man är väldigt mån om sin omvärld, många skänker pengar till välgörenhet och köper helst varor från etiska- och rättvisemärkta företag. Man betalar gärna extra för kvalitet och för ekologiska varor. De allra flesta är även måna om sitt yttre så man tränar, sportar och har en hälsosam livsstil. Träningen får dock vänta till morgondagen, om inte en joggingtur hinns med när familjen väl kommit hem igen.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "F3 – Mingel med stil":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Mingel med stil har mycket gemensamt med Flärd och karriär. Dock lever fler som singlar i denna typ och något fler bor i hyresrätt. De flesta arbetar mycket men inkomstnivåerna ligger under Flärd och karriärs nivå. Fortfarande är det koncentrerat kring Sveriges allra största städer och man bor gärna centralt och njuter av vad staden har att erbjuda. Många bor i lite äldre bostadsområden med charm och karaktär. Den absoluta närheten till staden är dock något som prioriteras. Flertalet är välutbildade och lever som singel eller sambo, men utan hemmaboende barn. De allra flesta befinner sig i åldersspannet 25 till 40 år. <br><br><b>Livsstil och åsikter</b><br> Det är lördagsmorgon. Larmet ringer på smartphonen som alltid finns inom en armlängds avstånd. Det är veckans första lediga dag, men det finns alltid tid att kolla igenom jobbmailen lite snabbt. Man vet aldrig, kanske har det hänt något viktigt under natten som måste lösas. Morgontidningen har precis levererats vid dörren. Som singel är det skönt att äta frukost i lugn och ro med sällskap av tidningen, förhoppningsvis finns en bilaga inkluderad som speglar några av ens intressen som konst, träning eller kanske segling. Här finns kanske även ett lite längre resereportage, vilket kan fungera som inspiration till årets nästa resa. Man reser ofta och gärna, både innanför och utanför Europas gränser. <br><br>Att läsa tidningen, både i tryckt form och på webben, är något som prioriteras. Man vill gärna hålla sig uppdaterad på vad som händer i världen och är intresserad av utrikespolitik och kultur. Att se på TV är något som nedprioriteras då man snarare tillbringar mycket tid framför datorn. Både när det gäller användandet av sociala nätverk och att använda webben för film och musik online ligger Mingel med stil över riksgenomsnittet. <br><br>Ett gruppass på gymmet, där man är medlem, väntar senare under dagen, men först är det dags för brunch tillsammans med en gammal skolkamrat. Att äta ute är något man gör ofta och gärna, såväl under vardag som helg. Många uppskattar att testa nya restauranger och barer och man är gärna först med det senaste för att prova saker före alla andra. Inte så konstigt, med andra ord, att man har en reservation för två på stadens nya restaurang att se fram emot inför kvällen.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "F4 – Kosmopolit":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Jämfört med de andra typerna i gruppen Välbeställd i våning består typen Kosmopolit framförallt av ensamstående och par i medelåldern som inte har några egna barn, eller där barnen hunnit flytta till eget boende. Inkomsten ligger fortfarande högre än landets genomsnitt och Kosmopoliter bor ofta i nybyggda bostadsrätter nära Sveriges största städer. Merparten av denna typ är välutbildade. <br><br><b>Livsstil och åsikter</b><br> Närheten till stadens stora utbud uppskattas till fullo. Särskilt duktiga är de på att nyttja de kulturarrangemang som erbjuds. Design, konst och kultur är alla stora intressen. Ett annat stort intresse är nyheter och nyhetstidningar. Populärast är Svenska Dagbladet och Dagens Nyheter. Matlagning är ett annat stort intresse. När ICA skickar sin tidning Buffé så läser man den gärna. <br><br>Det är torsdag och kvällen ska spenderas i goda vänners lag. Favoritrestaurangen är bokad för fyra personer till klockan åtta. Publivet och att gå på bar är ett överspelat kapitel, men fortfarande uppskattar man restaurangbesök och äter gärna ute minst en kväll i månaden. En annan aktivitet man börjat uppskatta är vinprovning. Det är både roligt och intressant att få lära sig mer om olika druvsorter. <br><br>Kanske blir det temat för nästa utlandsresa? Eller är det en golfresa som gäller? Att resa är nämligen något man gör ofta och gärna. Att läsa om resor är ibland halva nöjet och därigenom att få planera och drömma sig bort. Många Kosmopoliter uppger att de gärna vill läsa mer om resor för tips och inspiration. Det här paret är inget undantag, ofta hittar man senaste numret av tidningen Vagabond i deras tidningsställ. <br><br>Nu ringer det på dörrklockan hos paret och fördrinken serveras i vardagsrummet med utsikt över de närliggande hustaken. Promenaden till restaurangen fixar man på en kvart. Ja, visst är det skönt att bo i en stad!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "G1 – Det goda livet":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Det mest utmärkande med typen Det goda livet är att den framförallt består av Sveriges seniorer, som äger sitt eget boende. Här bor man i både hus och bostadsrätter runt om i landet. Inkomsten är inte så hög, i flera fall utgörs den främst av pensionen, men man har ofta en stabil ekonomisk grundtrygghet att luta sig mot. Kapital finns vanligen säkrat i själva bostaden som alltid går att sälja om behov skulle uppstå. Här bor både par och ensamstående och gemensamt för Det goda livet är även att alla eventuella barn har flyttat från bostaden och bildat sina egna familjer. <br><br><b>Livsstil och åsikter</b><br> Väggklockan tickar och radion spelar dansmusik i ett rutigt kök någonstans i Sverige. På bordet ligger ett hav av tidningar, Hemma i HSB, Veteranen, PRO Pensionären, Svensk Damtidning, Allers, Året runt, Antik Auktion och Hemmets journal. Där ligger också ett par läsglasögon och en tom kaffekopp, men köket är tomt på människor. Det äldre paret är istället ute i trädgården och krattar löv. Vintersäsongen är snart här och det är viktigt att förbereda sig inför snön. Blommor ställs på vinterförvaring och lösa krukor ställs undan, precis som traditionen påbjuder. Man har gjort denna ritual åtskilliga gånger och varje årstid har sin charm. Våren är dock favoriten, när livet återkommer till trädgården, årets första shoppingtur till Blomsterlandet görs och de första lökarna sätts i jorden. <br><br>Det goda livet är allt som oftast köpstarka och aktiva seniorer. Man tycker om att göra fint i både hus och trädgård, även om renoveringslusten avtagit med åren. Butiker man gärna besöker är Interflora och andra blomsteraffärer samt Jysk. Maten handlar man helst på Netto eller Coop Forum. Det är skönt att vara pensionär när man har hälsan i behåll. Man styr över sin egen tid och kan utföra sin shopping när andra är på arbetet. I den lokala bankmannen finner man ett gott stöd och man litar på att deras expertis håller ordning på den ekonomiska sidan av livet. Man är intresserad av ekonomi, värdepapper och skattefrågor, men herregud, allt kan man ju inte hålla koll på själv. <br><br>Om man ber Det goda livet beskriva sig själv, är ett typiskt svar att de både är plikttrogna och traditionella. De värnar om lokalsamhället och många framhåller även sin religiösa tro. Man bakar gärna eller löser korsord och läser om kungligheter i någon av de tidningar man prenumererar på. Ibland gör sig ålderns höst påmind. En av anledningarna till varför sjukdomar och sjukvård är av stort intresse. Med det sagt är det dags för kaffepaus och vila från lövkrattning en stund då ryggen börjar kännas stel som en pinne.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "G2 – Vis veteran":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Vis veteran består framförallt av Sveriges allra äldsta invånare. Merparten av dem bor i hyresrätter runt om i landet och bor kvar i egen bostad. Tre fjärdedelar av typen består av ensamhushåll. Många av dem har tidigare i livet levt tillsammans med en partner men lever nu ensamma. Majoriteten är kvinnor och ungefär en femtedel av människorna i typen uppger att de lever som änkor eller änkemän. <br><br><b>Livsstil och åsikter</b><br> Dörrklockan ringer i hyreshusets trapphus, det är söndag eftermiddag och det vankas fika hemma hos gammelmormor. Utanför dörren väntar både dotter, barnbarn och barnbarnsbarn. De har insisterat på knytkalas och att de själva tar med fikabrödet. Det är väl knappt så man får sätta på kaffet själv, tänker värdinnan. <br><br>Det är skönt att kunna bo kvar i egen bostad, även om det blir lite ensamt ibland. När man var två fanns det alltid någon att prata med, men det är väl som de säger, kvinnor lever ofta längre än män. Sällskap får man dock, både av vännerna i kören, när man ses på café eller via de anordnade seniorresorna man gärna följer med på. Även TV och tidningar räknas som bra sällskap och något man gärna lägger tid på. SVT, Kunskapskanalen och TV4 brukar erbjuda bra program. Tidningarna man gärna läser är PRO Pensionären, Veteranen, TV-guiden, Hemmets Journal och Svensk Damtidning. Tidningarna får gärna handla om något av ens stora intressen, kungligheter eller astrologi, och även innehålla korsord. Man läser också gärna om olika sorters sjukdomar och krämpor, stickning och andra handarbeten samt krukväxter. Andra intressen innefattar att baka, pyssla och pynta hemmet, gärna med snittblommor från Interflora. Många i typen Vis veteran tycker även om att spela på hästar och besöker ofta ett spelombud. Mat handlas på den lokala mataffären och är det möjligt att välja så föredrar man Netto, Willys eller Coop. Så ofta som möjligt ser man till att utnyttja rabatter och extraerbjudanden. Många anser att det är viktigt att hålla sig välklädd, kanske är det därför blusen kontrolleras en sista gång så att ingen fläck har uppkommit innan värdinnan öppnar ytterdörren för sina besökare.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "H1 – Studentliv":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Det hörs nästan på namnet. Typen Studentliv består till största delen av unga vuxna i åldern 20 till 30 år som bor i lägenhetsområden med många jämnåriga. Det är inte så konstigt att större studieorter är överrepresenterade när man ser efter vart någonstans i Sverige de bor. Flertalet bor i hyresrätter och många bor också ensamma. Inkomsten är för det mesta låg och består framförallt av studiemedel. <br><br><b>Livsstil och åsikter</b><br> Våren är på intåg och med den följer den traditionella vårfesten, anordnad av studentkåren. Alltid finns det något att fira, kanske är det därför matlådan ofta ligger i en av Systembolagets påsar. Många i typen Studentliv uppger att de ofta är kunder där. <br><br>År två på universitetet har visat sig vara tuffast hittills, att få slappna av från den tjocka luntan med böcker en stund är uppskattat. Efter dagens föreläsning kopplar man gärna av en stund med vännerna på café innan onsdagens festligheter drar igång. Har studiebidraget kommit tar man gärna en runda på stan innan man vänder hemåt. Butikerna man gärna handlar i är klädbutiker som H&M, Brothers, Indiska och MQ. Äter man ute handlar det ofta om snabbmat. Ekonomin är för närvarande inte särskilt god varför restaurangbesök inte prioriteras. På helgerna går man hellre ut på klubb och dansar med sina vänner eller bara umgås på en pub eller bar. Många bor trångt och när man träffar vänner gör man det gärna utanför hemmets fyra väggar. <br><br>I vanliga fall hade eftermiddagen säkerligen innehållit ett träningspass. Man rör gärna på sig och gillar både att jogga och spela innebandy, men idag hinner man inte. Till och med data- och tv-spelet får vänta. Det finns dock alltid tid för internet och att ha smartphonen med sig i fickan gör att man ständigt kan hålla sig uppdaterad på webben trots att tiden hemma är knapp. Hela gruppen Unga på väg är några av Sveriges allra flitigaste internetanvändare. Man använder webben bland annat för musik, film, TV, podcasts och sociala medier. Tidningarna man får hem i brevlådan är framförallt gratis medlemstidningar som Civilekonomen, Jusektidningen och Ingenjören. Nyheter kan man lika gärna läsa på webben. Studentliv gillar även vetenskapstidningar som tidningen National Geographic och gratistidningar som tidningen Kupé. Man åker mycket tåg runt om i hela Sverige, både för att hälsa på vänner och familj. En tågresa inom Europa är även något som prioriteras. Att se Europa genom att åka tåg är ett sätt att resa som gör att man ser mycket samtidigt som man kommer relativt billigt undan. <br><br>Andra åsikter som gärna framhålls av Studentliv är den stora vikten av att skaffa sig en karriär, man har valt att vidareutbilda sig av en anledning. Även om den största anledningen just ikväll är att ha riktigt roligt tillsammans med sina studiekamrater.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "H2 – Första milstolpen":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Första milstolpen består primärt av unga vuxna i åldern 20 till 35 år. Många är lite äldre än gruppen Studentliv. Här finns fortfarande en hel del som fortfarande studerar men flertalet har tagit första steget vidare mot sin framtida karriär. Här bor man blandat i både bostadsrätter och hyresrätter runt om i Sverige, ofta i de större städerna. Vanligen har man skaffat sig en hög utbildning och har en inkomst som inte längre består av studiemedel. Flertalet lever som singlar och har ännu inte bildat familj. Många ser sin nuvarande position som en första hållplats. Man har fått ett jobb men bor fortfarande kvar i studentområdet. <br><br><b>Livsstil och åsikter</b><br> Studentpuben har bytts ut mot after work i sällskap med kollegorna. Efter studentåren är det behagligt att äntligen ha en större inkomst att röra sig med och konsumtionsmönstret har förändrats betydligt nu när man har råd med mer. Det är fortfarande kläder som prioriteras när man går på shoppingtur och i princip samma butiker som gäller för typen Studentliv, men nu har man möjlighet att spendera en större summa där varje månad. Man säger själv att man är intresserad av shopping, livsstil och mode, men även design, konst och kultur framhålls som stora intressen. Man tränar generellt mycket i form av att både jogga och hålla på med äventyrssporter. <br><br>För närvarande planeras nästa resa för fullt. Det är skönt att äntligen ha möjlighet att resa mer. Denna gång väntar en weekend till en europeisk storstad som man aldrig tidigare har besökt. Nästa gång kanske man besöker en gammal favorit. Utöver resor till storstäder så lockar även sol- och badsemester och ibland går det rentav att kombinera dessa båda önskemål. <br><br>Generellt sett är Första milstolpen en typ som flyger väldigt mycket jämfört med genomsnittet, men fortfarande är tåg ett uppskattat färdmedel. Andra intressen som nu väckts till liv är restaurangbesök och att själv försöka sig på lite mer avancerad matlagning. Fortfarande är pubbesök och konserter något som uppskattas och när man träffar vänner gör man det allra helst ute på stan i någon form. Om inte barhäng är aktuellt går det alltid bra med ett café eller en restaurang. <br><br>Politiskt sett är man ofta intresserad och medveten om sin omvärld. Man vill gärna handla från etiska företag och allt fler intresserar sig för politik. Många säger att de gärna vill att Sverige ska ta emot fler flyktingar. När valdagen närmar sig röstar man ofta på Moderaterna, Miljöpartiet, Socialdemokraterna eller Vänsterpartiet. Många prenumererar på den regionala morgontidningen men nyheterna kan lika gärna läsas på webben, Första milstolpen är en av de typerna i Sverige som använder internet i allra störst utsträckning. När man åker kollektivt till jobbet snappar man dock gärna åt sig en av gratistidningarna som Metro, City eller Nöjesguiden.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "I1 – Stadspuls":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Stadspuls är den yngsta typen i gruppen Storstadsliv. En majoritet är unga singlar utan barn. Många har en högskoleutbildning i ryggen men bor oftast någonstans i Sveriges stora och medelstora städer. Vi finner dem spridda över hela landet, inte sällan i någon av Sveriges studentstäder. Flertalet bor i hyresrätter, medan en del har köpt sin egen bostadsrätt. <br><br><b>Livsstil och åsikter</b><br> Stadspuls lever gärna stadslivet till fullo. Lönen den 25:e gör att man verkligen har möjlighet att leva det liv man drömde om när man var yngre och fortfarande student. En del av lönen får gärna gå till shopping och till favoritbutikerna hör Zara, varuhuset Åhléns. Man går gärna till kedjan Nilson när man ska handla skor. De som har möjlighet besöker både varuhusen NK och PUB. Många anser det viktigt att synas och vill gärna urskilja sig från mängden. När de handlar vill de att varumärket ska spegla vem de är och man handlar helst från etiskt trovärdiga företag. Att laga mat hemma görs ibland, men man äter hellre ute när det är möjligt. Livsmedelsinköpen görs helst så nära hemmet som möjligt och då ofta hos den lokala Hemköpsbutiken. Ofta gör man också små inköp på både 7-eleven samt Pressbyrån. <br><br>Nu är det torsdag och i eftermiddag är det dags att möta upp de närmsta vännerna på något café i staden. Samtal om både utrikespolitik, religion och samhället i stort föres ofta. Diskussionerna har högt i tak och man vill gärna se sig som en medveten världsmedborgare. Information och inspiration hämtar man gärna från tidningarna man läser och då gärna dagstidningar som Dagens Nyheter eller de mer regionala som Sydsvenskan eller gratistidningen Metro. Men också från internet och magasin som Filter. Många läser även Nöjesguiden för tips om kultur, klubbar och andra events som händer i staden. Att använda internet i det dagliga livet, både för underhållning, information och som ett verktyg i arbetet, ser de flesta som en självklarhet. <br><br>När typen Stadspuls ger sig ut på resor väljer man ofta tågresor inom Sveriges gränser, storstadsweekends eller äventyrsresor. Att titta på TV är inget som prioriteras i vardagen. Då ger man sig oftare ut och tränar, surfar på internet eller läser en bok. <br><br>När kvällen stundar går man gärna vidare på konsert eller till någon pub eller bar. Gå ut och dansa med vännerna gör man med glädje. Visst är det vardag och jobb även imorgon, men det gäller att passa på, man är bara ung en gång!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "I2 – På väg upp":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I gruppen På väg upp finner vi familjer både med och utan barn, där de vuxna ofta är i åldrarna 25 till 40 år. Här finns både par och barnfamiljer där barnen ofta är i de allra yngsta åldrarna. Man bor i både hyresrätter och bostadsrätter i olika områden i Sverige. Typen är blandad men gemensamt för dem är att de alla bor i eller i absolut närhet av Sveriges lite större städer. <br><br> <br><br><b>Livsstil och åsikter</b><br> Familjen, som består av tv föräldrar och en tvååring, väntar tillökning lagom till hösten. Snart är man alltså fyra personer och hyreslägenheten börjar kännas lite trång. Egentligen längtar man efter att för första gången köpa sin bostad, gärna ett hus, men de planerna får vänta lite. <br><br>Båda föräldrarna arbetar och man har en relativt god inkomst att röra sig med. Många i typen På väg upp tycker karriär är viktigt och en mindre andel tycker att det är lönen som visar om man är framgångsrik eller inte. Att shoppa är något man gärna gör och man vill prova saker före alla andra. Allra helst skulle man nog vilja ha lägenheten fylld av den nyaste tekniken. Till intressena hör både datorer och att spela data- och tv-spel. Man gillar ny teknik i vardagslivet och är intresserad av både bild- och ljudanläggningar. Privatekonomin är dock en av begränsningarna till hur mycket man faktiskt har möjlighet att konsumera hos de teknikkedjor och butiker man listar som sina favoriter. <br><br>Idag är det lördag och familjen ska åka på utflykt. Turen går till det lokala köpcentret. Där finns många av favoritbutikerna samlade inom bekvämt avstånd och till favoriterna hör Media Markt, Kjell och Company samt Net on Net. Mat handlar man ofta på den lokala Hemköps-butiken på hörnet. <br><br>Att se på TV gör På väg upp mindre än genomsnittet. Däremot gillar man att se på film eller inspelade program. När TV-tablån får styra prioriteras ofta kanalerna Viasat Sport, National Geographic, TV8 och Animal Planet. Nyheter läser man gärna på webben och i dagens Metro. Prenumererar gör man hellre på magasin som speglar ens intressen som exempelvis tidningarna Damernas Värld, Elle, Mama, Faktum, Fokus och Filter, men man läser även Hem och Hyra som man får hemskickad till sig. Generellt använder På väg upp internet ofta och gärna, både till underhållning och för att lösa vardagens bestyr. Ett viktigt verktyg blir då smartphonen, som alltid ligger i fickan. <br><br>Lördagen avslutar familjen gärna genom att gå på restaurang och en av fördelarna med att bo i en stad är just närheten till både restauranger, caféer, pubar och barer. De ska bara boka bord via smartphonen först.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "I3 – Kulturnaut":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Kulturnaut utgörs främst av par och ogifta som är 60 år och uppåt. Det finns få hemmaboende barn och antingen har man inga egna barn eller så har de hunnit fly hemmet. Vanligen bor man i bostadsrätt i Sveriges medelstora städer men här finns också en del i hyresrätter. Typen är som sagt lite äldre där en tredjedel redan är pensionärer. <br><br><b>Livsstil och åsikter</b><br> Helgerna är ofta fullspäckade med aktiviteter för paret, vare sig man befinner sig hemma eller är på resande fot. Eftersom båda är yrkesverksamma gäller det att passa på att vårda sina intressen när tiden väl finns. Att fixa och trixa i hemmet är inte deras stil utan det sköna med att bo i hyresrätt är verkligen att slippa tänka på sådant. De största kompletteringsinköpen gör man helst på Clas Ohlson eller kanske varuhuset Åhléns, där man faktiskt kan köpa både lite heminredning och kläder. Möbler köper man helst på IKEA, ett ställe som många Kulturnauter försöker besöka minst en gång i månaden. Shopping ser man hellre som en sysselsättning för att må bra och bokhandlare och kosmetikakedjor besöks gärna. Man gillar även att omge sig med vackra ting för att må bra. När Kulturnauter listar sina största intressen nämns vanligen både konst och kultur. <br><br>Den lediga dagen inleds vid köksbordet framför morgontidningen. Man prenumererar på den med lokal anknytning och läser den noggrant. Gärna med en penna till hands så man kan markera de kulturella händelser som sker i staden under helgen och som kanske kan vara av intresse. Nästa helg ska man resa bort på storstadsweekend och denna gång tar man tåget till Stockholm men snart väntar även en flygning ut i Europa. Paret uppskattar att resa och gör det så ofta man har möjlighet. Resorna går helst till storstäder och får gärna vara tema-, äventyrs- eller kulturresor. Man reser även inom Sverige och generellt så rör man på sig en hel del. <br><br>Nu är det dags att starta igång den här lördagen och det lokala galleriet har vernissage idag. Det är en konstvandring i en park och till kvällen väntar en teaterföreställning. Perfekta sysselsättningar för en Kulturnaut!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "I4 – Bostadskarriär":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Bostadskarriär består framförallt av människor i Sveriges medelstora och lite större städer vilka äger sitt eget boende. Till skillnad från gruppen F - Välbeställd i våning ligger inkomsterna i typen Bostadskarriär på en lite lägre nivå. Inkomsterna ligger dock vanligen över riksgenomsnittet. Åldersmässigt finner man här varierande åldrar där många är mellan 20 och 30 år, men här finns även människor upp mot pensionsåldern. Gemensamt för dem alla är att det inte finns så många hemmaboende barn. <br><br><b>Livsstil och åsikter</b><br> För inte så länge sedan var andrahandskontrakt och en osäker bostadsframtid en del av vardagen. Nu är det skönt att äntligen få äga sitt eget boende och ha kontroll över vad som sker i framtiden. Den goda inkomsten möjliggjorde att man kunde söka banklån helt på egen hand, något som hade varit en ekonomisk omöjlighet under studietiden. <br><br>Att fixa med hemmet är ett nyfunnet intresse och helt plötsligt kommer man på sig själv med att göra utflykter till IKEA på sin lediga dag, något som står på schemat idag. En god vän med bil kommer förbi och som tack för hjälpen bjuds han gärna på kvällens restaurangbesök. <br><br>Typen Bostadskarriär är duktig på att nyttja det staden har att erbjuda. Man trivs ofta bäst där man är. Det är bekvämt att ha alla förnödenheter inom lagom avstånd och vännerna träffar man helst på café, pub eller restaurang. Maten inhandlas gärna på områdets lokala Hemköp eller på Willys Hemma. De tidningar man läser är vanligen den lokala morgontidningen, men också Hemma i HSB som kommer hemskickat eller Metro under den dagliga färden med kollektivtrafiken. <br><br>Många i typen Bostadskarriär säger själva att de är risktagare, men att man helst går igenom alla alternativ innan köp. Ofta är man intresserad av sin omvärld och andra länders kulturer. Vissa håller gärna på med yoga och meditation medan andra hellre spelar fotboll. Bostadskarriär tittar inte så mycket på TV men när man väl gör det är det framförallt sport på TV som lockar, helst Viasat Sport eller TV10. <br><br>Nu tutar en bil nere på gatan och påkallar uppmärksamhet. Livet som singel och bostadsägare är ganska enkelt ibland!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "I5 – Vardagslyx i hyresrätt":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I likhet med människor i Bostadskarriär så har typen Vardagsliv i hyresrätt en stor spridning mellan olika åldrar. De allra flesta bor i hyresrätt i en av Sveriges större städer, även fast det går att finna en mindre skara människor som bor i bostadsrätt. Många människor har skaffat sig en högre utbildning, men har detta till trots en något lägre inkomst jämfört med riksgenomsnitt. Merparten av människorna är ogifta och har inga barn. En betydande andel människor av denna typ räknar sig till första eller andra generationens invandrare. <br><br><b>Livsstil och åsikter</b><br> Mer än en fjärdedel av typen lever i ensamhushåll och man försöker hålla nere kostnaderna. Det är viktigt att inse att det inte går att lägga pengar på allt så istället prioriterar man det man är intresserad av. Det ska dock sägas att man tycker att ekonomin är ganska god. Man trivs bra i hyresrätten och har inte för avsikt att flytta därifrån. Människor ur Vardagsliv i hyresrätt ägnar gärna sin fritid åt att spela fotboll, shoppa, gå på nattklubb eller gå ut och äta på restauranger och caféer. Om man frågar människor vad som är viktigt svarar de att de tycker att Sverige ska ta emot fler flyktingar, de vill kunna utöva sin religion och tycker om att samtala om politik och samhällsfrågor. <br><br>Man bryr sig mycket om sin omgivning och mer än hälften av människorna i typen skänker pengar till välgörande ändamål. <br><br>När det gäller semester vill man gärna åka till en storstad för att uppleva kultur eller passa på att njuta av sol och bad. <br><br>Tåg är ett bra sätt att resa, eftersom man är oroad över miljöpåverkan från bilar och dessutom kan man hitta en billig och bra biljett – då är man fullkomligt nöjd! <br><br>De flesta tittar på TV dagligen då det är ett bra sätt att inhämta information om sin omvärld. Helst tittar man på TV3, TV4, Kanal 5 eller SVT. <br><br>När man tittar på TV är man mest intresserad av nyheter, utländska filmer och serier eller dokumentärer och samhällsprogram. <br><br>Nu är det lördag och dags för en tur till det lokala köpcentret. Bland favoritbutikerna nämns Clas Ohlson, Cervera, H&M, Kicks och Stadium. Man tycker om att shoppa för att må bra. Efter shoppingrundan stannar man till för att handla mat vid den mataffär som ligger närmast. Livsmedelsinköpen gör man helst på Hemköp, Lidl, Netto, Willys, Överskottsbolaget eller ICA. Ikväll ska man träffa några vänner på en restaurang i stan. Det är skönt att slippa laga mat ibland och att istället kunna fokusera på social samvaro vännerna emellan!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "J1 – Hemkär":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I gruppen Hemkär är människor i åldrarna 20 till 30 år starkt överrepresenterade. Här finns inte så många barn och många lever som singlar. Vanligen bor man i hyreslägenheter i Sveriges lite mindre städer och samhällen. Inkomsten är ofta lite lägre än genomsnittet eller så ligger man på riksgenomsnittet. De allra flesta har tagit studenten men inte fortsatt med sin utbildning efter det. Flera har fått sin utbildning på yrkesgymnasium. <br><br><b>Livsstil och åsikter</b><br> Att vara samhällets mest populära frisör har sina fördelar. Den här veckodagen är lagom uppbokad med kunder. Många av dem känner man igen från barndomshemmet eller från skolan, andra har tillkommit på senare år och kanske är grannar i hyreshuset där man bor. En av fördelarna med att bo på en mindre ort är tryggheten. Alla känner alla och det bildas en social gemenskap när man ständigt får hälsa på bekanta i affären. Man bryr sig mest om lokalsamhället och känner ingen större längtan efter staden. Att äta ute är inget man prioriterar, men ett Sibylla-gatukök besöker man gärna. Storhandlar gör man helst på butikerna Willys eller Netto. Andra butiker man gärna handlar på är Jysk, Överskottsbolaget och Mekonomen. Ett besök på puben kan dock vara kul och man går gärna ut och dansar med sina kompisar. <br><br>När det är dags för semester gillar Hemkär både kryssningsresor inom Europa samt soloch badsemester. Man reser inte särskilt mycket jämfört med resten av Sverige, vilket både kan vara en ekonomisk fråga eller att man inte är särskilt intresserad. När man frågar typen Hemkär vad de är intresserade av, blir typiska svar att man gillar TV- och dataspel, fotboll, trav, motorsport, astrologi, hårvård och att sy kläder. Man tittar gärna på TV och till favoritkanalerna hör Kanal 5, sportkanaler, TV3 och TV4. Internetanvändningen i typen Hemkär ligger på riksgenomsnittet, men många använder sig av sociala medier. Att prenumerera på tidningar är inget som riktigt prioriteras men flertalet i typen läser dock Hem & Hyra som skickas hem i brevlådan. <br><br>Klockan är nu snart 10, det är dags att förbereda det sista och att sätta på kaffebryggaren. Dagens första kund är snart här.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "J2 – Lagom är bäst":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Lagom är bäst består framförallt av par i alla åldrar där de flesta av de vuxna är i åldrarna 35 till 50 år. Ungefär en femtedel av dem har hemmaboende barn där många av barnen är lite äldre och befinner sig från 15 år och uppåt. De flesta i typen bor i hyresrätter. Om man jämför med typen Hemkär ligger inkomstnivåerna lite högre i typen Lagom är bäst, framförallt för att man i större utsträckning har två inkomster att röra sig med. De flesta har tagit studenten från gymnasiet, och många av dem har gått på yrkesgymnasium. <br><br><b>Livsstil och åsikter</b><br> Det är onsdagskväll och kvällsmaten förbereds i köket. Middagen ikväll består av en stor laddning spaghetti med köttfärssås. Två tonårspojkar i hushållet gör att man alltid måste ha mycket mat redo. <br><br>I hallen står några påsar med kläder färdiga att packas upp då mamman i familjen besökte några klädaffärer på vägen hem från jobbet. Lagom är bäst säger ofta att man gillar att shoppa och att ha två inkomster i hushållet gör att man känner sig ha råd att konsumera skor, kläder och accessoarer. Till favoritbutikerna hör Dressman, Guldfynd, Ur & Penn, Glitter, Cubus, Skopunkten, Din Sko och Överskottsbolaget. Maten handlar man helst på Netto. Man utnyttjar gärna rabatter och extraerbjudanden när dessa finns tillgängliga. <br><br>I kökets tidningsställ väntar medlemstidningen Buffé från ICA på att läsas. Där finns även magasinet Fiskejournalen och serietidningen 91:an Karlsson, vilken familjen köpte av grannens yngste son som sålde jultidningar i år. Generellt läser man dock inte så mycket, man prioriterar hellre andra typer av media och har andra intressen. Jämfört med resten av Sverige använder typen Lagom är bäst internet i stor utsträckning för sociala medier och YouTube. På sin fritid besöker Lagom är bäst gärna sportevenemang, spelar fotboll eller TV- och dataspel, bakar eller läser gärna om astrologi och bantningstips. Motorsport samt trav och galopp, är andra saker som Lagom är bäst gärna ägnar sin fritid åt. <br><br>Kvällen avslutas allra helst framför TV:n och om föräldrarna får bestämma sitter hela familjen tillsammans och tittar. Veckodag och tidpunkt får styra vilken kanal man väljer men oftast blir det Kanal 5 eller TV3 när inte SVT eller TV4 har något intressant på tablån.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "J3 – Kryss och pyssel":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> I typen Kryss och pyssel är människor i åldrarna 65 år och uppåt överrepresenterade. Många är pensionärer men alla har inte hunnit dit än. De flesta lever i ensamhushåll men det finns även en del som lever i par. Gemensamt för många är att få har barn som bor hemma och att man bor i hyresrätt i Sveriges mindre städer och samhällen. Inkomsten ligger vanligen på riksgenomsnitt jämfört med resten av landet. Många har tagit examen från grundskola eller gymnasium. <br><br><b>Livsstil och åsikter</b><br> Trygghet och tradition är något typen Kryss och pyssel värdesätter. Det gör ingenting att denna tisdag råkar vara både gårdagen och den förra tisdagen lik då man har det bra där man är och har inga större önskningar om att förändra något. Man bryr sig mest om lokalsamhället och har ingen längtan efter storstadens puls. Det är skönt att bo i ett litet samhälle där många känner varandra och man kan få sig en pratstund nere på torget om det skulle kännas lite ensamt någon dag. <br><br>På köksbordet ligger flera magasin och tidningar och sidan för korsord är uppslagen. Det hörs nästan på namnet, många i typen Kryss och pyssel köper gärna tidningar som innehåller korsord, sudoku och annan hjärngymnastik. Man tycker också om att läsa om kungligheter. Till favorittidningarna hör Hem och Hyra, Året Runt, Allers och Hemmets Journal. <br><br>Typen Kryss och pyssel tittar en hel del på TV och det är helst SVT och TV4 Sport som gäller. Att baka, sticka och pyssla med sina krukväxter hör till andra intressen. När man ger sig ut på staden är det ofta för att besöka någon av sina favoritbutiker så som den lokala blomsteraffären, Jysk eller Överskottsbolaget. Mat handlar man helst på Coop eller Netto, och sina ekonomiska ärenden sköter man på ortens bankkontor. <br><br>Kryss och pyssel reser inte så ofta, men när man gör det är det framförallt bussresor och kulturresor som lockar. Det är troligare att man, när helgen kommer, besöker en gudstjänst. Många säger att deras religiösa tro är viktig för dem. <br><br>Klockan närmar sig två och det är dags för den dagliga eftermiddagspromenaden. Idag görs den tillsammans med en väninna och det är ytterst troligt att den avslutas på favoritcafét nere på torget. Trevliga traditioner är till för att följas.";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+case "J4 – Blandat i bostadsrätt":
+ansvar = "";
+beskrivningen = "<b>Geodemografi</b><br> Blandat i bostadsrätt har framförallt två saker gemensamt. De äger sin lägenhet och de bor i Sveriges mindre städer och samhällen. Åldrarna är blandade där många är i pensionärsåldern och vissa är yngre mellan 25 och 30 år. Jämfört med de andra typerna i gruppen Lägenhet i mindre stad är deras inkomst högst. Jämfört med resten av landet hamnar dock inkomsten för Blandat i bostadsrätt ofta på rikssnittet. Det finns här inte så många hemmaboende barn och flertalet lever i ensamhushåll. <br><br><b>Livsstil och åsikter</b><br> Mannen i 30-årsåldern har precis kommit hem från arbetet. Det faktum att man äger sin lägenhet gör kanske att man är lite extra intresserad av att fixa och inreda i hemmet, även om det är andra intressen som hellre prioriteras. Att det är en blandad typ av människor, både sett till åldrar och intressen, märks när Blandat i bostadsrätt uppger vad de är intresserade av. Ofta nämns innebandy, TV-spel, att baka och laga mat samt astrologi, sudoku och fiske. <br><br>En lång arbetsvecka är äntligen över och nu är det fredagskväll. Kvällens planer är inte särskilt avancerade och det är skönt att bara vara hemma och ta det lugnt. <br><br>Blandat i bostadsrätt följer gärna populära tv-serier och det är även kvällens huvudsakliga aktivitet. En kompis kommer över och tillsammans ska man kolla på senaste avsnittet av favoritserien. Förutom TV4 och SVT är TV8, Kanal 5 och TV3 kanaler man gärna tittar på. Internetanvändningen ligger på rikssnittet jämfört med resten av landets befolkning. <br><br>Typen Blandat i bostadsrätt har vanligen en högre inkomst jämfört med de andra typerna i gruppen. Konsumtionen är generellt högre och man spenderar mer pengar på hemmet jämfört med övriga. Till favoritbutikerna hör Hemtex, Cervera och Jysk. Kläder handlar man gärna på Dressman eller Cubus. Livet i en större stad är inget man eftersträvar då de flesta uppger att de har det bra där de är och undviker därför gärna större städer. <br><br>Den lediga morgondagen ska spenderas med och en innebandymatch på eftermiddagen vilket gör det extra skönt att glida ner i soffan på kvällen. Det kommer bli en bra helg det här!";
+uppdatering = "";
+dbsource = "";
+dbnamn = "";
+gisansvar  = "";
+link = "";
+break;
+
+
+                        default:
+                        window.alert('Ingen metadata information ');
+                        p.blah();
+                        break;
+
+                        }
+
+                        return ansvar;
+                        })();
+
+
+
+                        var html = '<div id="metadata_content">'
+                            + '<div class="item">'
+                            + '<p id="metadataHeadline"><b> </b> ' + x + '</p>'
+                            +  '<hr> '
+                            +  '<br> '
+                            + '<p class="metadataText"><b> Ansvariga: </b> ' + ansvar + '</p>'
+                            +  '<br> '
+                            + ' <p class="metadataText"> <b> Beskrivningen: </b> ' + beskrivningen + '</p>'
+                            +  '<br> '
+                            + '<span class="more_text">'
+                            +  '<hr/> '
+                            + ' <p class="metadataText"><b> Uppdatering: </b> ' + uppdatering + '</p>'
+                            +  '<br> '
+                            + ' <p class="metadataText"><b> Datasource: </b> ' + dbsource + '</p>'
+                            +  '<br> '
+                            + ' <p class="metadataText"><b> Lagernamn: </b> ' + dbnamn + '</p>'
+                            +  '<br> '
+                            + ' <p class="metadataLink"><a href=' + link + '>Hemsida</a> </p>'
+                            +  '<br> '
+                            + ' <p id="metadataGIS"><b> GIS-anvarig: </b> ' + gisansvar + '</p>'
+                            +  '<br> '
+                            + '</span>'
+                            + '</div>'
+                            + ' <button id="button"> Information </button> '
+                            +  '<br> '
+                            +  '<br> '
+                            + ' <button id="closeButton">Stäng</button> '
+                            + '<br> '
+                            + '<p id="metadataLowline"><b> Malmö Stad </b> </p>'
+
+
+
+                            + '</div>';
+
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+                    jq('.more_text').hide();
+
+
+
+                    (function(){
+
+                    jq('#metadata_content').css({
+                        fontSize: '100%',
+                        color: 'rgb(78, 77, 56)',
+                        padding: '2px',
+                    });
+
+                    jq('#metadataHeadline').css({
+                        fontSize: '180%',
+                        font: 'serif',
+                        color: 'black',
+                        textAlign: 'center',
+                        fontWeight: 'bold'
+                    });
+
+                    jq('#metadataHeadline').css('background-color', 'BDCDB7');
+
+                    jq('.metadataText').css({
+                        color: 'rgb(3, 3, 3)',
+                        fontSize: '150%',
+                        font: 'serif'
+                    });
+
+                    jq( '.metadataText' ).find('b').css({
+                      color: 'rgb(3, 3, 3)',
+                      padding: '4px',
+                      fontWeight: 'bold',
+                      fontSize: '100%'
+                      });
+
+                    jq( '.metadataText' ).find('i').css({
+                      color: 'rgb(3, 3, 3)',
+                      padding: '4px',
+                      fontWeight: 'bold',
+                      fontSize: '100%'
+                      });
+
+                    jq('#dialogmetadata_main_titlebar').css({
+                        fontSize: '100%',
+                        color: 'white',
+                        backgroundColor: 'black',
+                        textAlign: 'center'
+                    });
+
+                    if (gisansvar == "") {
+                        jq('#metadataGIS').hide();
+                    } else {
+                        jq('#metadataGIS').show();
+                        //end of IF test
+                    }
+
+                    if (link == "") {
+                        jq('.metadataLink').hide();
+                    } else {
+                        jq('.metadataLink').show();
+                        //end of IF test
+                    }
+
+                    jq('#button').css('background-color', 'BDCDB7');
+                    jq('#button').css('width', '8em');
+                    jq('#button').css('height', '2em');
+                    jq('#button').css('box-shadow', '0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)');
+                    jq('#button').css('border', '2px solid black');
+
+                    jq('#closeButton').css('background-color', 'BDCDB7');
+                    jq('#closeButton').css('width', '6em');
+                    jq('#closeButton').css('height', '4em');
+                    jq('#closeButton').css('box-shadow', '0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)');
+                    jq('#closeButton').css('border', '2px solid black');
+
+                    jq('#closeButton').buttonset();
+                    jq('#button').buttonset();
+
+                    jq('#closeButton').click(function(){
+                      dialog.closeDialog();
+                    })
+
+                    jq("button").click(function(){
+                      jq('.more_text').toggle();
+                    });
+
+
+                    jq('#metadataLowline').css({
+                        fontSize: '180%',
+                        font: 'serif',
+                        color: 'black',
+                        textAlign: 'center',
+                    });
+
+                    })();
+
+                },
+
+
+                conditionfunction: function (theme) {
+                    return theme.isPrimaryDatasourceSpatial();
+                    window.alert("fdsfdf");
+                },
+                buttonoptions: {
+                    icon: Gui.SKIN_PATH_AND_NAME + "/images/modules/metadata/metadata.png",
+                    tooltip: "[text:metadata.tooltip]",
+                    clickResultHandler: function (theme, button, actionname, actionresult) {
+                    }
+                }
+
+            });
+            themeActions.registerAction(setmetadataAction);
+    ]]></src>
+</tool>

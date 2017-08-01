@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+    <!--
+    ===============================================================
+    SpatialMap, copyright Grontmij GIS&IT
+    ===============================================================
+    $URL: http://vinkel.ghop.lan/svn/SPS/spatialmap/branches/3.8/spatialmap/WEB-INF/config/modules/custom/themeactions/metadata/deploy.xml $
+    $Date: 2014-12-18 17:54:04 +0100 (Thu, 18 Dec 2014) $
+    $Revision: 2974 $
+    $Author: ell $
+    ===============================================================
+    -->
+
+    <version>3.8.2</version>          <!-- The version of SpatialMap this module comes from -->
+    <lastupdated>3.8.2</lastupdated>  <!-- The SpatialMap version this module was last updated -->
+    <since>3.7.0</since>              <!-- The SpatialMap version this module was introduced in -->
+    <description>Meta Data</description>
+
+    <stoponerror>true</stoponerror>
+
+    <!-- Create directories -->
+    	<!-- <makedir dir="[cbinfo.wwwroot.dir]/modules/metadata/css"/> -->
+
+
+
+    <!-- <copydir fromdir="[module:metadata.dir]/images" todir="[cbinfo.wwwroot.dir]/skins/base/images/modules/metadata" /> -->
+    <!-- Kopiera CSS -->
+    	<!-- <param name="module.metadata.css">/custom/themeactions/metadata/css/metadata.css</param> -->
+    	<!-- <copyfile fromfile="[module:metadata.dir]/css/metadata.css" tofile="[cbinfo.wwwroot.dir][module.metadata.css]" replacetext="true" /> -->
+
+</deploy>

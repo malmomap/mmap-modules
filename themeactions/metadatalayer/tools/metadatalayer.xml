@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+    <cbinfo-metadatalayer>
+        <param name="tool.help.text"><![CDATA[[text:metadatalayer.helptext]]]></param>
+    </cbinfo-metadatalayer>
+    <displayname><![CDATA[[text:metadatalayer.displayname]]]></displayname>
+    <description><![CDATA[[text:metadatalayer.description]]]></description>
+    <img>#skin#/images/modules/metadatalayer/metadatalayer.png</img>
+
+    <script>
+    window.alert(5 + 6);
+    </script>
+
+
+    <src><![CDATA[
+
+
+        var setmetadatalayerAction = new ThemeAction({
+                name: "metadatalayerAction",
+               // cursor: 'url("images/custom/cursors/point.cur"),crosshair',
+                toolmode: null,
+
+               actionfunction: function (theme) {
+                    var dialog = new Dialog({
+                       title: '[text:metadatalayer.displayname]',
+                       id: 'metadatalayer_main',
+                       resizable: true,
+                       closeHandler: SpatialMap.Function.bind (this.close, theme)
+                    });
+
+                    var x = theme.displayname;
+
+                     switch (x){
+
+                    case "cykelpumpar":
+
+                    var html = '<iframe width="500" height="700" src="modules/metadatalayer/html/gronkarta_trad.html" frameborder="0" allowfullscreen></iframe>'
+
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+                    break;
+
+                    case "theme-conzoom_project":
+
+                    var html = '<iframe width="500" height="700" src="http://sbkvmas2.sbkmalmo.local/git/metadata/metadata.aspx?id=sma_planomr_p" frameborder="0" allowfullscreen></iframe>'
+
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+                    break;
+
+                    case "tillganglighet_index_restid_till_fots_till_forskolor":
+
+                    var html = '<iframe width="500" height="700" src="http://kartor.malmo.se/op_data_aug_2013/3_riksintressen/kulturmiljo/html/kulturmiljo_alnarp.htm" frameborder="0" allowfullscreen></iframe>'
+
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+                    break;
+
+                    case "Naturreservat":
+
+
+                    var html = '<iframe width="500" height="600" src="http://sbkvmas2.sbkmalmo.local/git/metadata/metadata.aspx?id=sma_planomr_p" frameborder="0" allowfullscreen></iframe>'
+                    
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+                    break;
+
+                    default:
+                        window.alert('Ingen metadata information ');
+                        p.blah();
+                        break;
+
+                    }
+
+                
+
+                },
+
+
+
+                conditionfunction: function (theme) {
+                    return theme.isPrimaryDatasourceSpatial();
+                    window.alert("fdsfdf");
+                },
+                buttonoptions: {
+                    icon: Gui.SKIN_PATH_AND_NAME + "/images/modules/metadatalayer/metadatalayer.png",
+                    tooltip: "[image:metadatalayer.tooltip]",
+                    clickResultHandler: function (theme, button, actionname, actionresult) {
+                    }
+                }
+            });
+            themeActions.registerAction(setmetadatalayerAction);
+    ]]></src>
+</tool>

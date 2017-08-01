@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+    <cbinfo-metadata>
+        <param name="tool.help.text"><![CDATA[[text:metadata.helptext]]]></param>
+    </cbinfo-metadata>
+    <displayname><![CDATA[[text:metadata.displayname]]]></displayname>
+    <description><![CDATA[[text:metadata.description]]]></description>
+      <img>[cbinfo.images.url]/custom/Funktions_ikoner/pan3.png</img>
+
+   <script>
+    <![CDATA[
+
+    ]]></script>
+
+    <src><![CDATA[
+
+
+        var setmetadataAction = new ThemeAction({
+                name: "metadataAction",
+               // cursor: 'url("images/custom/cursors/point.cur"),crosshair',
+                toolmode: null,
+
+               actionfunction: function (theme) {
+                    var dialog = new Dialog({
+                       title: '[text:metadata.displayname]',
+                       id: 'metadata_main',
+                       resizable: true,
+                       width: 600,
+                       closeHandler: SpatialMap.Function.bind (this.close, theme)
+                    });
+
+
+                      var x = theme.displayname;
+
+                      var ansvar = "";
+                      ansvar = "";
+                      beskrivningen = "";
+                      uppdatering = "";
+                      dbsource = "";
+                      dbnamn = "";
+                      gisansvar  = "";
+
+                        (function(){
+                        switch (x){
+                        case "theme-vinterskador2":
+                        ansvar = "Raymond Timlin";
+                        break;
+                        case "Renhållning":
+                        ansvar = "IT/GIS";
+                        beskrivningen = "Gångbanor som ska renhållas";
+                        uppdatering = "Varje sommar";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "RENHALLNING";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Svevia":
+                        ansvar = "IT/GIS";
+                        beskrivningen = "Där Svevia ansvar för vintervägållning";
+                        uppdatering = "Vinter 2015";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_SVEVIA";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Gång och cykel prioritet 3":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Gång och cykelbanor som ska renhållas och har P3 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Gång och cykel prioritet 2":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Gång och cykelbanor som ska renhållas och har P2 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Gång och cykel prioritet 1":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Gång och cykelbanor som ska renhållas och har P1 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Körbanor prioritet 3":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Körbanor som ska renhållas och har P3 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Körbanor prioritet 2":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Körbanor som ska renhållas och har P2 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Körbanor prioritet 1":
+                        ansvar = "Kommunteknik";
+                        beskrivningen = "Körbanor som ska renhållas och har P1 prioritering";
+                        uppdatering = "Varje höst";
+                        dbsource = "Oracle - GKDB";
+                        dbnamn = "VINTER_LINJESTRÅK";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Conzoom typer uppdelade på adresspunktsnivå":
+                        ansvar = "IT/GIS";
+                        beskrivningen = " <b> Conzoom </b> är en datadriven analys av invånarnas demografi, livsstil, beteenden och attityder och bygger på homogena kluster av adresser eller grupper av hushåll. Conzoom består inte av personlig eller individuell information utan all information visas i aggregerad form.I Conzoom är befolkningen är indelad i tio överordnade grupper (A till J) och i totalt 34 särskiljande typer indelade inom grupperna (A1, A2, osv.). De likheter och skillnader som finns i dataunderlaget har styrt utformningen. Det finns även ett antal Conzoomfaktorer vilka syftar till att snabbt ge en översiktlig bild av invånarna i ett geografiskt område utifrån olika faktorer uppdelade efter skalor. </br> </br>  På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  På Komin hittar du mer information om Conzoom – grupper, typer och faktorer. Där finns exempelvis generella beskrivningar av de övergripande egenskaperna för varje grupp respektive undertyp men även detaljerad redovisning av statistiska variabler.  Gatukontoret har köpt in Conzoomdata och lagt in i databasen för visning i WebGIS. Leverantören är Geomatic AB och datan är från 2015. XXXXX";
+                        uppdatering = "Sommar 2016";
+                        dbsource = "PostGIS - conzoom";
+                        dbnamn = "conzoom_radata_grupp";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Åldersfaktor":
+                        ansvar = "Dialogenheten";
+                        beskrivningen = "Indikation på hur gamla personer är som bor i ett område. Definierad utifrån en skala på 1-10. Områden som har en hög andel äldre personer får höga poäng och områden med hög andel yngre får låga poäng. Se nedan och på Komin för mer info.";
+                        uppdatering = "Sommar 2016";
+                        dbsource = "PostGIS - conzoom";
+                        dbnamn = "conzoom_radata_grupp";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Inkomstfaktor":
+                        ansvar = "Dialogenheten";
+                        beskrivningen = "Indikation på områdets genomsnittliga inkomst beräknad utifrån inkomst av tjänst. Definierad utifrån en skala på 1-10. Områden som har en hög andel höginkomsttagare får höga poäng och områden med hög andel låginkomsttagare får låga poäng. Se nedan och på Komin för mer info.";
+                        uppdatering = "Sommar 2016";
+                        dbsource = "PostGIS - conzoom";
+                        dbnamn = "conzoom_radata_grupp";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        case "Anmarkningsfaktor":
+                        ansvar = "Dialogenheten";
+                        beskrivningen = "Anmärkningsfaktorn berättar för oss hur pass vanligt det är att invånarna  i ett område har betalningsanmärkningar hos UC. <br> <br> Höga poäng får de områden där en  stor andel av invånarna har eller flera betalningsanmärkningar registrerade, exempel på   sådana grupper är: E2: <i>Familjeband</i>";
+                        uppdatering = "Sommar 2016";
+                        dbsource = "PostGIS - conzoom";
+                        dbnamn = "conzoom_radata_grupp";
+                        gisansvar  = "Raymond Timlin";
+                        break;
+                        default:
+                        window.alert('Ingen metadata information ');
+                        p.blah();
+                        break;
+                        }
+
+                        return ansvar;
+                        })();
+
+
+                        var html = '<div id="metadata_content">'
+                            + '<p id="metadataHeadline"><b> </b> ' + x + '</p>'
+                            +  '<hr> '
+                            +  '<br> '
+                            + '<p id="metadataText"><b> Ansvariga: </b> ' + ansvar + '</p>'
+                            +  '<br> '
+                            + ' <p id="metadataText"> <b> Beskrivningen: </b> ' + beskrivningen + '</p>'
+                            +  '<br> '
+                            + ' <p id="metadataText"><b> Uppdatering: </b> ' + uppdatering + '</p>'
+                            +  '<br> '
+                            + ' <p id="metadataText"><b> Datasource: </b> ' + dbsource + '</p>'
+                            +  '<br> '
+                            + ' <p id="metadataText"><b> Lagernamn: </b> ' + dbnamn + '</p>'
+                            +  '<br> '
+                            + ' <p id="metadataGIS"><b> GIS-anvarig: </b> ' + gisansvar + '</p>'
+                            +  '<br> '
+                            +  '<hr/> '
+                            + '</div>';
+
+                    dialog.addContentHTML(html);
+                    dialog.showDialog();
+
+
+                    (function(){
+                    jq('#metadata_content').css({
+                        fontSize: '100%',
+                        color: 'rgb(78, 77, 56)',
+                        padding: '2px'
+                    });
+                    jq('#metadataHeadline').css({
+                        fontSize: '150%',
+                        color: 'black',
+                        textAlign: 'center'
+                    });
+                    jq('#metadataText').css({
+                        fontSize: '100%',
+                        color: 'rgb(78, 77, 56)'
+                    });
+                    jq('#dialogmetadata_main_titlebar').css({
+                        fontSize: '100%',
+                        color: 'white',
+                        backgroundColor: 'black',
+                        textAlign: 'center'
+
+                    });
+
+                    if (gisansvar == "") {
+                        jq('#metadataGIS').hide();
+                    } else {
+                        jq('#metadataGIS').show();
+                        //end of IF test
+                    }
+
+
+                    })();
+
+                },
+
+
+
+
+
+                conditionfunction: function (theme) {
+                    return theme.isPrimaryDatasourceSpatial();
+                    window.alert("fdsfdf");
+                },
+                buttonoptions: {
+                    icon: Gui.SKIN_PATH_AND_NAME + "/images/modules/metadata/metadata.png",
+                    tooltip: "[text:metadata.tooltip]",
+                    clickResultHandler: function (theme, button, actionname, actionresult) {
+                    }
+                }
+            });
+            themeActions.registerAction(setmetadataAction);
+    ]]></src>
+</tool>

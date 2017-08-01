@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+    <cbinfo-metadata>
+        <param name="tool.help.text"><![CDATA[[text:metadata.helptext]]]></param>
+    </cbinfo-metadata>
+    <displayname><![CDATA[[text:metadata.displayname]]]></displayname>
+    <description><![CDATA[[text:metadata.description]]]></description>
+    <img>#skin#/images/modules/metadata/metadata.png</img>
+    <src><![CDATA[
+
+
+<!-- SKAPA EN THEME ACTION -->
+        var setmetadataAction = new ThemeAction({
+                name: "metadataAction",
+                cursor: 'url("images/custom/cursors/point.cur"),crosshair',
+                toolmode: null,
+
+<! ---SKAPA EN DIALOGRUTA -->
+                actionfunction: function (theme) {
+                    var dialog = new Dialog({
+                       title: '[text:metadata.displayname]',
+                       id: 'metadata_main',
+                       width: 600,
+                       resizable: true,
+                       closeHandler: SpatialMap.Function.bind (this.close, theme)
+                    });
+
+
+                    <!-- LÄGGA IN EXTRA INFORMATION -->
+                    var html = '<div id="metadata_content">'
+                    + '<div><b>[text:metadata.label.clickinthemap]</b></div>'
+                    + '<div><hr/></div>'
+                    + '<table style="width:95%">'
+                    + '<tr><td>[text:metadata.label.theme]:</td><td>' + theme.displayname + '</td></tr>'
+                    + '<tr><td>[text:metadata.label.datasource]:</td><td>' + theme.primarydatasource + '</td></tr>'
+                    + '<tr/>'
+                    + '<tr/>'
+                    + '<tr><td>[text:metadata.label.type]:  </td><td><div id="metadata_geometrytype">   </div></td></tr>'
+                    + '<tr><td>[text:metadata.label.length]:</td><td><div id="metadata_geometrylength"> </div></td></tr>'
+                    + '<tr><td>[text:metadata.label.area]:  </td><td><div id="metadata_geometryarea">   </div></td></tr>'
+                    + '<tr><td>[text:metadata.label.wkt]:   </td><td><textarea id="metadata_wkt" rows="5" style="width:95%;height:95%" readonly/></td></tr>'
+                    + '</table>'
+                    + '</div>';
+
+                    dialog.addContentHTML(html);
+
+                    dialog.showDialog();
+
+                    if (this.toolmode==null) {
+                        this.toolmode = cbKort.registerToolMode(null, null, null, null, true, SpatialMap.Function.bind (this.toolchange,this),this.cursor);
+                    }
+                    cbKort.setToolMode(this.toolmode);
+                    cbKort.mapObj.panzoom ();
+
+                    var context = {dialog: dialog, theme: theme};
+
+
+                    cbKort.mapObj.setClickEvent (SpatialMap.Function.bind (this.query, context));
+                },
+
+                toolchange: function () {
+                    cbKort.mapObj.panzoom ();
+                    cbKort.mapObj.setClickEvent ();
+                },
+
+                query: function (wkt) {
+                    this.dialog.setIsWorking (true, "[text:metadata.msg.inprogress]");
+
+                    cbKort.dynamicLayers.destroy("userdatasource");
+
+                        <!-- TOMMA INFORMATION -->
+                    getElement("metadata_geometrytype").innerHTML = "";
+                    getElement("metadata_geometrylength").innerHTML = "";
+                    getElement("metadata_geometryarea").innerHTML = "";
+                    getElement("metadata_wkt").value = "";
+
+                    var buffer = 3; // pixels
+                    // Omregning fra dc til wc
+                    var distance = buffer * cbKort.currentMap.resolution;
+
+
+
+                        <!-- HITTA DEN RELEVANT DATASOURCE -->
+                    var datasource = new SpatialServer.Datasource ( {sessionId: cbKort.getSessionId(), name: this.theme.primarydatasource});
+
+                    var geo = "buffer('" + wkt + "'," + distance + ")";
+
+                    var res = datasource.executeSMQL (
+                            "select shape_wkt, GeometryType(shape_wkt) as type, Round(GeometryArea(shape_wkt)) as area, Round(GeometryLength(shape_wkt)) as length "
+                          + "from   bbox (" + this.theme.primarydatasource + ", " + geo + ") "
+                          + "where  CommonInteriorPoint (shape_wkt, " + geo + ")"
+                    );
+
+                    if (res!=null) {
+                      if (res[0]!=null) {
+                         if (res[0].type!=null) {
+                            var type   = res[0].type;
+                            var area   = res[0].area;
+                            var length = res[0].length;
+                            var wkt    = res[0].shape_wkt;
+                            if (type!=null) {
+                              getElement("metadata_geometrytype").innerHTML = type;
+                            }
+                            if (length!=null && length>0) {
+                              getElement("metadata_geometrylength").innerHTML = length;
+                            }
+                            if (area!=null && area>0) {
+                             getElement("metadata_geometryarea").innerHTML = area;
+                            }
+                            if (wkt!=null) {
+                             getElement("metadata_wkt").value = wkt;
+                             cbKort.dynamicLayers.addWKT ({name:'userdatasource',wkt:wkt});
+                            }
+                         }
+                      }
+                    }
+                    this.dialog.setIsWorking (false);
+                },
+
+                close: function (theme) {
+                    getElement("metadata_geometrytype").innerHTML = "";
+                    getElement("metadata_geometrylength").innerHTML = "";
+                    getElement("metadata_geometryarea").innerHTML = "";
+                    getElement("metadata_wkt").value = "";
+                    cbKort.mapObj.setClickEvent (null);
+                    cbKort.setToolMode(null);
+                    cbKort.mapObj.panzoom ();
+                },
+
+                conditionfunction: function (theme) {
+                    return theme.isPrimaryDatasourceSpatial();
+                },
+                buttonoptions: {
+                    icon: Gui.SKIN_PATH_AND_NAME + "/images/modules/metadata/metadata.png",
+                    tooltip: "[text:metadata.tooltip]",
+                    clickResultHandler: function (theme, button, actionname, actionresult) {
+                    }
+                }
+            });
+            themeActions.registerAction(setmetadataAction);
+    ]]></src>
+</tool>
