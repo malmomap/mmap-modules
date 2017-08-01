@@ -1,6 +1,7 @@
 // banner text 2017
 // banner text 2017
 // banner text 2017
+// banner text 2017
 require('es6-promise').polyfill() // swal needs this to function in IE
 // import { default as swal } from 'sweetalert2' /* importera in andra moduler */
 

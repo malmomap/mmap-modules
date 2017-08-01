@@ -36,6 +36,7 @@
 // banner text 2017
 // banner text 2017
 // banner text 2017
+// banner text 2017
 const mMap = global.mMap || {}
 
 console.log('Mockup module version: __VERSION__')
