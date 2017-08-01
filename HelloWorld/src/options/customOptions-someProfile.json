@@ -1,0 +1,4 @@
+{
+	"title": "I am overriding the default title, indeed yes",
+	"content": "I will override default description if a profile with this name ('someProfileName') is ever created."
+}

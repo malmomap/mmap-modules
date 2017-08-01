@@ -1,0 +1,29 @@
+
+{
+	
+	"useBootstrapDialog": true, // If false, uses CSM's default dialog, which is based on jquery ui dialog
+	"lang": {
+		"sv": {
+			// This is the title of the dialog
+			"title": "Standardrubrik",
+
+			// This is the content (could be HTML also)
+			"content": "Innehåll, t ex text med <b>fet stil</b>",
+			
+			"btnCancel": "Avbryt",
+			"btnSave": "Spara",
+			"btnClickMe": "Klicka på mig!",
+			"alertMessage": "I <3 CSM ® Suckigo"
+		},
+		"en": {
+			"title": "Default title",
+			"content": "Contents, e.g. <b>bold text</b>",
+			"btnCancel": "Cancel",
+			"btnSave": "Save",
+
+			"btnClickMe": "Click me!",
+
+			"alertMessage": "I <3 CSM ® Suckigo"
+		}
+	}
+}

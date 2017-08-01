@@ -1,0 +1,24 @@
+{
+	"option1": "I should remain the default option",  // Thanks to hjson it's possible to make comments like this one
+	"option2": "I should be overridden",
+	"option3": 1,
+	"option4": true,
+	"option5": [1,2,3,4,5],
+	"deepOptions": {
+		"deepOption1": 1,
+		"deepOption2": 1,
+		"arr": [1,2,3,4,5],
+		"deeperOptions": {
+			"deeperOption": 1,
+			"arr": [1,2,3,4,5]
+		}
+	},
+	"lang": {
+		"sv": {
+			"test": "Hej på svenska med stavfel!"
+		},
+		"en": {
+			"test": "Hello in English with a misspelling!"
+		}
+	}
+}

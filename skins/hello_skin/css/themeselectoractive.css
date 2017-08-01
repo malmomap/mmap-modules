@@ -1,0 +1,611 @@
+
+/* ===================================
+	THEME PANELS					
+=================================== */
+
+#panel-themes, #panel-themes-body, td.panel-themes-body { 
+	width: 300px; 
+}
+
+
+#panel-themestore-body {
+/*  width: 100%; */
+}
+
+#panel-themes, #panel-middle {
+	margin: 10px;   
+}
+
+
+#panel-themes-header { /*, #panel-middle { */
+	/*  height: 36px;  */
+	padding: 0.25em 0;
+}
+
+#panel-themes-footer {
+	/* What is this div for? I'm hiding it. /Johan */
+	display: none !important;
+	/*height: 10px;*/
+}
+
+#panel-themes-body, #panel-themestore-body {
+/* background is set in skin/panel */
+	padding-top: 2px;
+}
+
+#panel-themes-body {
+	position:relative;
+	zoom:1;
+	float:left;
+	opacity: 1;
+	padding: 0;
+	background: none;
+	border: 1px solid #aaa;
+}
+
+#panel-themes-body:hover {
+	opacity: 1;
+}
+
+#panel-themestore-body {
+/*  border-left: 8px solid #ddd;  set in skin */
+}
+
+table#themegrid{
+	width: 100%;
+	border-collapse:collapse;   
+	padding: 0;
+	margin: 0;
+}
+
+
+/* ===================================
+	THEME					  
+=================================== */
+
+#themegrid {
+	float:left; 
+}
+
+#themegrid td {
+	vertical-align: top; 
+}
+
+#themegrid div{
+/*  border: 1px solid #f00; */
+}
+
+/*********************************** themegroup ************************************/
+
+.themegroup, .theme { 
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.themegroup {
+	float: left; 
+	margin: 0;
+}
+
+
+
+.themegroupheader {
+	border-bottom: 1px solid #bbb;
+	height: 24px;
+	background: #fff;
+	zoom: 1; /* IE FIX */
+	cursor: pointer;
+	padding: 0;
+	float: left;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+}
+
+.themegroupheader:hover {
+	background: #eee;
+}
+
+.themegroupheader h4 {
+	float: left;
+	font-size: 1.4em;
+	font-weight: normal;
+	color: #000;
+	line-height: 24px;
+	margin: 0 2px 0 6px;
+	padding: 1em 0 1em 0.4em;
+	width: 202px;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+}
+
+.themegroupheader .txt {
+	display: block;
+	float: left;
+	height: 48px;
+	line-height: 12px;
+	margin: 4px;
+	overflow: hidden;
+	text-align: left; 
+	cursor: default;
+}
+
+.themegroupheader .counter.toggle span {
+	margin-left: 1px;
+}
+
+.themegroupheader div {
+	float: right;
+}
+
+.counter {
+	border: 0 solid #fff;
+	cursor: pointer;
+	line-height: 2px;
+	margin: 2px 1px;
+	line-height: 20px;
+	padding: 0 2px;
+}
+.counter.toggle:hover {
+	border: 1px outset #fff;
+	background-color: #fff;
+	color: #333;
+	margin: 1px 0px;
+
+	cursor: pointer;
+}
+.counter:hover {
+	cursor: default;
+}
+
+.themegroupcontainer {
+	float: left;
+	border-left: 10px solid #ccc;
+}
+.gr-loading, .gr-loading:hover  {
+	background-color: #eee;
+	background-image: url("../images/modules/themeselectoractive/gr-loader.gif");   
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 300px 100%; 
+}
+
+
+
+/*********************************** theme ************************************/
+
+.theme {
+	float: none;
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	background: none;
+	background: #fefefe;
+	zoom: 1; /* IE FIX */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;   
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+}
+
+@-moz-document url-prefix() {
+	.theme {
+	float:left;
+	}   
+}
+@-moz-document url-prefix() {
+	.ui-state-highlights {
+	float:left;
+	}
+}
+body:nth-of-type(1) .theme {
+	padding: 1em 0.3em;
+	float: left; /*only for google chrome.*/
+} 
+body:nth-of-type(1) .ui-state-highlights {float:left;} /*only for google chrome.*/
+
+
+
+.theme:hover {
+	background: #efefef;
+}
+
+
+#panel-themestore-body #nav li a:hover, /* override gui.css */
+#panel-themestore-body .theme {
+	
+}
+
+.ui-sortable-helper {
+	-webkit-box-shadow: #333 0px 4px 6px !important; 
+	-moz-box-shadow: #333 0px 4px 6px !important; 
+	box-shadow: #333 0 0 12px !important;
+	}
+
+
+
+/* ===================================
+	THEME  BUTTONS				   
+=================================== */
+
+.temptheme {
+	background-image: url(../images/modules/themeselectoractive/sand_icon12x12.png);
+	height: 16px;
+	width: 16px;
+	float: left;
+	margin-top: 4px;
+	background-repeat: no-repeat;
+}
+
+.themes-expander {  /* toggle all themes */
+	/* match size of icons */
+	height: 17px;
+	width: 17px;
+	
+	background-position: center right;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.theme .pic {
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin: 3px 2px 3px 3px;
+	background-color: #fff;
+	background-image: url("/images/standard/themeicons/default.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 1px solid #ccc;
+}
+
+.theme .pic img{
+	width: 40px;
+	height: 40px;
+	margin: 4px;   
+}
+
+
+#panel-themes-body .theme .pic { /* FIX for 1px anomali */
+	margin: 3px;  
+}
+
+.themeStoreLabel {
+	vertical-align: top;
+	line-height: 17px;
+	display:inline;
+	margin: 0 4px;
+}
+
+.theme .pic.grundkort {
+	background-image: url("/images/standard/themeicons/group_grundkort.png");
+}
+
+.theme .pic.flyfotoarkiv {
+	background-image: url("/images/standard/themeicons/group_ortofoto.png");
+}
+
+.theme .pic.vvs {
+	background-image: url("/images/standard/themeicons/group_vvs.png");
+}
+.theme .pic.geus {
+	background-image: url("/images/standard/themeicons/group_geus.png");
+}
+.theme .pic.miljoaff {
+	background-image: url("/images/standard/themeicons/group_miljoaff.png");
+}
+.theme .pic.teknik {
+	background-image: url("/images/standard/themeicons/group_teknik.png");
+}
+.theme .pic.byg {
+	background-image: url("/images/standard/themeicons/group_byg.png");
+}
+.theme .pic.byplan {
+	background-image: url("/images/standard/themeicons/group_byplan.png");
+}
+.theme .pic.vejtrafik {
+	background-image: url("/images/standard/themeicons/group_vejtrafik.png");
+}
+.theme .pic.skole {
+	background-image: url("/images/standard/themeicons/group_skole.png");
+}
+.theme .pic.oevrig {
+	background-image: url("/images/standard/themeicons/group_oevrig.png");
+}
+
+.theme .horiz-spacer {
+	float: left;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #fff;
+	width: 100%;
+	margin:0;
+	display:none;   
+	height:0;
+	padding:0;
+}
+
+.theme .txt h4 {
+	font-size: 11px;
+	color: #444;
+	margin: 4px 0;
+	font-weight: bold;
+	cursor: default;
+}
+
+.theme .txt {   
+	float: left;	
+	line-height: 12px;
+	color: #444;
+	width: 70%;
+	text-align: left;
+	margin: 0;
+	height: auto;
+	overflow: hidden;
+	display: inline-block;
+	cursor: default;
+}
+
+.theme.small .txt {
+	height: 17px;
+	width: 200px;
+}
+
+.theme .right-wrapper {
+	float:right;
+	margin: 3px 7px 0 5px;
+	height: 48px;
+	zoom:1;
+}
+
+.theme .right-wrapper.fix {
+	margin:0;
+	height: 1px;
+	width: 21px;
+}
+
+.theme .txt{
+	word-wrap: break-word;
+}
+
+.theme .txt.expanded {  
+	height: auto;
+	overflow: visible;  
+}
+
+.theme .actions {
+	margin: 0 4px;
+	float: left;
+}
+
+.themegroup .add,
+.themegroup .delete, 
+.themegroup .expander,
+.themegroup .no-expander,
+.themegroup .state.warning,
+.theme .delete,
+.theme .add,
+.theme .state,
+.theme .expander, 
+.theme .no-expander  {  
+	width: 17px;
+	height: 17px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.themegroup .add,
+.themegroup .delete {
+	margin: 2px 8px 2px 0;
+	padding: 1px;
+}
+
+.themegroup .state.warning,
+.themegroup .expander {
+	margin: 2px;
+	padding: 1px;
+}
+
+
+.theme .expander,
+.theme .add,
+.theme .delete,
+.theme .state {
+	margin: 0;
+	padding: 2px;
+}
+
+
+.themegroup .delete,
+.theme .delete {	
+	background-image: url("../images/modules/themeselectoractive/minus.png");
+}
+
+.themegroup .add,
+.theme .add {	   
+	background-image: url("../images/modules/themeselectoractive/add.png"); 
+}
+
+/*
+Styling of the theme state icon:
+Should have either: on|off
+Can	have either: loading|warning|fail
+Can	have	   : lock
+
+[on|off] can be combined with [lock] (4 styles)
+[loading|warning|fail]  (3 styles)
+[loading|warning|fail] has higher styling priority the [on] (with possible lock)
+*/
+
+.theme .state.on {  
+	background-image: url("../images/modules/themeselectoractive/power_on.png");
+}
+
+.theme .state.on.lock { 
+	background-image: url("../images/modules/themeselectoractive/on_lock.png");
+}
+
+.theme .state.fail {	
+	background-image: url("../images/modules/themeselectoractive/fail.png");
+}
+
+.themegroupheader .state.warning,	
+.theme .state.warning {	
+	background-image: url("../images/modules/themeselectoractive/warning.png");
+}
+
+.theme .state.loading { 
+	background-image: url("../images/loading/loading20x20.gif");
+}
+
+.theme .state.off { 
+	background-image: url("../images/modules/themeselectoractive/power_off.png");
+}
+
+.theme .state.off.lock{ 
+	background-image: url("../images/modules/themeselectoractive/off_lock.png");
+}
+
+.themegroup .expander.down,
+.theme .expander.down {
+	background-image: url("../images/buttons/arrow_expander_down.png");
+}
+
+.themegroup .expander.up,
+.theme .expander.up {
+	background-image: url("../images/buttons/arrow_expander_up.png");
+}
+
+.themegroup .expander.hover,
+.theme .expander:hover {
+	background-color: #fff;
+}
+
+
+.themegroup .delete:hover,
+.themegroup .add:hover,
+.theme .delete:hover,
+.theme .add:hover {
+	cursor: pointer;
+}
+
+
+.header {
+	margin: 8px;
+}
+
+#themestore-filters {
+	width: 300px;
+	height: 30px;
+	margin: 5px;
+}
+
+#search_themes {
+	margin: 0 0 0 20px;
+	padding: 0 2px;
+	width: 100px;
+	height: 24px;
+	border: 1px inset #fff;
+}
+
+li input {
+	margin:0;
+	padding:0;
+}
+.ui-state-highlights { 
+	height: 70px; 
+	background:none;
+	border:0;
+	width: 100%;
+	float: left;
+}
+
+/* ===================================
+	THEME SMALL					  
+=================================== */
+
+
+
+.theme.small .pic {
+	display:none;
+}
+
+.theme .txt.small.expanded {	
+	height: auto;
+	overflow: visible;
+}
+
+.ui-state-highlights { 
+	height: 40px; 
+}
+
+.theme.small .--actions {
+	width: 100%;
+	border: 1px solid;  
+}
+
+.theme.small .state,
+.theme.small .delete,   
+.theme.small .add {
+	float: right;   
+}
+
+
+
+.theme.small .right-wrapper {
+		width: 42px;
+		height: auto;
+}
+
+.theme.small .right-wrapper.fix {
+height:1px;
+}
+
+/* FIX */
+.theme,
+.themegroup,
+.ui-state-highlights {
+	/* IE8 need this, but IE7 doesn't! */
+	float: left\0/ !important;  
+	*float: none;   
+}
+
+
+.theme .hori-spacer {
+	border-bottom: 0;
+}
+
+.theme .filler {
+	/* IE8 need this, but IE7 doesn't! */
+	display:none;   
+	display:block\0/ !important;	
+	*display:none;  
+	float: left;
+	border-bottom: 0px solid #fff;
+	height: 1px;
+	width: 100%;
+	margin:0;
+	zoom: 1px;
+}
+
+/* DISABLED CUSTOM CSS */
+
+/*.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+	opacity: 1;
+	}*/
+	
+.themegroupheader.ui-state-disabled h4, .themegroupheader.ui-state-disabled .txt {
+	opacity: 0.65;
+	}   
+
+.theme.ui-state-disabled h4, .theme.ui-state-disabled .txt {
+	opacity: 0.75;
+	}
+
+.theme.ui-state-disabled .add, .themegroupheader.ui-state-disabled .add {
+	opacity: 0.3;
+	}

@@ -1,0 +1,180 @@
+/* ===================================
+    NAV MENU
+=================================== */
+
+ul.nav
+{
+    padding: 0;
+    z-index: 1000;
+    float:left; /* ensures that it wraps around li */
+}
+
+ul.nav li {
+    float: left;
+    list-style: none;
+    /*padding: 2px 14px 8px 8px;*/
+	margin: 8px 10px 1px 10px;
+}
+
+ul.nav li a {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+ul.nav li ul {
+    position: absolute;
+    padding: 0;
+    z-index: 1052;
+}
+
+ul.nav li ul li {
+    float: none;
+    display: inline;
+    margin: 0;
+}
+
+ul.nav li ul li a {
+    width: auto;
+}
+
+ul.nav li a:hover {
+    cursor: pointer;
+}
+
+ul.nav li.toolspacer-notxt a {
+    padding:0;
+    background-image: none;
+}
+
+ul.nav li.toolspacer-notxt a:hover,
+ul.nav li.toolspacer-txt a:hover,
+ul.nav li ul li.toolspacer-notxt a:hover,
+ul.nav li ul li.toolspacer-txt a:hover  {
+    cursor: default;
+}
+
+ul.nav.dropdown-upward ul {
+    top: auto !important;
+    bottom: 100%;
+}
+
+ul.nav.dropdown-upward ul ul {
+ bottom: 1px;
+}
+
+/* ===================================
+	TOP MENU classes
+=================================== */
+
+ul.topnav li.menu a {
+	padding: 2px 24px 8px 8px;
+	
+
+	background-image: url("../images/buttons/arrow_down_white_75.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+
+	font-size: 18px;
+	font-weight: normal;
+	color: #000000;
+  background-color: transparent;
+  background: -moz-linear-gradient(top, #fff, #ddd);
+}
+
+ul.topnav li.toolbar-icon a,
+ul.topnav li.statebutton-icon a,
+ul.topnav li.statebutton a,
+ul.topnav li.toolbar a,
+ul.topnav li.toolspacer-txt a {
+	padding: 2px 4px;
+	margin: 1px 2px 1px 2px;
+	color: #000000;
+}
+
+ul.topnav li.toolspacer-txt a {
+	opacity:0.8; /* not clickable */
+  text-align: center;
+  font-weight: bold;
+}
+
+
+ul.topnav li.menu a:hover,
+ul.topnav li.menu a.hover,
+ul.topnav li.toolbar-icon a:hover,
+ul.topnav li.statebutton-icon a:hover,
+ul.topnav li.toolbar a:hover  {
+	color: #302e2e;
+
+}
+
+
+ul.topnav li.menu a.selected,
+ul.topnav li.statebutton-icon a.selected,
+ul.topnav li.statebutton a.selected {
+	background: -moz-linear-gradient(top, #fff, #ddd);
+	color: #302e2e;
+}
+
+
+
+/* ===================================
+	TOPNAV sub classes
+=================================== */
+
+ul.topnav li ul.sub {
+	margin: -1px 0 0 2px;
+	background: #111;
+	min-width: 150px;
+
+	opacity:0.95;
+	filter:alpha(opacity=95); /* For IE8 and earlier */
+}
+
+ul.topnav li ul.sub li a {
+	padding: 4px 8px 4px 8px;
+}
+
+ul.topnav li ul.sub li a:hover {
+	color: #fff;
+}
+
+ul.topnav li ul.sub li.togglebutton a {
+	padding: 4px 8px 4px 24px;
+	background-image: url("../images/states/check_white.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+ul.topnav li ul.sub li.togglebutton a.toggle_selected {
+	background-image: url("../images/states/uncheck.png");
+
+}
+
+ul.topnav li ul.sub li.toolspacer a {
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #444;
+	margin: 4px 4px;
+	background-color: transparent;
+}
+
+
+/* ===================================
+	BOTTOM MENU classes
+=================================== */
+
+ul.topnav.dropdown-upward li a {
+	font-size: 10px;
+}
+
+ul.topnav.dropdown-upward li.menu a {
+	padding: 2px 24px 2px 8px;
+}
+
+ul.topnav.dropdown-upward li.menu a.selected {
+	background:#000;
+}
+
+ul.topnav.dropdown-upward li a.selected {
+	background:#333;
+}

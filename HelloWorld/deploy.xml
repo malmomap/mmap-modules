@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+	<!-- 
+	===============================================================
+	Copyright: Malmö stad
+	===============================================================
+	Date: 2016-08-23
+	Author: <your email here>
+	=============================================================== 
+	-->
+	
+	<version>3.11.0</version>		  <!-- The version of SpatialMap this module comes from -->
+	<lastupdated>3.11.0</lastupdated>  <!-- The SpatialMap version this module was last updated -->
+	<requiresversion></requiresversion>   <!-- Minimum SpatialMap version this module requires to run -->
+	<since>3.11.0</since>			  <!-- The SpatialMap version this module was introduced in -->
+	
+	<!-- Short description of this module (shown in the admin console) -->
+	<description>This is a template which can be copied and used as a base when creating new modules</description>
+	
+	<stoponerror>false</stoponerror>  <!-- If true, initialization will stop if module deployment fails.  Defaults to false.  -->
+
+	<makedir dir="[cbinfo.wwwroot.dir]/modules/HelloWorld" />
+	<makedir dir="[cbinfo.wwwroot.dir]/modules/HelloWorld/options" />
+	
+	<!-- Remove the following lines if not needed -->
+	<copyfile fromfile="[module:HelloWorld.dir]/src/js/HelloWorld_bundle.js" tofile="[cbinfo.wwwroot.dir]/modules/HelloWorld/HelloWorld_bundle.js" replacetext="true" />
+	<copydir fromdir="[module:HelloWorld.dir]/src/options"	 todir="[cbinfo.wwwroot.dir]/modules/HelloWorld/options" />
+<!--	 <copydir fromdir="[module:HelloWorld.dir]/images" todir="[cbinfo.wwwroot.dir]/skins/base/images/modules/HelloWorld" /> -->
+	<copydir fromdir="[module:HelloWorld.dir]/src/css"	todir="[cbinfo.wwwroot.dir]/skins/base/css/modules/HelloWorld/css" />
+	
+</deploy>

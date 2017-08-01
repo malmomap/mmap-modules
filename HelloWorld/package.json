@@ -1,0 +1,72 @@
+{
+  "name": "csm-hello-world",
+  "version": "0.0.0",
+  "description": "This is a module for Cartesia/Suckigo Spatial Map",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malmomap/mmap-modules/"
+  },
+  "main": "dist/HelloWorld_bundle.js",
+  "config": {
+    "stylus": "./node_modules/.bin/stylus",
+    "babel": "./node_modules/.bin/babel",
+    "eslint": "./node_modules/.bin/eslint",
+    "babel-tape-runner": "./node_modules/.bin/babel-tape-runner",
+    "browserify": "./node_modules/.bin/browserify",
+    "testling": "./node_modules/.bin/testling",
+    "faucet": "./node_modules/.bin/faucet",
+    "babelify": "./node_modules/.bin/babelify",
+    "shx": "./node_modules/.bin/shjs.cmd"
+  },
+  "scripts": {
+    "build:js": "webpack  --colors --progress",
+    "build:css": "stylus ./src/css/test.styl -o ./src/css",
+    "build": "npm run build:js && npm run build:css && shx echo 'Done transpiling and bundling!'",
+    "unix:build": "npm run build && npm run reloadcsm",
+    "test:browser": "pkill -f phantomjs; browserify ./test/test.js --basedir ./ --transform babelify | testling | faucet",
+    "test:node": "babel-tape-runner ./test/test.js | faucet",
+    "test": "npm run test:browser",
+    "lint": "shx clear && eslint src/js/*.js && shx echo '\n -- Done linting! --'",
+    "reloadcsm": "curl http://mmapdev.sbkmalmo.local/admin?command=reloadconfig",
+    "watch:test": "watch 'npm test' src/js",
+    "watch:lint": "watch 'npm run lint' src/js",
+    "watch:dev": "watch 'npm run lint && npm test' src/js",
+    "watch:js": "watch 'npm run build:js && npm run reloadcsm && shx say -v Alva \"Dingelidång! Transpilationen till gammel-Javaskript är klar.\"' src/js",
+    "watch:css": "watch 'npm run build:css' src/css"
+  },
+  "keywords": [
+    "CSM"
+  ],
+  "author": "Johan Lahti <johanlahti@gmail.com> (https://github.com/johanlahti/)",
+  "contributors": [],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-latest": "^6.14.0",
+    "babel-tape-runner": "^2.0.1",
+    "babelify": "^7.3.0",
+    "browser-run": "^3.2.0",
+    "browserify": "^13.1.0",
+    "eslint": "^3.4.0",
+    "eslint-loader": "^1.5.0",
+    "faucet": "0.0.1",
+    "shx": "^0.1.4",
+    "stylus": "^0.54.5",
+    "tape": "^4.6.0",
+    "testling": "^1.7.1",
+    "watch": "^0.19.2",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "MMapBaseClass": "file:../MMapBaseClass/MMapBaseClass-1.0.0.tgz",
+    "fetch-polyfill": "^0.8.2",
+    "jquery": "^3.1.0",
+    "promise": "^7.1.1"
+  }
+}

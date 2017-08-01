@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<deploy>
+
+   <version>3.11.0</version>          <!-- The version of SpatialMap this module comes from -->
+    <lastupdated>3.11.0</lastupdated>  <!-- The SpatialMap version this module was last updated -->
+    <requiresversion>3.10.0</requiresversion>   <!-- Minimum SpatialMap version this module requires to run -->
+    <since>3.10.0</since>              <!-- The SpatialMap version this module was introduced in -->
+
+    <stoponerror>true</stoponerror>  <!-- If true, initialization will stop if module deployment fails.  Defaults to false.  -->
+
+    <description>Mockup modul</description>
+
+    <param name="module:@@ENV_PKG_NAME.webdir">[cbinfo.base.url]/modules/@@ENV_PKG_NAME</param>
+
+    <makedir dir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/js" />
+
+    <makedir dir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/css" />
+
+    <!-- Config management start
+          Make sure to use either themplate config or user defined config.
+          none of which should replace each other other than in deploy -->
+
+    <makedir dir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/config" />
+
+    <makedir dir="[cbinfo.config.dir]/mmap-config/modules/@@ENV_PKG_NAME" />
+
+    <copyfile fromfile="[module:@@ENV_PKG_NAME.dir]/config/config_template.js" tofile="[module:@@ENV_PKG_NAME.dir]/config/config.js" replacetext="true" charset="ISO-8859-1" />
+
+    <copydir fromdir="[cbinfo.config.dir]/mmap-config/modules/@@ENV_PKG_NAME" todir="[module:@@ENV_PKG_NAME.dir]/config" replacetext="true" charset="ISO-8859-1" />
+
+    <copydir fromdir="[module:@@ENV_PKG_NAME.dir]/config" todir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/config" replacetext="true" charset="ISO-8859-1" />
+
+    <!-- Config management end -->
+
+    <copydir fromdir="[module:@@ENV_PKG_NAME.dir]/css" todir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/css" replacetext="true" charset="ISO-8859-1" />
+
+    <copydir fromdir="[module:@@ENV_PKG_NAME.dir]/js" todir="[cbinfo.wwwroot.dir]/modules/@@ENV_PKG_NAME/js" replacetext="true" charset="ISO-8859-1" />
+
+</deploy>

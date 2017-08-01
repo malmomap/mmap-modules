@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+    <version name="CSMGrund">3.7.2</version>
+
+	<param name="module.skins.deploy.hello_skin">hello_skin</param>
+
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css"/>
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/images"/>
+
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css/external"/>
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/js"/>
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/js/external"/>
+
+	<!-- Copy base skin base first to have something to fall back on -->
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/css"              todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css"/>
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/images"           todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/images"/>
+
+    <!-- Bootstrap -->
+    <copydir fromdir="[module:hello_skin.dir]/node_modules/bootstrap/dist/css" todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css/external"/>
+    <copydir fromdir="[module:hello_skin.dir]/node_modules/bootstrap/dist/fonts" todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css/external"/>
+    <copydir fromdir="[module:hello_skin.dir]/node_modules/bootstrap/dist/js" todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/js/external"/>
+
+    <!-- Font-awesome -->
+    <copydir fromdir="[module:hello_skin.dir]/node_modules/font-awesome" todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css/external"/>
+
+
+
+	<!-- Copy Cartesia Base skin on top of base skin copy -->
+	<!--copydir fromdir="[cbinfo.config.dir]/modules/custom/skins/cartesia/css"                todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.cartesia]/css"/-->
+	<!--copydir fromdir="[cbinfo.config.dir]/modules/custom/skins/cartesia/images"             todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.cartesia]/images"/-->
+	
+	<copydir fromdir="[module:hello_skin.dir]/css" todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/css"/>
+	<copydir fromdir="[module:hello_skin.dir]/images"  todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.hello_skin]/images"/>
+
+</deploy>

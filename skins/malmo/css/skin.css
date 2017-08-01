@@ -1,0 +1,9 @@
+/* ===================================
+	Global settings                          
+=================================== */
+@import url('/skins/base/css/skin.css?ver=[cbinfo.versioncachetag]');
+
+#panel-brand {
+	height: 80px;
+	background: #3399cc;
+}

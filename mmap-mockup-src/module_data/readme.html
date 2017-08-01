@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <style>
+        /*
+
+        Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
+
+        */
+
+        .hljs {
+          display: block;
+          overflow-x: auto;
+          padding: 0.5em;
+          background: white;
+          color: black;
+        }
+
+        .hljs-comment,
+        .hljs-quote {
+          color: #800;
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-section,
+        .hljs-title,
+        .hljs-name {
+          color: #008;
+        }
+
+        .hljs-variable,
+        .hljs-template-variable {
+          color: #660;
+        }
+
+        .hljs-string,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-regexp {
+          color: #080;
+        }
+
+        .hljs-literal,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-meta,
+        .hljs-number,
+        .hljs-link {
+          color: #066;
+        }
+
+        .hljs-title,
+        .hljs-doctag,
+        .hljs-type,
+        .hljs-attr,
+        .hljs-built_in,
+        .hljs-builtin-name,
+        .hljs-params {
+          color: #606;
+        }
+
+        .hljs-attribute,
+        .hljs-subst {
+          color: #000;
+        }
+
+        .hljs-formula {
+          background-color: #eee;
+          font-style: italic;
+        }
+
+        .hljs-selector-id,
+        .hljs-selector-class {
+          color: #9B703F
+        }
+
+        .hljs-addition {
+          background-color: #baeeba;
+        }
+
+        .hljs-deletion {
+          background-color: #ffc8bd;
+        }
+
+        .hljs-doctag,
+        .hljs-strong {
+          font-weight: bold;
+        }
+
+        .hljs-emphasis {
+          font-style: italic;
+        }
+
+        /* sweco addons */
+        body {
+          font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+          font-size: 16px;
+        }
+        code {
+          background-color: rgba(193, 193, 193, 0.32);
+        }
+        table, th, td {
+           border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+          padding: 5px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <hr>
+<h3 id="spatialmap-copyright-sweco-position-ab">SpatialMap, copyright Sweco Position AB</h3>
+<h4 id="replaces-">Replaces:</h4>
+<h4 id="description-">Description:</h4>
+<p>This is a template js-project of type 2. It will use an external library (swal2) to trigger an alert on the page.</p>
+<h4 id="parameters-">Parameters:</h4>
+<h4 id="dependencies-">Dependencies:</h4>
+<h4 id="changelog-">Changelog:</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">Version</th>
+<th style="text-align:left">Ini</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2016-12-06</td>
+<td style="text-align:left">0.1.0</td>
+<td style="text-align:left">NARI</td>
+<td style="text-align:left">init mockup project</td>
+</tr>
+</tbody>
+</table>
+<h1 id="mockup-module">Mockup module</h1>
+<h2 id="install">Install</h2>
+<ol>
+<li><p>Include module in <code>[site]\appbase\spatialmap\WEB-INF\config\[profile]_modules.xml</code></p>
+<pre><code class="lang-xml">   &lt;<span class="hljs-function"><span class="hljs-keyword">module</span> <span class="hljs-title">name</span>=</span><span class="hljs-string">"mmap-mockup"</span> dir=<span class="hljs-string">"custom/mmap-mockup"</span> permissionlevel=<span class="hljs-string">"public"</span> /&gt;
+</code></pre>
+</li>
+<li><p>define tool:</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- mockup --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">tool</span> <span class="hljs-attribute">module</span>=<span class="hljs-value">"mmap-mockup"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"mmap-mockup"</span> <span class="hljs-attribute">ignore</span>=<span class="hljs-value">"not ModuleDefined('mmap-mockup')"</span> /&gt;</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>The default fetched config will be the template config in <code>[module]/config/config_template.js</code>. To override the default configuration, copy and rename the default config from <code>[module]/config/config_template.js</code> to <code>[cbinfo.config.dir]/mmap-config/modules/mmap-mockup/config.js</code>. The new config.js will deploy on top of the default configuration.</p>
+<h5 id="configuration-parameters">Configuration parameters</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Default value</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left">&quot;This is a mockup module&quot;</td>
+<td style="text-align:left">The message that the alert will print</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-enviroment">Development enviroment</h2>
+<p>Requires <a href="https://nodejs.org/en/">nodejs</a> installed.
+Grunt-cli as a global package (only required to do once):</p>
+<p><code>npm install grunt-cli -g</code></p>
+<p>Install dependencies: <code>npm install</code></p>
+<p>Rename <code>dev_env.cfg.template</code> to <code>dev_env.cfg</code> and set your module copy directory.</p>
+<p>Start windows development enviroment with</p>
+<p><code>grunt devserver --spsurl=&quot;mySpsUrl&quot;</code>.</p>
+<p>Start unix development enviroment with:</p>
+<p><code>grunt devserverunix --spsurl=&quot;mySpsUrl&quot;</code>.</p>
+<p><strong>Note:</strong> The spsurl parameter is optional and is set to <a href="http://localhost:8080">http://localhost:8080</a> by default.</p>
+<p>Now open a web browser and go to <code>http://localhost:8000</code>.</p>
+<h2 id="build">Build</h2>
+<p>Build distribution version with <code>grunt dist</code>. This will result in a type 1 module with all content in the <em>dist</em> catalogue.</p>
+
+    </body>
+</html>

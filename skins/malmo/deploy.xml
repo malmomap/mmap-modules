@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+	<param name="module.skins.deploy.malmo">malmo</param>
+	<description>Testskin</description>
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/css" />
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/images" />
+
+	<!-- Copy base skin images and css first to have something to fall back on -->
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/css"                todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/css" />
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/images"             todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/images" />
+
+	<!-- Copy custom skin on top of base skin copy -->
+    <copydir fromdir="[module:malmo.dir]/css"                todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/css" replacetext="true" />
+    <copydir fromdir="[module:malmo.dir]/images"             todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo]/images" />
+
+</deploy>

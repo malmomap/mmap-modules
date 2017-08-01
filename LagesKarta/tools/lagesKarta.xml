@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tool>
+	<!-- <img>[cbinfo.images.url]/custom/Funktions_ikoner/eye_blue2.png</img> -->
+	<displayname><![CDATA[[text:LagesKarta.displayname]]]></displayname>
+	<tooltip><![CDATA[[text:LagesKarta.tooltip]]]></tooltip>
+	<onclick>LagesKartaInst.toggleDialog();</onclick>
+
+	<requires>
+		<!-- <file name="[module:LagesKarta.dir]/dist/bundle.js" type="script"/>
+		<file name="[module:LagesKarta.dir]/css/test.css" type="css"/> -->
+		<file type="css" name="[profile:skin.path_and_name]/css/modules/react-demo/bootstrap.min.css" />
+	</requires>
+
+
+	<src><![CDATA[
+		var root = window; // Ensure we set this variable to the global/window "namespace"
+		require(["modules/LagesKarta/bundle.js"], function() {
+			root.LagesKartaInst = new LagesKarta.LagesKarta();
+		});
+	]]></src>
+
+</tool>

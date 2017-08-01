@@ -1,0 +1,11 @@
+.legendcontainer {
+	background: none;
+	background: #fff;
+	box-shadow: none;
+	border: 1px solid #999;
+	border-radius: 0;
+}
+.legendcontainer div {
+	font-size: 1.3em;
+	font-weight: normal;
+}

@@ -1,0 +1,34 @@
+#panel-brand {
+	background-color: #00b5e2;
+	color: #fff;
+}
+
+#panel-top {
+	background-color: #000;
+	color: #fff;
+}
+
+#panel-brand .left {
+    margin: 10px 0 0 20px;
+    /*width: 187px;
+    height: 32px;*/
+    height: 30px;
+    width: 180px;
+    background-image: url('//assets.malmo.se/external/v4/external/logo-x1.png'); /* url("../images/ss_logo_hor.png");*/
+    background-repeat: no-repeat;
+}
+
+#panel-themes-header,
+#panel-themes-footer,
+#panel-middle {
+	background: #fff; 	
+	border: 1px solid #999;
+}
+
+#panel-themes-body {
+	height: auto !important;
+}
+
+#panel-themes-body, #panel-themestore-body {
+	height: auto !important;
+}

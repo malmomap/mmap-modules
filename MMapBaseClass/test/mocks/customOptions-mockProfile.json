@@ -1,0 +1,27 @@
+{
+	"option2": "overridden",
+	"option3": 0,
+	"option4": false,
+	"option5": [5,4,3,2,1],
+	"deepOptions": {
+		"deepOption1": 0,
+		"deepOption2": 0,
+		"arr": [5,4,3,2,1],
+		"deeperOptions": {
+			"deeperOption": 0,
+			"arr": [5,4,3,2,1]
+		}
+	},
+	"nonExistingDefaultOption": {
+		"zero": 0,
+		"falsy": false
+	},
+	"lang": {
+		"sv": {
+			"test": "Hej på svenska!"
+		},
+		"en": {
+			"test": "Hello in English!"
+		}
+	}
+}

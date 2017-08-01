@@ -1,0 +1,24 @@
+{
+	
+	"resizable": true,
+	"lang": {
+		"sv": {
+			"title": "Dialogens titel/rubrik",
+			"description": "Dialogens innehåll, kan även vara HTML, t ex <b>det här</b>.",
+			"errand": "Ärende",
+			"errandnbr": "Ärendenummer",
+			"estate": "Fastighet",
+			"address": "Adress",
+			"btnsubmit": "Skapa"
+		},
+		"en": {
+			"title": "The dialog title/header",
+			"description": "The content of the dialog, e.g. <b>this</b>.",
+			"errand": "Errand",
+			"errandnbr": "Errand number",
+			"estate": "Estate",
+			"address": "Address",
+			"btnsubmit": "Create"
+		}
+	}
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+
+	<requires>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/js/bundle.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/config/config.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/css/style.css" priority="2" type="css"/>
+	</requires>
+
+	<src><![CDATA[
+    new mMap.MMap_Mockup({
+      config: mMap['@@ENV_PKG_NAME-config']
+    })
+
+]]></src>
+</tool>

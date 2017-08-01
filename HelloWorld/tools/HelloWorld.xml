@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tool>
+	<displayname>HelloWorld</displayname>
+	<tooltip>HelloWorld</tooltip>
+	<onclick>helloWorldInst.toggleDialog();</onclick>
+
+
+	<requires>
+		<!-- JS -->
+		<file name="[cbinfo.skin.url]/hello_skin/js/external/bootstrap.min.js" type="script"/>
+		<file name="[cbinfo.skin.url]/hello_skin/js/hello_skin.js" type="script"/><!-- Apparently this is how to include a JS file from a skin -->
+
+		<!-- CSS -->
+		<file name="[cbinfo.skin.url]/hello_skin/css/external/bootstrap.min.css" type="css"/>
+		<file name="[cbinfo.skin.url]/hello_skin/css/external/bootstrap-theme.min.css" type="css"/><!-- Optional theme for Bootstrap (adds shadows) -->
+		<file name="[cbinfo.skin.url]/hello_skin/css/external/css/font-awesome.css" type="css"/><!-- Vector graphics -->
+		<file name="[cbinfo.skin.url]/base/css/modules/HelloWorld/css/test.css" type="css"/>
+	</requires>
+
+	<src><![CDATA[
+		var root = window; // Ensure we set this variable to the global/window "namespace"
+		require(["modules/HelloWorld/HelloWorld_bundle.js"], function() {
+			root.helloWorldInst = new HelloWorld.HelloWorld();
+		});
+	]]></src>
+
+</tool>

@@ -1,0 +1,19 @@
+
+
+
+div.CSMMultiSearchContainer {
+	width: 30em;
+	background-image: none;
+	display: table;
+}
+
+input.CSMMultiSearchInput {
+	font-size: 2em;
+	height: 1.75em;
+	width: 100%;
+	display: table-cell;
+	box-sizing: border-box;
+	padding-left: 0.4em;
+	vertical-align: middle;
+}
+

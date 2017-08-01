@@ -1,0 +1,15 @@
+{
+  "name": "hello_skin",
+  "version": "1.0.0",
+  "description": "A custom skin for mmap/CSM",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johan Lahti <johanlahti@gmail.com> (https://github.com/johanlahti/)",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

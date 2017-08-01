@@ -1,0 +1,21 @@
+/* ===================================
+	Global settings                          
+=================================== */
+
+@import url('bootstrap/bootstrap.css?ver=[cbinfo.versioncachetag]');
+
+@import url('font-awesome/font-awesome.min.css?ver=[cbinfo.versioncachetag]');
+
+@import url('/skins/base/css/skin.css?ver=[cbinfo.versioncachetag]');
+
+@import url('dialog_overrides.css?ver=[cbinfo.versioncachetag]');
+
+@import url('panel.css?ver=[cbinfo.versioncachetag]');
+
+@import url('midnav.css?ver=[cbinfo.versioncachetag]');
+
+@import url('csm-multisearch.css?ver=[cbinfo.versioncachetag]');
+
+@import url('legend.css?ver=[cbinfo.versioncachetag]');
+
+@import url('themeselectoractive.css?ver=[cbinfo.versioncachetag]');

@@ -1,0 +1,48 @@
+{
+  "name": "MMapBaseClass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malmomap/mmap-modules/"
+  },
+  "files": ["dist/bundle.js"],
+  "version": "1.0.0",
+  "description": "A base class which new modules in CSM/mmap can/should extend",
+  "main": "dist/bundle.js",
+  "config": {
+    "browserify": "./node_modules/.bin/browserify",
+    "testling": "./node_modules/.bin/testling",
+    "faucet": "./node_modules/.bin/faucet",
+    "webpack": "./node_modules/.bin/webpack"
+  },
+  "scripts": {
+    "test": "pkill -f phantomjs; browserify ./test/test.js --basedir ./ --transform babelify | testling | faucet",
+    "clean": "rm -rf ./dist; mkdir ./dist",
+    "build": "npm run clean && webpack  --colors --progress"
+  },
+  "author": "Johan Lahti <johanlahti@gmail.com> (https://github.com/johanlahti/)",
+  "contributors": [],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-latest": "^6.14.0",
+    "babel-tape-runner": "^2.0.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "faucet": "0.0.1",
+    "phantomjs": "^2.1.7",
+    "tape": "^4.6.0",
+    "testling": "^1.7.1",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "es6-promise": "^3.3.1",
+    "extend": "^3.0.0",
+    "query-string": "^4.2.3",
+    "whatwg-fetch": "^1.0.0"
+  }
+}

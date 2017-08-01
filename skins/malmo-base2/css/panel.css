@@ -1,0 +1,166 @@
+
+/* ===================================
+	PANEL
+=================================== */
+
+#panel-top {
+	height: 42px;
+  background: -moz-linear-gradient(top, #fff, #ddd);
+	border-bottom: 2px solid #000000;
+	/*color: #fff;*/
+}
+
+#panel-top .inner {
+	/*margin: 4px 8px 0 8px;*/
+}
+
+#panel-bottom {
+	height: 20px;
+	background-color: #333;
+	color: #aaa;
+	font-size: 9px;
+}
+
+#panel-bottom .inner{
+	margin: 0;
+}
+
+#panel-brand {
+    /* PH change nr 1 accordingly to top logotype size */
+	/*height: 46px;
+	background: #fff;
+	border-bottom: 1px solid #bbb;*/
+}
+
+#panel-brand .inner {
+	margin: 0 8px;
+
+}
+
+#panel-brand .left {
+    /* PH change nr 2 accordingly to top logotype size */
+	/*margin: 6px 0 0 10px;
+	width: 600px;
+	height: 40px;*/
+	/* PH Name of top logotype */
+	/*background-image: url("../images/top-logo.png");*/
+	/*background-repeat: no-repeat;*/
+}
+
+#panel-brand .right {
+	/*margin: 12px;*/
+}
+
+#panel-themes-header,
+#panel-themes-footer,
+/*#panel-middle {
+	background: #f1f1f1;
+	border: 1px outset #fff;
+}*/
+
+#panel-middle div.inner,
+#panel-themes-header div.inner {
+	padding: 4px;
+}
+
+#panel-themes-body,
+
+#panel-themestore-body {
+	/* PH if activated grey background in themebody */
+	/*background-image: url("../images/panel-themes-body-bg_small.png");*/
+	/*background-attachment:fixed;*/
+	/*background-repeat: repeat;*/
+}
+
+
+
+
+
+
+
+/* ===================================
+    PANELS
+=================================== */
+
+#panel-top {
+    width: 100%;
+}
+
+#panel-brand {
+    /*width: 100%;*/
+}
+
+#panel-themes {
+    position:absolute;
+    float: left;
+    z-index:2;
+}
+
+/*#panel-middle {
+    position:absolute;
+    float: left;
+    z-index:9;
+    zoom:1;
+}*/
+
+#panel-themes-header {
+    float:left;
+    width: 100%;
+}
+
+#panel-themes-body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#panel-themestore-body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#panel-themes-footer {
+    float: left;
+    width: 100%;
+	opacity:0.1;
+}
+
+#panel-bottom {
+    width: 100%;
+    float:left;
+}
+
+
+
+
+/* ===================================
+    PANELS CLASSES
+=================================== */
+
+div.left {
+    float: left;
+}
+
+div.right {
+    float: right;
+}
+
+.inner {
+    border: 0;
+    /* margin and padding is defined in panel.css */
+}
+
+
+li a span.toolbar-icon-txt { /* Hide icons in horizontal menu */
+    display:none;
+}
+
+li ul.sub li a span.toolbar-icon-txt {
+    display: inline;
+    margin-left: 10px;
+}
+
+li ul.sub li a img {
+    float: left;
+    margin:0;
+    padding: 0;
+}

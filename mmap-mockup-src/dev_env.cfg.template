@@ -1,0 +1,2 @@
+#set your build directory, example: E:\spatialsuite\sites\default\appbase\spatialmap\WEB-INF\config\modules\custom\
+build_dir=./type_one_module/

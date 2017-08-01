@@ -1,0 +1,56 @@
+/* ===================================
+	CCS3 style in skin
+=================================== */
+
+
+#panel-brand {
+	/* PH change accordingly to how background image should behave */
+	background: -moz-linear-gradient(top, #fff, #ddd);
+	/*background-image: url("../images/top-image.png");*/
+	background-position: right;
+	/* Faned out to fill bar */
+	/*background-repeat: no-repeat;*/
+	font-size: 20px;
+	font-weight: bold;
+	text:"HELLO";
+}
+
+#panel-middle, #panel-themes-header {
+
+	background: -moz-linear-gradient(top, #fff, #ddd);
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius:3px;
+	border-radius: 3px;
+
+/* 	-webkit-box-shadow: #666 0px 2px 3px;  */
+/*  	-moz-box-shadow: #666 0px 2px 3px; */
+/*  	box-shadow: #666 0px 2px 3px; */
+
+
+
+ 	--box-shadow:
+  	rgba(0,0,0,0.1)
+  	0px /* hor */
+  	-18px /* ver */
+  	0px   /* blur */
+  	0px /* spread */
+  	inset
+
+}
+
+.midnav li a {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius:3px;
+	border-radius: 3px;
+
+
+}
+
+.midnav li ul.sub {
+	-webkit-box-shadow: #666 0px 2px 3px;
+ 	-moz-box-shadow: #666 0px 2px 3px;
+ 	box-shadow: #666 0px 2px 3px;
+}

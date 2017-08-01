@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy>
+
+    <version name="CSMGrund">3.7.2</version>
+
+	<param name="module.skins.deploy.malmo-base4">malmo-base4</param>
+
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/css"/>
+    <makedir dir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/images"/>
+
+	<!-- Copy base skin images first to have something to fall back on -->
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/css"              todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/css"/>
+    <copydir fromdir="[cbinfo.wwwroot.dir]/skins/base/images"           todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/images"/>
+
+	<!-- Copy Cartesia Base skin on top of base skin copy -->
+
+	<!--copydir fromdir="[cbinfo.config.dir]/modules/custom/skins/cartesia/css"                todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.cartesia]/css"/-->
+	<copydir fromdir="[module:malmo-base4.dir]/css"                	todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/css"/>
+
+		<!--copydir fromdir="[cbinfo.config.dir]/modules/custom/skins/cartesia/css"                todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.cartesia]/css"/-->
+	<copydir fromdir="[module:malmo-base4.dir]/js"                	todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/js"/>
+
+	<!--copydir fromdir="[cbinfo.config.dir]/modules/custom/skins/cartesia/images"             todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.cartesia]/images"/-->
+	<copydir fromdir="[module:malmo-base4.dir]/images"    			todir="[cbinfo.wwwroot.dir]/skins/[module.skins.deploy.malmo-base4]/images"/>
+
+</deploy>
