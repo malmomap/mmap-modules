@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="themeaction">
+
+
+    <cbinfo-metadata>
+        <param name="tool.help.text"><![CDATA[[text:@@ENV_PKG_NAME.themeaction.helptext]]]></param>
+    </cbinfo-metadata>
+	<requires>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/js/bundle.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/config/config.js" priority="2" type="script"/>
+        <file name="[module:@@ENV_PKG_NAME.webdir]/css/style.css" priority="2" type="css"/>
+	</requires>
+    <displayname><![CDATA[[text:@@ENV_PKG_NAME.displayname]]]></displayname>
+
+	<src><![CDATA[
+    new mMap.MMap_histfast({
+      config: mMap['@@ENV_PKG_NAME-config']
+    })
+
+]]></src>
+</tool>

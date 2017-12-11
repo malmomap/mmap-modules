@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<themes>
+    <theme module="@@ENV_PKG_NAME" name="theme-@@ENV_PKG_NAME" ignore="not DatasourceDefined('ds_@@ENV_PKG_NAME')">
+        <themeselector>
+            <initialstate>available</initialstate>
+            <group>fastoprim</group>
+            <displayname>Historiska fastigheter</displayname>
+            <selectable>true</selectable>
+        </themeselector>
+    </theme>
+</themes>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <cbinfo-metadata>
+        <param name="metadata.text">Lagerbeskrivning kan fyllas i här</param>
+        <param name="copyright-text">&#169; Sweco</param>
+        <param name="copyright.url">http://www.spatialsuite.com</param>
+        <param name="metadata.url"><![CDATA[http://www.malmo.se]]></param>
+        <param name="metadata.url.alt"><![CDATA[alt text]]></param>
+    </cbinfo-metadata>
+    <layer datasource="ds_@@ENV_PKG_NAME" name="@@ENV_PKG_NAME" type="line" downloadable="true">
+        [datasource:ds_@@ENV_PKG_NAME.mapfile-datasource]
+    </layer>
+</theme>
