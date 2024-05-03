@@ -1,8 +1,8 @@
 {
-  "name": "mmap-histfast",
-  "description": "mmap-histfast",
+  "name": "mmap-histfast-sweco",
+  "description": "mmap-histfast-sweco",
   "author": "Sweco Position AB",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "engines": {
     "node": ">= 4.0"
   },
@@ -38,8 +38,10 @@
       "jq",
       "jQuery",
       "SpatialMap",
+      "spatialmap",
       "Dialog",
-      "OpenLayers"
+      "OpenLayers",
+      "ol"
     ]
   }
 }

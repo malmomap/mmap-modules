@@ -19,6 +19,7 @@ Modulen visualiserar historiska fastigheter i Malmö. Med hjälp av ett reglage 
 
 | Date | Version | Ini | Description |
 |:------------- |:-------------|:-------------|:-----|
+|2017-12-04 | 0.3.0 | NARI | Adjust to work with CSM 4.4. Adjust namespace to mmap-histfast-sweco since sokigo plugin now uses mmap-histfast-sweco  |
 |2017-12-04 | 0.2.2 | NARI | Added endpoint in docs |
 |2017-12-04 | 0.2.1 | NARI | Fix pink tiles bug and extend documentation. |
 |2016-11-23 | 0.2.0 | NARI | A complete type 2 module |
@@ -31,24 +32,24 @@ Modulen visualiserar historiska fastigheter i Malmö. Med hjälp av ett reglage 
 1. Define datasource in `[site]\appbase\spatialmap\WEB-INF\config\datasources\custom\[profile]`
 
   ``` xml
-  <!-- mmap-histfast -->
-   <endpoint endpointtype="shapefile" name="someEndpointName">
+  <!-- mmap-histfast-sweco -->
+   <endpoint endpointtype="shapefile" name="randomHistfastEndpoint123">
         <dir>[cbinfo.data.dir]/shp</dir>
     </endpoint>
-    <datasource endpoint="someEndpointName" name="ds_mmap-histfast">
+    <datasource endpoint="randomHistfastEndpoint123" name="ds_mmap-histfast-sweco">
         <shapefile>histfast</shapefile>
     </datasource>
   ```
 2. Include module in `[site]\appbase\spatialmap\WEB-INF\config\[profile]_modules.xml`
 
   ``` xml
-  	<module name="mmap-histfast" dir="custom/mmap-histfast" permissionlevel="public" />
+  	<module name="mmap-histfast-sweco" dir="custom/mmap-histfast-sweco" permissionlevel="public" />
   ```
 
 3. If needed: define a theme group in `[site]\appbase\spatialmap\WEB-INF\config\profiles\includes\custom\[profile]_themegroups.xml`
 
   ``` xml
-  <!-- mmap-histfast -->
+  <!-- mmap-histfast-sweco -->
 	<themegroup displayname="mMap" name="mmap" type="checkbutton" expanded="false" selectable="true" />
 
   ```
@@ -56,19 +57,19 @@ Modulen visualiserar historiska fastigheter i Malmö. Med hjälp av ett reglage 
 4. Define theme in `[site]\appbase\spatialmap\WEB-INF\config\profiles\includes\custom\[profile]_themes.xml`
 
   ``` xml
-  <include src="[module:mmap-histfast.dir]/profiles/includes/themes.xml" mustexist="false" onlychildnodes="true" ignore="not ModuleDefined('mmap-histfast')" />
+  <include src="[module:mmap-histfast-sweco.dir]/profiles/includes/themes.xml" mustexist="false" onlychildnodes="true" ignore="not ModuleDefined('mmap-histfast-sweco')" />
 
   ```
 
 5. Define tool in `[site]\appbase\spatialmap\WEB-INF\config\profiles\includes\custom\[profile]_tools.xml`
 
   ``` xml
-  <!-- mmap-histfast -->
-  <tool module="mmap-histfast" name="themeaction-mmap-histfast" ignore="not ModuleDefined('mmap-histfast')" />
+  <!-- mmap-histfast-sweco -->
+  <tool module="mmap-histfast-sweco" name="themeaction-mmap-histfast-sweco" ignore="not ModuleDefined('mmap-histfast-sweco')" />
   ```
 
 ## Configuration
-The default fetched config will be the template config in `[module]/config/config_template.js`. To override the default configuration, copy and rename the default config from `[module]/config/config_template.js` to `[cbinfo.config.dir]/mmap-config/modules/mmap-histfast/config.js`. The new config.js will deploy on top of the default configuration.
+The default fetched config will be the template config in `[module]/config/config_template.js`. To override the default configuration, copy and rename the default config from `[module]/config/config_template.js` to `[cbinfo.config.dir]/mmap-config/modules/mmap-histfast-sweco/config.js`. The new config.js will deploy on top of the default configuration.
 
 ##### Configuration parameters
 | Parameter | Default value | Description |
