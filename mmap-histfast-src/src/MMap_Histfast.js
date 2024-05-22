@@ -10,7 +10,7 @@ export default class MMap_histfast { // eslint-disable-line
 
     cbKort.events.addListener('THEME_VISIBILITY_CHANGED', this.eventListener.bind(this))
     themeActions.registerAction(this.themeAction())
-    this.remove_buttons()
+    cbKort.events.addListener('SPATIALMAP_READY', this.remove_buttons.bind(this))
   }
   themeAction () {
     var tooltip = this.config.tooltip
@@ -37,6 +37,7 @@ export default class MMap_histfast { // eslint-disable-line
     return true
   }
   remove_buttons () { // eslint-disable-line
+    window.console.log('removing buttons')
     var theme = themeActions._themegroup.getTheme('theme-mmap-histfast-sweco')
     if (!theme) return
     var actions = theme.getActions()
@@ -44,24 +45,6 @@ export default class MMap_histfast { // eslint-disable-line
     while (i < actions.length) {
       if (actions[i].name !== 'themeaction-mmap-histfast-sweco' && actions[i].name !== 'metadata') {
         theme.actions.splice(i, 1)
-        i--
-      }
-      i++
-    }
-    // Attempt to remove DOM
-    var domId = theme.domId
-    var parent = document.getElementById(domId)
-    var actionDoms;
-    try {
-      actionDoms = parent.querySelector('.actions>ul').children
-    } catch (error) { 
-      return
-    }
-
-    var i = 0
-    while (i < actionDoms.length) {
-      if (!actionDoms[i].id.endsWith('themeaction-mmap-histfast-sweco') && !actionDoms[i].id.endsWith('metadata')) {
-        actionDoms[i].remove()
         i--
       }
       i++
