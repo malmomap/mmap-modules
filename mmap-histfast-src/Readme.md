@@ -19,6 +19,7 @@ Modulen visualiserar historiska fastigheter i Malmö. Med hjälp av ett reglage 
 
 | Date | Version | Ini | Description |
 |:------------- |:-------------|:-------------|:-----|
+|2017-12-04 | 0.3.1 | NARI | Additional method for extra themeactions |
 |2017-12-04 | 0.3.0 | NARI | Adjust to work with CSM 4.4. Adjust namespace to mmap-histfast-sweco since sokigo plugin now uses mmap-histfast-sweco  |
 |2017-12-04 | 0.2.2 | NARI | Added endpoint in docs |
 |2017-12-04 | 0.2.1 | NARI | Fix pink tiles bug and extend documentation. |

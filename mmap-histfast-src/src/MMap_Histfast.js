@@ -48,6 +48,24 @@ export default class MMap_histfast { // eslint-disable-line
       }
       i++
     }
+    // Attempt to remove DOM
+    var domId = theme.domId
+    var parent = document.getElementById(domId)
+    var actionDoms;
+    try {
+      actionDoms = parent.querySelector('.actions>ul').children
+    } catch (error) { 
+      return
+    }
+
+    var i = 0
+    while (i < actionDoms.length) {
+      if (!actionDoms[i].id.endsWith('themeaction-mmap-histfast-sweco') && !actionDoms[i].id.endsWith('metadata')) {
+        actionDoms[i].remove()
+        i--
+      }
+      i++
+    }
   }
   eventListener (evt, theme) {
     var visible = theme.isVisible()

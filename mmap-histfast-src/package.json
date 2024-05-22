@@ -2,7 +2,7 @@
   "name": "mmap-histfast-sweco",
   "description": "mmap-histfast-sweco",
   "author": "Sweco Position AB",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "engines": {
     "node": ">= 4.0"
   },
