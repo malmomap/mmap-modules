@@ -45,7 +45,7 @@ export default class MMap_Histfast_Dialog { // eslint-disable-line
       url,
       serverType: 'geoserver',
       params: {
-        version: '1.1.1',
+        VERSION: '1.1.1',
         layers: layer,
         SRS: srs,
         transparent: true,

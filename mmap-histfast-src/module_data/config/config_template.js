@@ -5,8 +5,8 @@ mMap['@@ENV_PKG_NAME-config'] = {
       layer: 'fgkdb:fastigheter_p_h',
       srs: 'EPSG:3008'
     },
-    min_value: '1990-01-01',
-    start_value: '1', /* Start value is subtracted in nbr years from today */
-    title: 'Historiska fastighetsgränser',
+    min_value: '1998-06-01',
+    start_value: '5', /* Start value is subtracted in nbr years from today */
+    title: 'Historiska fastighetsgrï¿½nser',
     tooltip: 'Visa reglage'
 }
