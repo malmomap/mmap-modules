@@ -9,5 +9,12 @@
     </cbinfo-metadata>
     <layer datasource="ds_@@ENV_PKG_NAME" name="@@ENV_PKG_NAME" type="line" downloadable="true">
         [datasource:ds_@@ENV_PKG_NAME.mapfile-datasource]
+        <class>
+            <name>Fastighetsgräns</name>
+            <style>
+                <outlinecolor>255 64 64</outlinecolor>
+                <width>1</width>
+            </style>
+        </class>
     </layer>
 </theme>
